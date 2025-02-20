@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lexchoice/screens/authentication/screens/onboarding.dart';
 import 'package:lexchoice/utils/theme/theme.dart';
 import 'package:get/get.dart';
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -12,7 +13,14 @@ class App extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: LCAppTheme.lightTheme,
       darkTheme: LCAppTheme.darkTheme,
-      home: const OnboardingScreen(),
+      home: AnimatedSplashScreen(
+        splash: 'assets/videos/splash_screen.gif',
+        splashIconSize: 2000.0,
+        centered: true,
+        nextScreen: const OnboardingScreen(),
+        backgroundColor: Colors.black,
+        duration: 5000,
+      ),
     );
   }
 }
