@@ -10,65 +10,106 @@
 <body>
     <header class="header">
         <nav class="nav">
-            <div class="logo">LawKids</div>
+            <a href="#" class="logo">LawKids</a>
             <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#why">Why</a>
                 <a href="#features">Features</a>
-                <a href="#testimonials">Testimonials</a>
-                <a href="#preview">Preview</a>
+                <a href="#team">Team</a>
+                <a href="#contact">Contact</a>
             </div>
+            <div class="hamburger">☰</div>
         </nav>
     </header>
 
     <section class="hero">
-        <div class="hero-content" data-aos="fade-up">
-            <h1>Making Law Fun for Young Minds</h1>
-            <p>A gamified learning experience that teaches children about law, justice, and civic responsibility through interactive adventures!</p>
-            <a href="#" class="cta-button">Download Now</a>
-        </div>
+        <h1>Making Law Fun for Kids</h1>
+        <p>An engaging mobile app that teaches children about law and justice through interactive games and stories.</p>
     </section>
 
-    <section id="features" class="features">
-        <h2 style="text-align: center; margin-bottom: 2rem;">Why Choose LawKids?</h2>
-        <div class="features-grid">
-            <div class="feature-card" data-aos="fade-up">
-                <div class="feature-icon">🎮</div>
-                <h3>Interactive Learning</h3>
-                <p>Engaging games and quests that make learning about law entertaining and memorable.</p>
-            </div>
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="feature-icon">🏆</div>
-                <h3>Achievement System</h3>
-                <p>Earn badges and rewards as your child progresses through different legal concepts.</p>
-            </div>
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="feature-icon">👥</div>
-                <h3>Kid-Friendly Content</h3>
-                <p>Age-appropriate scenarios and explanations that children can easily understand.</p>
-            </div>
-        </div>
+    <section id="about" class="section" data-aos="fade-up">
+        <h2 class="section-title">About LawKids</h2>
+        <p>LawKids is an innovative educational app designed to introduce children to the fundamentals of law and justice in an engaging and age-appropriate way. Through interactive games, stories, and challenges, children learn about their rights, responsibilities, and the basic principles of justice that shape our society.</p>
     </section>
 
-    <section id="testimonials" class="testimonials">
-        <div class="testimonial-container">
-            <h2 style="margin-bottom: 2rem;">What Parents Say</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card" data-aos="fade-up">
-                    <p>"My daughter loves the interactive cases. She's learning about rights and responsibilities while having fun!"</p>
-                    <p><strong>- Sarah M., Parent</strong></p>
-                </div>
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-                    <p>"The app makes complex legal concepts simple and engaging. My son can't wait for his daily law adventure!"</p>
-                    <p><strong>- Michael R., Parent</strong></p>
-                </div>
+    <section id="why" class="section" data-aos="fade-up">
+        <h2 class="section-title">Why We Created This App</h2>
+        <p>We believe that understanding law and justice from an early age is crucial for developing informed and responsible citizens. Our app aims to:</p>
+        <div class="features">
+            <div class="feature-card">
+                <h3>Foster Understanding</h3>
+                <p>Help children understand their rights and responsibilities in society</p>
+            </div>
+            <div class="feature-card">
+                <h3>Build Character</h3>
+                <p>Develop ethical decision-making skills through interactive scenarios</p>
+            </div>
+            <div class="feature-card">
+                <h3>Create Interest</h3>
+                <p>Spark early interest in law and justice through engaging content</p>
             </div>
         </div>
     </section>
 
-    <section id="preview" class="app-preview">
-        <div class="preview-container">
-            <h2>App Preview</h2>
-            <img src="/api/placeholder/300/600" alt="App Preview" class="preview-image" data-aos="zoom-in">
+    <section id="features" class="section" data-aos="fade-up">
+        <h2 class="section-title">App Features</h2>
+        <div class="features">
+            <div class="feature-card">
+                <img src="/api/placeholder/300/200" alt="Interactive Stories">
+                <h3>Interactive Stories</h3>
+                <p>Engaging narratives that teach legal concepts through relatable situations</p>
+            </div>
+            <div class="feature-card">
+                <img src="/api/placeholder/300/200" alt="Mini Games">
+                <h3>Mini Games</h3>
+                <p>Fun challenges that reinforce learning through play</p>
+            </div>
+            <div class="feature-card">
+                <img src="/api/placeholder/300/200" alt="Progress Tracking">
+                <h3>Progress Tracking</h3>
+                <p>Monitor your child's learning journey with detailed progress reports</p>
+            </div>
         </div>
+    </section>
+
+    <section id="team" class="section" data-aos="fade-up">
+        <h2 class="section-title">Development Team</h2>
+        <div class="team">
+            <div class="team-member">
+                <img src="/api/placeholder/200/200" alt="Team Member 1">
+                <h3>Sarah Johnson</h3>
+                <p>Lead Developer</p>
+            </div>
+            <div class="team-member">
+                <img src="/api/placeholder/200/200" alt="Team Member 2">
+                <h3>Michael Chen</h3>
+                <p>Legal Expert</p>
+            </div>
+            <div class="team-member">
+                <img src="/api/placeholder/200/200" alt="Team Member 3">
+                <h3>Emma Rodriguez</h3>
+                <p>Educational Designer</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section" data-aos="fade-up">
+        <h2 class="section-title">Contact Us</h2>
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
     </section>
 
     <footer>
