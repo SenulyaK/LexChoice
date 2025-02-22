@@ -343,149 +343,196 @@ body {
     color: #005582;
 }
 
-.contact-find-us-section {
+.footer-section {
+    background-color: #3d50b9;
+    color: #fff8de;
+    padding: 40px 20px;
+    font-family: 'Inter', sans-serif; /* or your preferred font */
+  }
+  
+  /* Main Footer Content Layout */
+  .footer-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: flex-start;
-    padding: 50px;
-    background-color: #3D50b9; /* Adjust background as needed */
-}
-
-/* Left side - Find Us */
-.find-us {
-    flex: 1;
-    max-width: 45%;
-    background: #fff;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-/* Right side - Contact Us */
-.contact-container {
-    flex: 1;
-    max-width: 50%;
-    background: #fff;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-/* Ensure sections stack properly on small screens */
-@media (max-width: 768px) {
-    .contact-find-us-section {
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-    }
-
-    .find-us, .contact-container {
-        max-width: 100%;
-        margin-bottom: 20px;
-    }
-}
-
-.email-link {
-    text-decoration: none;
-    color: #3D50b9; /* Highlight color */
-    font-weight: bold;
-}
-
-.email-link:hover {
-    color: #13005A; /* Darker shade on hover */
-    text-decoration: underline;
-}
-
-/* Social media icons */
-.social-media {
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Contact & Find Us Container (Left Side) */
+  .contact-find-us {
     display: flex;
-    justify-content: flex-start; /* Centers icons */
+    flex: 1 1 650px;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  
+  /* Find Us Section */
+  .find-us {
+    flex: 1 1 300px;
+  }
+  
+  .find-us-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .contact-item {
+    display: flex;
     align-items: center;
     gap: 15px;
-    margin-top: 15px;
-}
-
-/* Common style for all social icons */
-.social-media a {
+  }
+  
+  .icon-container {
+    background: #e6f7ed;
+    border-radius: 50%;
+    padding: 10px;
+    color: #13005A;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    min-height: 40px;
+  }
+  
+  .contact-info p {
+    margin: 0;
+  }
+  
+  .green-text a {
+    color: #03C988;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .green-text a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Social Media Icons in Find Us */
+  .social-media {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .social-media a {
     font-size: 24px;
-    color: #fff;
     width: 40px;
     height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+    background: #fff;
     text-decoration: none;
     transition: 0.3s ease-in-out;
-}
-
-/* Facebook */
-.social-media a.facebook { background: #1877F2; } 
-.social-media a.facebook:hover { background: #fff; color: #1877F2; }
-
-/* Instagram */
-.social-media a.instagram { background: #d83298; } 
-.social-media a.instagram:hover { background: #fff; color: #d83298; }
-
-/* LinkedIn */
-.social-media a.linkedin { background: #0077B5; } 
-.social-media a.linkedin:hover { background: #fff; color: #0077B5; }
-
-/* Form Styling */
-.input-group {
+  }
+  
+  .facebook { color: #262df9; }
+  .facebook:hover { background: #262df9; color: #fff; }
+  
+  .instagram { color: #c9037d; }
+  .instagram:hover { background: #c9037d; color: #fff; }
+  
+  .linkedin { color: #2a5797; }
+  .linkedin:hover { background: #2a5797; color: #fff; }
+  
+  /* Contact Form Container */
+  .contact-container {
+    flex: 1 1 300px;
+  }
+  
+  .contact-container h2 {
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
     margin-bottom: 15px;
-}
-
-.input-group label {
+  }
+  
+  .input-group label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
-}
-
-.input-group input,
-.input-group textarea {
+  }
+  
+  .input-group input,
+  .input-group textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-}
-
-.send-button {
+  }
+  
+  .send-button {
     width: 100%;
-    background: #3D50b9;
-    color: white;
+    background: #03C988;
+    color: #000;
     padding: 10px;
     font-size: 18px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.send-button:hover {
-    background: #31dcb7;
-    color: black;
-}
-
-/* Footer Styles */
-.footer {
-    background-color: #3D50b9; /* Dark navy color */
-    color: #fff;
-    padding: 20px 20px;
-    font-family: 'Poppins', sans-serif; /* Optional: choose your font */
-    text-align: center;
-    margin-top: 20px;
-    font-size: 0.9rem;
+    transition: background 0.3s;
   }
   
-  .footer-container {
-    display: flex;
-    flex-wrap: wrap;        /* Allows wrapping on smaller screens */
-    justify-content: space-between;
-    gap: 30px;             /* Spacing between columns */
-    max-width: 1200px;
-    margin: 0 auto;
+  .send-button:hover {
+    background: #028a68;
+  }
+  
+  /* Quick Links (Right Side) */
+  .quick-links {
+    flex: 1 1 250px;
+  }
+  
+  .quick-links h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .quick-links ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .quick-links li {
+    margin-bottom: 8px;
+  }
+  
+  .quick-links a {
+    color: #fff8de;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .quick-links a:hover {
+    color: #03C988;
+  }
+  
+  /* Footer Bottom */
+  .footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    border-top: 1px solid #fff8de;
+    padding-top: 20px;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .contact-find-us, .quick-links {
+      flex: 1 1 100%;
+    }
   }
     
 @media (max-width: 768px) {
