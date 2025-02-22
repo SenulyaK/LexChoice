@@ -1,10 +1,10 @@
-// Initialize AOS (Animate On Scroll)
+// Initialize AOS
 AOS.init({
     duration: 1000,
     once: true
 });
 
-// Mobile menu toggle
+// Mobile menu functionality
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 
@@ -12,7 +12,7 @@ hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('active');
 });
 
-// Smooth scrolling for navigation links
+// Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -22,91 +22,59 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Form submission handler
-const form = document.querySelector('.contact-form');
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    // Add your form submission logic here
-    alert('Thank you for your message! We will get back to you soon.');
-    form.reset();
-});
-
-// New carousel functionality
-const carousel = document.querySelector('.carousel-container');
 const slides = document.querySelectorAll('.feature-slide');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-const dotsContainer = document.querySelector('.carousel-dots');
-
 let currentSlide = 0;
+let autoPlayInterval;
 
-// Create dots
-slides.forEach((_, index) => {
-    const dot = document.createElement('div');
-    dot.classList.add('dot');
-    if (index === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => goToSlide(index));
-    dotsContainer.appendChild(dot);
-});
-
-const dots = document.querySelectorAll('.dot');
-
-function updateButtons() {
-    prevBtn.disabled = currentSlide === 0;
-    nextBtn.disabled = currentSlide === slides.length - 1;
-    
-    // Update dots
-    dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentSlide);
-    });
+// Function to update classes on slides based on current index
+function updateSlides() {
+  slides.forEach((slide, index) => {
+    slide.classList.remove('active', 'next', 'prev');
+    if (index === currentSlide) {
+      slide.classList.add('active');
+    } else if (index === (currentSlide + 1) % slides.length) {
+      slide.classList.add('next');
+    } else if (index === (currentSlide - 1 + slides.length) % slides.length) {
+      slide.classList.add('prev');
+    }
+    // Other slides remain with the base styling (blurred in the background)
+  });
 }
 
-function goToSlide(index) {
-    currentSlide = index;
-    carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
-    updateButtons();
+// Move to the next slide
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  updateSlides();
 }
 
-prevBtn.addEventListener('click', () => {
-    if (currentSlide > 0) {
-        goToSlide(currentSlide - 1);
-    }
-});
-
-nextBtn.addEventListener('click', () => {
-    if (currentSlide < slides.length - 1) {
-        goToSlide(currentSlide + 1);
-    }
-});
-
-// Initialize buttons state
-updateButtons();
-
-// Touch support for mobile
-let touchStartX = 0;
-let touchEndX = 0;
-
-carousel.addEventListener('touchstart', e => {
-    touchStartX = e.changedTouches[0].screenX;
-});
-
-carousel.addEventListener('touchend', e => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-});
-
-function handleSwipe() {
-    const swipeThreshold = 50;
-    const diff = touchStartX - touchEndX;
-
-    if (Math.abs(diff) > swipeThreshold) {
-        if (diff > 0 && currentSlide < slides.length - 1) {
-            // Swipe left
-            goToSlide(currentSlide + 1);
-        } else if (diff < 0 && currentSlide > 0) {
-            // Swipe right
-            goToSlide(currentSlide - 1);
-        }
-    }
+// Move to the previous slide
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  updateSlides();
 }
 
+// Event listeners for arrow buttons
+document.getElementById('nextBtn').addEventListener('click', () => {
+  stopAutoPlay();
+  nextSlide();
+  startAutoPlay();
+});
+
+document.getElementById('prevBtn').addEventListener('click', () => {
+  stopAutoPlay();
+  prevSlide();
+  startAutoPlay();
+});
+
+// Auto-play functions: change slide every 5 seconds
+function startAutoPlay() {
+  autoPlayInterval = setInterval(nextSlide, 5000);
+}
+
+function stopAutoPlay() {
+  clearInterval(autoPlayInterval);
+}
+
+// Initialize slides and start auto-play
+updateSlides();
+startAutoPlay();

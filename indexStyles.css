@@ -91,92 +91,105 @@ body {
     margin-bottom: 3rem;
 }
 
-.features {
+/*.features {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
-}
+}*/
 
+/* Features Carousel Container */
 .features-carousel {
     position: relative;
-    max-width: 1200px;
+    width: 80%;
+    height: 500px;
     margin: 0 auto;
     overflow: hidden;
-}
-
-.carousel-container {
-    display: flex;
-    transition: transform 0.5s ease;
-    gap: 2rem;
-}
-
-.feature-slide {
-    min-width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  }
+  
+  /* Base style for each slide */
+  .feature-slide {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
     text-align: center;
-    padding: 1rem;
-}
-
-.feature-slide img {
+    transition: all 0.5s ease;
+    transform: translate(-50%, -50%) scale(0.8);
+    filter: blur(4px);
+    opacity: 0.5;
+    z-index: 1;
+  }
+  
+  /* Active (center) slide style */
+  .feature-slide.active {
+    transform: translate(-50%, -50%) scale(1);
+    filter: none;
+    opacity: 1;
+    z-index: 3;
+  }
+  
+  /* Next slide: positioned to the right of the active slide */
+  .feature-slide.next {
+    transform: translate(calc(-50% + 150px), -50%) scale(0.8);
+    filter: blur(4px);
+    opacity: 0.5;
+    z-index: 2;
+  }
+  
+  /* Previous slide: positioned to the left of the active slide */
+  .feature-slide.prev {
+    transform: translate(calc(-50% - 150px), -50%) scale(0.8);
+    filter: blur(4px);
+    opacity: 0.5;
+    z-index: 2;
+  }
+  
+  /* Slide content styling */
+  .slide-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Feature image styling */
+  .feature-image {
     width: 100%;
-    max-width: 500px;
+    max-width: 350px;
     height: auto;
     border-radius: 10px;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.carousel-buttons {
+    margin-bottom: 10px;
+  }
+  
+  /* Carousel arrow buttons */
+  .carousel-buttons {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-.carousel-btn {
-    background: var(--primary);
-    color: white;
+    justify-content: space-between;
+    z-index: 4;
+    padding: 0 20px;
+  }
+  
+  .carousel-btn {
+    background: rgba(0, 0, 0, 0.5);
     border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
+    color: #fff;
+    padding: 10px;
+    font-size: 24px;
     cursor: pointer;
     transition: background 0.3s;
-}
-
-.carousel-btn:hover {
-    background: var(--secondary);
-}
-
-.carousel-btn:disabled {
-    background: #ccc;
-    cursor: not-allowed;
-}
-
-.carousel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
-
-.dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #ccc;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.dot.active {
-    background: var(--primary);
-}
+  }
+  
+  .carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
 
 .team {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
 }
 
@@ -185,8 +198,8 @@ body {
 }
 
 .team-member img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     margin-bottom: 1rem;
 }
@@ -228,6 +241,10 @@ body {
 }
 
 @media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+    }
+
     .nav-links {
         display: none;
         position: absolute;
@@ -251,4 +268,48 @@ body {
     .hero h1 {
         font-size: 2rem;
     }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .features-carousel {
+        max-width: 100%;
+        margin: 0 10px;
+    }
+    
+    .feature-slide {
+        padding: 10px;
+    }
+    
+    .feature-image {
+        max-width: 100%;
+    }
+    
+    .carousel-btn {
+        font-size: 20px;
+        padding: 8px;
+    }
+
+    .team {
+        grid-template-columns: 1fr;
+    }
 }
+
+@media (max-width: 480px) {
+    .feature-slide {
+        padding: 5px;
+    }
+    
+    .carousel-btn {
+        font-size: 18px;
+        padding: 6px;
+    }
+    
+    .dot {
+        width: 8px;
+        height: 8px;
+        margin: 3px;
+    }
+}
+
