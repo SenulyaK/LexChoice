@@ -6,7 +6,7 @@
 }
 
 :root {
-    --primary: #1c82ad;
+    --primary: #00337C;
 }
 
 body {
@@ -20,7 +20,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(19, 0, 90, 0.8);/* Change to your desired color */
+    background-color: #13005A;/* Change to your desired color */
     color: #fff8de; /* Ensures text is visible on a dark background */
     transition: transform 0.3s ease-in-out, background-color 0.3s;
     z-index: 1500;
@@ -33,13 +33,11 @@ body {
     justify-content: space-between;
     align-items: center;
 }
- 
-/* This class hides the navbar by moving it off the top */
-  .nav-hidden {
+
+.nav-hidden {
     transform: translateY(-100%);
   }
-
-
+ 
 .logo img {
     max-height: 80px; /* Adjust as needed */
     width: auto;
@@ -49,6 +47,22 @@ body {
 .nav-links {
     display: flex;
     gap: 2rem;
+}
+
+.nav-links a.active {
+    color: #03C988; /* Highlight color */
+    font-weight: bold;
+    position: relative;
+}
+
+.nav-links a.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #03C988; /* Same color as hover effect */
 }
 
 .nav-links a {
@@ -272,6 +286,50 @@ body {
 
 .team-member a:hover {
     color: #005582;
+}
+
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.send-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #03C988;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.send-button:hover {
+    background: #028a68;
 }
 
 .find-us-section {
