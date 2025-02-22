@@ -22,6 +22,23 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+let lastScrollTop = 0;
+const header = document.querySelector('.header');
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+  
+  // If scrolling down and scrolled more than 100px, hide navbar
+  if (currentScroll > lastScrollTop && currentScroll > 100) {
+    header.classList.add('nav-hidden');
+  } else {
+    header.classList.remove('nav-hidden');
+  }
+  
+  // Update lastScrollTop (make sure it's never negative)
+  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+});
+
 /*const slides = document.querySelectorAll('.feature-slide');
 let currentSlide = 0;
 let autoPlayInterval;

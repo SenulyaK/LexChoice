@@ -6,27 +6,26 @@
 }
 
 :root {
-    --primary: #4A90E2;
-    --secondary: #2C3E50;
-    --accent: #E74C3C;
-    --light: #ECF0F1;
-    --dark: #2C3E50;
+    --primary: #1c82ad;
 }
 
 body {
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: var(--dark);
 }
 
 .header {
-    background-color: var(--primary);
-    padding: 1rem;
     position: fixed;
-    width: 100%;
-    z-index: 1000;
     top: 0;
-}
-
+    left: 0;
+    width: 100%;
+    background-color: #13005A; /* Change to your desired color */
+    color: #fff8de; /* Ensures text is visible on a dark background */
+    transition: transform 0.3s ease-in-out, background-color 0.3s;
+    z-index: 1500;
+  }
+ 
 .nav {
     max-width: 1200px;
     margin: 0 auto;
@@ -34,12 +33,17 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+ 
+/* This class hides the navbar by moving it off the top */
+  .nav-hidden {
+    transform: translateY(-100%);
+  }
 
-.logo {
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-decoration: none;
+
+.logo img {
+    max-height: 80px; /* Adjust as needed */
+    width: auto;
+    vertical-align: middle;
 }
 
 .nav-links {
@@ -48,22 +52,41 @@ body {
 }
 
 .nav-links a {
-    color: white;
+    position: relative;
     text-decoration: none;
-    transition: color 0.3s;
+    color: #fff8de; /* Adjust as needed */
+    padding: 5px 10px;
 }
 
-.nav-links a:hover {
-    color: var(--light);
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #03C988; /* Underline color */
+    transition: all 0.3s ease;
 }
+
+.nav-links a:hover::after {
+    left: 0;
+    width: 100%;
+}
+
 
 .hamburger {
-    display: none;
+    display: none; /* Initially hidden on larger screens */
+    font-size: 24px;
     cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #fff8de;
 }
 
 .hero {
-    background-color: var(--primary);
+    background-color: #13005A;
     color: white;
     padding: 8rem 2rem 4rem;
     text-align: center;
@@ -100,11 +123,20 @@ body {
 /* Features Carousel Container */
 .features-carousel {
     position: relative;
-    width: 80%;
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Adjust based on screen size */
     overflow: hidden;
-  }
+}
   
+.carousel-track {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
   /* Base style for each slide */
   .feature-slide {
     position: absolute;
@@ -188,70 +220,158 @@ body {
   .carousel-btn {
     background: rgba(0, 0, 0, 0.5);
     border: none;
-    color: #fff;
-    padding: 10px;
+    color: white;
     font-size: 24px;
     cursor: pointer;
-    
+    padding: 10px;
+    border-radius: 50%;  /* Makes the button round */
+    width: 45px;         /* Ensure a consistent round shape */
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
   }
   
   .carousel-btn:hover {
     background: rgba(0, 0, 0, 0.8);
   }
 
-.team {
+  .team {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-}
-
-.team-member {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on larger screens */
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
     text-align: center;
 }
 
-.team-member img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 1rem;
+.team-member {
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.contact-form {
+.team-member h3 {
+    margin: 10px 0;
+}
+
+.team-member p {
+    color: #555;
+}
+
+.team-member a {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 24px;
+    color: #0077b5; /* LinkedIn blue */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.team-member a:hover {
+    color: #005582;
+}
+
+.find-us-section {
+    background-color: #ffffff; /* or another contrasting color */
+    padding: 40px 20px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif; /* Adjust font if needed */
+  }
+  
+  .find-us-section .section-title {
+    font-size: 2rem;
+    color: #070747; /* Navy color */
+    margin-bottom: 30px;
+  }
+  
+  /* Container that centers each contact item vertically and horizontally */
+  .find-us-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
     max-width: 600px;
     margin: 0 auto;
-}
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers icon and text horizontally */
+    gap: 15px;
+  }
+  
+  /* Icon container: fully round, bigger size */
+  .icon-container {
+    width: 60px;
+    height: 60px;
+    background-color: #e6f7ed; /* Light green background */
+    color: #03C988;            /* Green icon color */
+    font-size: 24px;
+    border-radius: 50%;        /* Makes it fully round */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .contact-info h3 {
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+    color: #070747; /* Navy heading color */
+  }
+  
+  .contact-info p {
+    margin: 0;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  /* Specifically color phone/email green */
+  .green-text {
+    color: #03C988;
+  }
+  
+  /* Social Media Icons */
+  .social-media {
+    margin-top: 30px;
+    text-align: center; /* Center icons horizontally */
+  }
+  
+  .social-media a {
+    margin: 0 10px;
+    font-size: 1.5rem;
+    color: #070747; /* Navy icon color */
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .social-media a:hover {
+    color: #03C988; /* Green hover effect */
+  }
 
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.btn {
-    background: var(--primary);
-    color: white;
-    padding: 0.8rem 2rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.btn:hover {
-    background: var(--secondary);
-}
-
+/* Footer Styles */
+.footer {
+    background-color: #070747; /* Dark navy color */
+    color: #fff;
+    padding: 20px 20px;
+    font-family: 'Poppins', sans-serif; /* Optional: choose your font */
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;        /* Allows wrapping on smaller screens */
+    justify-content: space-between;
+    gap: 30px;             /* Spacing between columns */
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+    
 @media (max-width: 768px) {
     .nav {
         flex-direction: column;
