@@ -330,7 +330,7 @@ body {
     }
   }
   
-  .linkedin {
+  .team-member a {
     display: inline-block;
     margin-top: 10px;
     font-size: 24px;
@@ -339,7 +339,7 @@ body {
     transition: color 0.3s;
 }
 
-.linkedin:hover {
+.team-member a:hover {
     color: #005582;
 }
 
@@ -349,7 +349,7 @@ body {
     justify-content: space-between;
     align-items: flex-start;
     padding: 50px;
-    background-color: #fff; /* Adjust background as needed */
+    background-color: #3D50b9; /* Adjust background as needed */
 }
 
 /* Left side - Find Us */
