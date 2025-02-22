@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/get_utils.dart';
 import 'package:lexchoice/common/styles/spacing_styles.dart';
+import 'package:lexchoice/screens/authentication/screens/signup/signup.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/utils/constants/image_strings.dart';
 import 'package:lexchoice/utils/constants/sizes.dart';
 import 'package:lexchoice/utils/constants/text_strings.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:lexchoice/utils/helpers/helper_functions.dart';
+import 'package:get/get.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -75,7 +77,7 @@ class LoginScreen extends StatelessWidget {
                   Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        /// Remember Me
+                        /// Remember Me Button
                         Row(
                           children: [
                             Checkbox(value: true, onChanged: (value) {}),
@@ -110,7 +112,7 @@ class LoginScreen extends StatelessWidget {
                   SizedBox(
                       width: double.infinity,
                       child: OutlinedButton(
-                          onPressed: () {},
+                          onPressed: () => Get.to(() => const SignupScreen()),
                           child: Text(LCTexts.createAccount))),
                   const SizedBox(height: LCSizes.spaceBtwSections),
                 ],
