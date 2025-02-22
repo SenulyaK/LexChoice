@@ -22,7 +22,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-const slides = document.querySelectorAll('.feature-slide');
+/*const slides = document.querySelectorAll('.feature-slide');
 let currentSlide = 0;
 let autoPlayInterval;
 
@@ -39,7 +39,37 @@ function updateSlides() {
     }
     // Other slides remain with the base styling (blurred in the background)
   });
+}*/
+
+const slides = document.querySelectorAll('.feature-slide');
+let currentSlide = 0;
+let autoPlayInterval;
+
+// Update slide classes for circular carousel
+function updateSlides() {
+  slides.forEach((slide, index) => {
+    slide.classList.remove('active', 'next', 'prev');
+    if (index === currentSlide) {
+      slide.classList.add('active');
+    } else if (index === (currentSlide + 1) % slides.length) {
+      slide.classList.add('next');
+    } else if (index === (currentSlide - 1 + slides.length) % slides.length) {
+      slide.classList.add('prev');
+    }
+  });
+  adjustCarouselHeight();
 }
+
+// Adjust carousel container height to match active slide's total height
+function adjustCarouselHeight() {
+  const activeSlide = document.querySelector('.feature-slide.active');
+  if (activeSlide) {
+    // Measure the full height of the slide content
+    const contentHeight = activeSlide.querySelector('.slide-content').offsetHeight;
+    document.querySelector('.features-carousel').style.height = contentHeight + 'px';
+  }
+}
+
 
 // Move to the next slide
 function nextSlide() {

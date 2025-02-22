@@ -91,17 +91,16 @@ body {
     margin-bottom: 3rem;
 }
 
-/*.features {
+.features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
-}*/
+}
 
 /* Features Carousel Container */
 .features-carousel {
     position: relative;
     width: 80%;
-    height: 500px;
     margin: 0 auto;
     overflow: hidden;
   }
@@ -111,7 +110,8 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 80%;
+    width: 90%;
+    max-width: 800px;
     text-align: center;
     transition: all 0.5s ease;
     transform: translate(-50%, -50%) scale(0.8);
@@ -146,19 +146,31 @@ body {
   
   /* Slide content styling */
   .slide-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
   }
   
   /* Feature image styling */
   .feature-image {
     width: 100%;
-    max-width: 350px;
     height: auto;
+    display: block;
     border-radius: 10px;
-    margin-bottom: 10px;
+  }
+  
+  /* Slide text positioned below the image */
+  .slide-text {
+    padding: 15px 10px 0;
+  }
+  
+  .slide-text h3 {
+    margin: 10px 0 5px;
+    font-size: 1.5rem;
+  }
+  
+  .slide-text p {
+    margin: 0;
+    font-size: 1rem;
+    color: #555;
   }
   
   /* Carousel arrow buttons */
@@ -180,7 +192,7 @@ body {
     padding: 10px;
     font-size: 24px;
     cursor: pointer;
-    transition: background 0.3s;
+    
   }
   
   .carousel-btn:hover {
