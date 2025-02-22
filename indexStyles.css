@@ -20,7 +20,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #13005A; /* Change to your desired color */
+    background-color: rgba(19, 0, 90, 0.8);/* Change to your desired color */
     color: #fff8de; /* Ensures text is visible on a dark background */
     transition: transform 0.3s ease-in-out, background-color 0.3s;
     z-index: 1500;
