@@ -4,6 +4,8 @@ import 'package:lexchoice/utils/constants/sizes.dart';
 import 'package:lexchoice/utils/constants/text_strings.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:lexchoice/utils/helpers/helper_functions.dart';
+import 'package:get/get.dart';
+import 'package:lexchoice/utils/constants/image_strings.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
@@ -16,9 +18,9 @@ class SignupScreen extends StatelessWidget {
         body: SingleChildScrollView(
             child: Padding(
           padding: EdgeInsets.all(LCSizes.defaultSpace),
-          child: Column(
-            
-            children: [
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            /// Signup Title
             Text(LCTexts.signupTitle,
                 style: Theme.of(context).textTheme.headlineMedium),
             const SizedBox(height: LCSizes.spaceBtwSections),
@@ -134,6 +136,80 @@ class SignupScreen extends StatelessWidget {
                       ]))
                     ],
                   ),
+
+                  const SizedBox(height: LCSizes.spaceBtwSections),
+
+                  /// Signup button
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: const Text(LCTexts.createAccount),
+                    ),
+                  ),
+
+                  const SizedBox(height: LCSizes.spaceBtwSections),
+
+                  /// Divider
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Flexible(
+                          child: Divider(
+                              color: dark ? LCColors.darkerGrey : LCColors.grey,
+                              thickness: 0.5,
+                              indent: 60,
+                              endIndent: 5)),
+                      Text(LCTexts.orSignUpWith.capitalize!,
+                          style: Theme.of(context).textTheme.labelMedium),
+                      Flexible(
+                          child: Divider(
+                              color: dark ? LCColors.darkerGrey : LCColors.grey,
+                              thickness: 0.5,
+                              indent: 5,
+                              endIndent: 60)),
+                    ],
+                  ),
+
+                  const SizedBox(height: LCSizes.spaceBtwSections),
+
+                  /// Social media login buttons
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      /// Google
+                      Container(
+                        decoration: BoxDecoration(
+                            border: Border.all(color: LCColors.grey),
+                            borderRadius: BorderRadius.circular(100)),
+                        child: IconButton(
+                          onPressed: () {},
+                          icon: const Image(
+                            width: LCSizes.iconMd,
+                            height: LCSizes.iconMd,
+                            image: AssetImage(LCImages.google),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: LCSizes.spaceBtwItems),
+
+                      /// Facebook
+                      Container(
+                        decoration: BoxDecoration(
+                            border: Border.all(color: LCColors.grey),
+                            borderRadius: BorderRadius.circular(100)),
+                        child: IconButton(
+                          onPressed: () {},
+                          icon: const Image(
+                            width: LCSizes.iconMd,
+                            height: LCSizes.iconMd,
+                            image: AssetImage(LCImages.facebook),
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+
                 ],
               ),
             )
