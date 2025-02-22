@@ -10,7 +10,7 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    
     line-height: 1.6;
     color: var(--dark);
 }
@@ -20,7 +20,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #13005A;/* Change to your desired color */
+    background-color: #3D50b9;/* Change to your desired color */
     color: #fff8de; /* Ensures text is visible on a dark background */
     transition: transform 0.3s ease-in-out, background-color 0.3s;
     z-index: 1500;
@@ -36,7 +36,7 @@ body {
 
 .nav-hidden {
     transform: translateY(-100%);
-  }
+}
  
 .logo img {
     max-height: 85px; /* Adjust as needed */
@@ -100,15 +100,27 @@ body {
 }
 
 .hero {
-    background-color: #13005A;
+    background: url('images/home-background.jpeg') center center/cover no-repeat, #13005A;
+    background-attachment: fixed;  /* Keeps the background fixed while scrolling */
     color: white;
-    padding: 15rem 4rem 4rem;
+    min-height: 100vh;   /* Makes the hero section fill the entire viewport */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    padding: 2rem;       /* Adjust padding as needed */
 }
 
 .hero h1 {
     font-size: 8rem;
+    color: #C5D3E8;   
+}
+
+.hero h2 {
+    font-size: 2rem;
     margin-bottom: 5rem;
+    color: #03C988;   
 }
 
 .section {
@@ -118,14 +130,48 @@ body {
 }
 
 .section-title {
+    font-family: 'Good Dog', cursive;
     text-align: center;
     margin-bottom: 3rem;
 }
 
 .features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allows stacking on smaller screens */
+    gap: 20px; /* Adds spacing between cards */
+}
+
+.feature-card {
+    background: #fff; /* Change as needed */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 30%; /* Adjust width to ensure proper spacing */
+    min-width: 250px; /* Ensures cards don’t get too small */
+    transition: transform 0.3s ease-in-out;
+}
+
+.feature-card:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.feature-card h3{
+    font-family: 'Inter', sans-serif;
+    color: #03C988;
+}
+
+/* Responsive Styling for Smaller Screens */
+@media (max-width: 768px) {
+    .features {
+        flex-direction: column;
+    }
+    
+    .feature-card {
+        width: 90%; /* Full width for smaller screens */
+    }
 }
 
 /* Features Carousel Container */
@@ -226,9 +272,9 @@ body {
   }
   
   .carousel-btn {
-    background: rgba(0, 0, 0, 0.5);
+    background: #fcfefd;
     border: none;
-    color: white;
+    color: black;
     font-size: 24px;
     cursor: pointer;
     padding: 10px;
@@ -242,7 +288,7 @@ body {
   }
   
   .carousel-btn:hover {
-    background: rgba(0, 0, 0, 0.8);
+    background: #5060bc;
   }
 
   .team {
@@ -252,24 +298,39 @@ body {
     max-width: 1000px;
     margin: auto;
     text-align: center;
-}
-
-.team-member {
-    background: #f8f8f8;
+  }
+  
+  /* Team member card styling */
+  .team-member {
+    background: #fff;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.team-member h3 {
-    margin: 10px 0;
-}
-
-.team-member p {
-    color: #555;
-}
-
-.team-member a {
+  }
+  
+  /* Avatar styling for initials */
+  .avatar {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #13005A, #03C988);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .team {
+      grid-template-columns: 1fr; /* Stacks the cards vertically on small screens */
+    }
+  }
+  
+  .linkedin {
     display: inline-block;
     margin-top: 10px;
     font-size: 24px;
@@ -278,7 +339,7 @@ body {
     transition: color 0.3s;
 }
 
-.team-member a:hover {
+.linkedin:hover {
     color: #005582;
 }
 
@@ -327,7 +388,7 @@ body {
 
 .email-link {
     text-decoration: none;
-    color: #03C988; /* Highlight color */
+    color: #3D50b9; /* Highlight color */
     font-weight: bold;
 }
 
@@ -364,8 +425,8 @@ body {
 .social-media a.facebook:hover { background: #fff; color: #1877F2; }
 
 /* Instagram */
-.social-media a.instagram { background: #E4405F; } 
-.social-media a.instagram:hover { background: #fff; color: #E4405F; }
+.social-media a.instagram { background: #d83298; } 
+.social-media a.instagram:hover { background: #fff; color: #d83298; }
 
 /* LinkedIn */
 .social-media a.linkedin { background: #0077B5; } 
@@ -393,7 +454,7 @@ body {
 
 .send-button {
     width: 100%;
-    background: #13005A;
+    background: #3D50b9;
     color: white;
     padding: 10px;
     font-size: 18px;
@@ -403,12 +464,13 @@ body {
 }
 
 .send-button:hover {
-    background: #03C988;
+    background: #31dcb7;
+    color: black;
 }
 
 /* Footer Styles */
 .footer {
-    background-color: #070747; /* Dark navy color */
+    background-color: #3D50b9; /* Dark navy color */
     color: #fff;
     padding: 20px 20px;
     font-family: 'Poppins', sans-serif; /* Optional: choose your font */
