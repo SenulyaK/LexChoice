@@ -39,7 +39,7 @@ body {
   }
  
 .logo img {
-    max-height: 80px; /* Adjust as needed */
+    max-height: 85px; /* Adjust as needed */
     width: auto;
     vertical-align: middle;
 }
@@ -102,19 +102,13 @@ body {
 .hero {
     background-color: #13005A;
     color: white;
-    padding: 8rem 2rem 4rem;
+    padding: 15rem 4rem 4rem;
     text-align: center;
 }
 
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto;
+    font-size: 8rem;
+    margin-bottom: 5rem;
 }
 
 .section {
@@ -288,15 +282,96 @@ body {
     color: #005582;
 }
 
-.contact-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.contact-find-us-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 50px;
+    background-color: #fff; /* Adjust background as needed */
 }
 
+/* Left side - Find Us */
+.find-us {
+    flex: 1;
+    max-width: 45%;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Right side - Contact Us */
+.contact-container {
+    flex: 1;
+    max-width: 50%;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Ensure sections stack properly on small screens */
+@media (max-width: 768px) {
+    .contact-find-us-section {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .find-us, .contact-container {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+.email-link {
+    text-decoration: none;
+    color: #03C988; /* Highlight color */
+    font-weight: bold;
+}
+
+.email-link:hover {
+    color: #13005A; /* Darker shade on hover */
+    text-decoration: underline;
+}
+
+/* Social media icons */
+.social-media {
+    display: flex;
+    justify-content: flex-start; /* Centers icons */
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+/* Common style for all social icons */
+.social-media a {
+    font-size: 24px;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+}
+
+/* Facebook */
+.social-media a.facebook { background: #1877F2; } 
+.social-media a.facebook:hover { background: #fff; color: #1877F2; }
+
+/* Instagram */
+.social-media a.instagram { background: #E4405F; } 
+.social-media a.instagram:hover { background: #fff; color: #E4405F; }
+
+/* LinkedIn */
+.social-media a.linkedin { background: #0077B5; } 
+.social-media a.linkedin:hover { background: #fff; color: #0077B5; }
+
+/* Form Styling */
 .input-group {
     margin-bottom: 15px;
 }
@@ -318,97 +393,18 @@ body {
 
 .send-button {
     width: 100%;
+    background: #13005A;
+    color: white;
     padding: 10px;
+    font-size: 18px;
     border: none;
     border-radius: 5px;
-    background: #03C988;
-    color: white;
-    font-size: 18px;
     cursor: pointer;
-    transition: background 0.3s ease;
 }
 
 .send-button:hover {
-    background: #028a68;
+    background: #03C988;
 }
-
-.find-us-section {
-    background-color: #ffffff; /* or another contrasting color */
-    padding: 40px 20px;
-    text-align: center;
-    font-family: 'Poppins', sans-serif; /* Adjust font if needed */
-  }
-  
-  .find-us-section .section-title {
-    font-size: 2rem;
-    color: #070747; /* Navy color */
-    margin-bottom: 30px;
-  }
-  
-  /* Container that centers each contact item vertically and horizontally */
-  .find-us-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .contact-item {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Centers icon and text horizontally */
-    gap: 15px;
-  }
-  
-  /* Icon container: fully round, bigger size */
-  .icon-container {
-    width: 60px;
-    height: 60px;
-    background-color: #e6f7ed; /* Light green background */
-    color: #03C988;            /* Green icon color */
-    font-size: 24px;
-    border-radius: 50%;        /* Makes it fully round */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .contact-info h3 {
-    margin-bottom: 5px;
-    font-size: 1.1rem;
-    color: #070747; /* Navy heading color */
-  }
-  
-  .contact-info p {
-    margin: 0;
-    font-size: 1rem;
-    color: #333;
-  }
-  
-  /* Specifically color phone/email green */
-  .green-text {
-    color: #03C988;
-  }
-  
-  /* Social Media Icons */
-  .social-media {
-    margin-top: 30px;
-    text-align: center; /* Center icons horizontally */
-  }
-  
-  .social-media a {
-    margin: 0 10px;
-    font-size: 1.5rem;
-    color: #070747; /* Navy icon color */
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  
-  .social-media a:hover {
-    color: #03C988; /* Green hover effect */
-  }
 
 /* Footer Styles */
 .footer {

@@ -70,25 +70,6 @@ window.addEventListener('scroll', () => {
   lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 });
 
-/*const slides = document.querySelectorAll('.feature-slide');
-let currentSlide = 0;
-let autoPlayInterval;
-
-// Function to update classes on slides based on current index
-function updateSlides() {
-  slides.forEach((slide, index) => {
-    slide.classList.remove('active', 'next', 'prev');
-    if (index === currentSlide) {
-      slide.classList.add('active');
-    } else if (index === (currentSlide + 1) % slides.length) {
-      slide.classList.add('next');
-    } else if (index === (currentSlide - 1 + slides.length) % slides.length) {
-      slide.classList.add('prev');
-    }
-    // Other slides remain with the base styling (blurred in the background)
-  });
-}*/
-
 const slides = document.querySelectorAll('.feature-slide');
 let currentSlide = 0;
 let autoPlayInterval;
