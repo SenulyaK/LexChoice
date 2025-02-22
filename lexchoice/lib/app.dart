@@ -19,7 +19,7 @@ class App extends StatelessWidget {
         centered: true,
         nextScreen: const OnboardingScreen(),
         backgroundColor: Colors.black,
-        duration: 5000,
+        duration: 4000,
       ),
     );
   }

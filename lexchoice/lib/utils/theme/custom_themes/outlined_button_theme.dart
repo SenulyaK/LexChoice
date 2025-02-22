@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lexchoice/utils/constants/colors.dart';
 
 class LCOutlinedButtonTheme {
   LCOutlinedButtonTheme._();
@@ -6,10 +7,11 @@ class LCOutlinedButtonTheme {
   static final lightOutlinedButtonTheme = OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
       elevation: 0,
-      foregroundColor: Colors.black,
-      side: const BorderSide(color: Colors.blue),
-      textStyle: const TextStyle (fontSize: 16, color: Colors.black, fontWeight: FontWeight.w600),
+      foregroundColor: LCColors.primary,
+      side: const BorderSide(color: LCColors.primary),
+      textStyle: const TextStyle (fontSize: 16, color: LCColors.primary, fontWeight: FontWeight.w600),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+      padding: const EdgeInsets.symmetric(vertical: 18),
     )
   );
   
@@ -17,10 +19,11 @@ class LCOutlinedButtonTheme {
   static final darkOutlinedButtonTheme = OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
       elevation: 0,
-      foregroundColor: Colors.black,
-      side: const BorderSide(color: Colors.blueAccent),
-      textStyle: const TextStyle (fontSize: 16, color: Colors.black, fontWeight: FontWeight.w600),
+      foregroundColor: LCColors.primary,
+      side: const BorderSide(color: LCColors.primary),
+      textStyle: const TextStyle (fontSize: 16, color: LCColors.primary, fontWeight: FontWeight.w600),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+      padding: const EdgeInsets.symmetric(vertical: 18),
     ),
   );
 }

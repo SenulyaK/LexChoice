@@ -12,13 +12,13 @@ class LCTexts {
 
 
   // -- OnBoarding Texts
-  static const String onBoardingTitle1 = "Choose your product";
-  static const String onBoardingTitle2 = "Select Payment Method";
-  static const String onBoardingTitle3 = "Deliver at your door step";
+  static const String onBoardingTitle1 = "Let’s Start Learning!";
+  static const String onBoardingTitle2 = "Make Smart Choices!";
+  static const String onBoardingTitle3 = "Your Adventure Awaits!";
 
-  static const String onBoardingSubTitle1 = "Welcome to LexChoice – A Game to Learn and Grow!";
-  static const String onBoardingSubTitle2 = "Ready to Play and Learn About the Laws?";
-  static const String onBoardingSubTitle3 = "LexChoice – Your Law Adventure Begins Here!";
+  static const String onBoardingSubTitle1 = "Welcome to LexChoice - Ready to explore and discover fun facts?";
+  static const String onBoardingSubTitle2 = "Learn the rules and be a decision-making hero!";
+  static const String onBoardingSubTitle3 = "Get ready to play and dive into an exciting journey!";
 
 
   // -- Authentication Forms
@@ -44,26 +44,21 @@ class LCTexts {
 
 
   // -- Authentication Headings
-  static const String loginTitle = "Welcome back,";
-  static const String loginSubTitle = "Discover Limitless Choices and Unmatched Convenience.";
-  static const String signupTitle = "Let’s create your account";
-  static const String forgetPasswordTitle = "Forget password";
-  static const String forgetPasswordSubTitle = "Don’t worry sometimes people can forget too, enter your email and we will send you a password reset link.";
-  static const String changeYourPasswordTitle = "Password Reset Email Sent";
-  static const String changeYourPasswordSubTitle = "Your Account Security is Our Priority! We've Sent You a Secure Link to Safely Change Your Password and Keep Your Account Protected.";
-  static const String confirmEmail = "Verify your email address!";
-  static const String confirmEmailSubTitle = "Congratulations! Your Account Awaits: Verify Your Email to Start Shopping and Experience a World of Unrivaled Deals and Personalized Offers.";
-  static const String emailNotReceivedMessage = "Didn’t get the email? Check your junk/spam or resend it.";
-  static const String yourAccountCreatedTitle = "Your account successfully created!";
-  static const String yourAccountCreatedSubTitle = "Welcome to Your Ultimate Shopping Destination: Your Account is Created, Unleash the Joy of Seamless Online Shopping!";
+  static const String loginTitle = "Welcome back!";  
+  static const String loginSubTitle = "Explore fun stories and make smart choices!";  
+  static const String signupTitle = "Let's create your adventure!";  
+  static const String forgetPasswordTitle = "Oops! Forgot your password?";  
+  static const String forgetPasswordSubTitle = "No worries! Enter your email, and we'll help you reset it.";  
+  static const String changeYourPasswordTitle = "Check your email!";  
+  static const String changeYourPasswordSubTitle = "We've sent a link to reset your password. Stay safe and keep playing!";  
+  static const String confirmEmail = "Verify your email!";  
+  static const String confirmEmailSubTitle = "You're almost there! Check your email to start your adventure.";  
+  static const String emailNotReceivedMessage = "Didn't get the email? Check spam or try again.";  
+  static const String yourAccountCreatedTitle = "You're all set!";  
+  static const String yourAccountCreatedSubTitle = "Your adventure begins now. Have fun and learn along the way!";  
 
 
-  // -- Product
-  static const String popularProducts = "Popular Products";
 
-  // -- Home
-  static const String homeAppbarTitle = "Good day for shopping";
-  static const String homeAppbarSubTitle = "Taimoor Sikander";
 
 
 }

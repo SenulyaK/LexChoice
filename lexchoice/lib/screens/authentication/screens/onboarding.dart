@@ -135,6 +135,12 @@ class OnboardingScreen extends StatelessWidget {
                   onPressed: () {},
                   child: TextButton(
                     onPressed: () => OnboardingController.instance.skipPage(),
+                    style: TextButton.styleFrom(
+                        foregroundColor: dark ? LCColors.light : LCColors.dark,
+                        padding: EdgeInsets.zero,
+                        minimumSize: Size(0, 0),
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero)),
                     child: const Text("Skip"),
                   ))),
 
@@ -160,7 +166,9 @@ class OnboardingScreen extends StatelessWidget {
                 onPressed: () => OnboardingController.instance.nextPage(),
                 style: ElevatedButton.styleFrom(
                     shape: const CircleBorder(),
-                    backgroundColor: dark ? LCColors.primary : LCColors.black),
+                    backgroundColor: dark ? LCColors.primary : LCColors.black,
+                    elevation: 0, 
+                    side: BorderSide.none),
                 child: Icon(
                   Iconsax.arrow_right_3,
                   color: Theme.of(context).brightness == Brightness.dark

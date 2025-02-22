@@ -12,4 +12,7 @@ class LCImages {
   static const String onBoardingImage2 = "assets/animations/welcome_2.json";
   static const String onBoardingImage3 = "assets/animations/welcome_4.json";
 
+  // -- Login logos
+  static const String google = "assets/images/google_logo.png";
+  static const String facebook = "assets/images/facebook_logo.png";
 }

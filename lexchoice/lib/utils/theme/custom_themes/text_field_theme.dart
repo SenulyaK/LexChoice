@@ -7,7 +7,7 @@ class LCTextFormFieldTheme {
     errorMaxLines: 3,
     prefixIconColor: Colors.grey,
     suffixIconColor: Colors.grey,
-    constraints: BoxConstraints.expand(height: 14.0),
+    constraints: BoxConstraints(minHeight: 48.0), // Ensure proper height
     labelStyle: const TextStyle().copyWith(fontSize: 14, color: Colors.black),
     hintStyle: const TextStyle().copyWith(fontSize: 14, color: Colors.black),
     errorStyle: const TextStyle().copyWith(fontSize: 14),

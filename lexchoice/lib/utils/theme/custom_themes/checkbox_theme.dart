@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lexchoice/utils/constants/colors.dart';
 
 // Custom Class for Light & Dark Text Themes
 class LCCheckboxTheme {
@@ -16,7 +17,7 @@ class LCCheckboxTheme {
     }),
     fillColor: MaterialStateProperty.resolveWith((states) {
       if (states.contains(MaterialState.selected)) {
-        return Colors.blue;
+        return LCColors.primary;
       } else {
         return Colors.transparent;
       }
@@ -35,7 +36,7 @@ class LCCheckboxTheme {
     }),
     fillColor: MaterialStateProperty.resolveWith((states) {
       if (states.contains(MaterialState.selected)) {
-        return Colors.blue;
+        return LCColors.primary;
       } else {
         return Colors.transparent;
       }
