@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_utils/get_utils.dart';
 import 'package:lexchoice/common/styles/spacing_styles.dart';
+import 'package:lexchoice/navigation_menu.dart';
+import 'package:lexchoice/screens/authentication/screens/password_configuration/forget_password.dart';
 import 'package:lexchoice/screens/authentication/screens/signup/signup.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/utils/constants/image_strings.dart';
@@ -87,7 +88,8 @@ class LoginScreen extends StatelessWidget {
 
                         /// Forget Password
                         TextButton(
-                            onPressed: () {},
+                            onPressed: () =>
+                                Get.to(() => const ForgetPassword()),
                             style: TextButton.styleFrom(
                                 foregroundColor:
                                     dark ? LCColors.light : LCColors.dark,
@@ -105,7 +107,8 @@ class LoginScreen extends StatelessWidget {
                   SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                          onPressed: () {}, child: Text(LCTexts.signIn))),
+                          onPressed: () => Get.to(() => const NavigationMenu()),
+                          child: Text(LCTexts.signIn))),
                   const SizedBox(height: LCSizes.spaceBtwItems),
 
                   /// Create Account Button

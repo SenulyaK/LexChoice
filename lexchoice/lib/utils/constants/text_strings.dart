@@ -51,8 +51,8 @@ class LCTexts {
   static const String forgetPasswordSubTitle = "No worries! Enter your email, and we'll help you reset it.";  
   static const String changeYourPasswordTitle = "Check your email!";  
   static const String changeYourPasswordSubTitle = "We've sent a link to reset your password. Stay safe and keep playing!";  
-  static const String confirmEmail = "Verify your email!";  
-  static const String confirmEmailSubTitle = "You're almost there! Check your email to start your adventure.";  
+  static const String confirmEmail = "Verify your email address";  
+  static const String confirmEmailSubTitle = "You're almost there! Check your email and verify your account to start your adventure.";  
   static const String emailNotReceivedMessage = "Didn't get the email? Check spam or try again.";  
   static const String yourAccountCreatedTitle = "You're all set!";  
   static const String yourAccountCreatedSubTitle = "Your adventure begins now. Have fun and learn along the way!";  

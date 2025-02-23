@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lexchoice/screens/authentication/screens/signup/verify_email.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/utils/constants/sizes.dart';
 import 'package:lexchoice/utils/constants/text_strings.dart';
@@ -143,7 +144,7 @@ class SignupScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () => Get.to(() => VerifyEmailScreen()),
                       child: const Text(LCTexts.createAccount),
                     ),
                   ),
@@ -209,7 +210,6 @@ class SignupScreen extends StatelessWidget {
                       ),
                     ],
                   )
-
                 ],
               ),
             )
