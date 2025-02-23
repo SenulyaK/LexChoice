@@ -9,7 +9,7 @@
 }
 
 :root {
-  --primary: #00337C;
+  --primary: #09254C;
   --dark: #000; /* Example value; adjust as needed */
 }
 
@@ -33,8 +33,10 @@ body {
 }
 
 .nav {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 5px auto;
+  margin-left: 25px;
+  margin-right: 35px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -153,6 +155,60 @@ body {
   font-family: 'Inter', sans-serif;
   text-align: center;
   margin-bottom: 3rem;
+}
+
+.section-divider {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+  cursor: pointer;
+}
+
+.divider-line {
+  height: 2px;
+  width: 0;
+  background: linear-gradient(
+      90deg,
+      transparent 0%,
+      #09254C 50%,
+      transparent 100%
+  );
+  transition: width 0.5s ease-in-out;
+  position: relative;
+}
+
+.section-divider:hover .divider-line {
+  width: 80%;
+}
+
+.divider-line::before,
+.divider-line::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 0;
+  height: 2px;
+  transition: width 0.5s ease-in-out;
+}
+
+.divider-line::before {
+  right: 50%;
+  transform: translateX(50%);
+  background: linear-gradient(to left, #09254C);
+}
+
+.divider-line::after {
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(to right, #09254C);
+}
+
+.section-divider:hover .divider-line::before,
+.section-divider:hover .divider-line::after {
+  width: 40%;
 }
 
 /* =========================
