@@ -533,25 +533,30 @@ body {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 50px;
-  height: 50px;
   display: none;
-  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  z-index: 999;
+  cursor: pointer;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-.back-to-top img {
-  width: 100%;
-  height: auto;
-  border-radius: 50%;
-  box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+.back-to-top.visible {
+  display: block;
+  opacity: 1;
 }
 
 .back-to-top:hover {
-  opacity: 0.7;
+  background: #03C988;
+  transform: translateY(-3px);
 }
 
-.show {
-  display: block;
+.back-to-top img {
+  width: 30px;
+  height: 30px;
 }
 
 /* =========================

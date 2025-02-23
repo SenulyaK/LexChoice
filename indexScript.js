@@ -138,18 +138,23 @@ function stopAutoPlay() {
 updateSlides();
 startAutoPlay();
 
-const backToTopButton = document.getElementById("backToTop");
+const backToTop = document.getElementById('backToTop');
 
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    backToTopButton.classList.add("show");
-  } else {
-    backToTopButton.classList.remove("show");
-  }
+// Show button when scrolling down
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        backToTop.classList.add('visible');
+    } else {
+        backToTop.classList.remove('visible');
+    }
 });
 
-backToTopButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  window.scrollTo({ top: 0, behavior: "smooth" });
+// Smooth scroll to top when clicked
+backToTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 });
 
