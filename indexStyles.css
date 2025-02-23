@@ -110,7 +110,7 @@ body {
  Hero Section
 =========================== */
 .hero {
-  background: url('images/background.jpeg') center center/cover no-repeat, #09254C;
+  background: url('images/laptop-background.png') center center/cover no-repeat, #09254C;
   background-attachment: fixed;
   color: white;
   min-height: 100vh;
@@ -641,7 +641,7 @@ body {
       display: block;
   }
   .hero {
-    background: url('images/logo_trans.png') center center/contain no-repeat, #09254C;
+    background: url('images/mobile-background.png') center center/contain no-repeat, #09254C;
     background-attachment: fixed; /* Fixed might not work well on mobile */
   }
   .hero h1 {
