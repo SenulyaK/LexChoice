@@ -287,7 +287,7 @@ body {
 
 .feature-image {
   width: auto;
-  height: 300px;  /* Increased from 200px to 300px */
+  height: 320px; 
   max-width: 100%;
   object-fit: contain;
   border-radius: 10px;
