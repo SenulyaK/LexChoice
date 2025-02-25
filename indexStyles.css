@@ -887,12 +887,11 @@ body {
   .hamburger {
       display: block;
   }
-  .hero {
-    background: url('images/mobile-background.png') center center/contain no-repeat, #09254C;
-    background-attachment: fixed; /* Fixed might not work well on mobile */
-  }
   .hero h1 {
-      font-size: 2rem;
+    font-size: 2.8rem;
+  }
+  .hero h2 {
+    font-size: 1.6rem;
   }
   /* Features */
   .features {
