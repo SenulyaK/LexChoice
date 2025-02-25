@@ -1,9 +1,7 @@
-
 /* -- App Image Strings -- */
 
 /// This class contains all the App Images in String formats.
 class LCImages {
-
   // -- App Logos
   static const String appLogo = "assets/images/lexchoice_logo.png";
 
@@ -17,4 +15,11 @@ class LCImages {
   // -- Login logos
   static const String google = "assets/images/google_logo.png";
   static const String facebook = "assets/images/facebook_logo.png";
+
+  // -- Thumbnail Images
+  static const String aarya = "assets/images/thumbnails/Aarya.png";
+  static const String dillon = "assets/images/thumbnails/Dillon.png";
+  static const String lila = "assets/images/thumbnails/Lila.png";
+  static const String ravi = "assets/images/thumbnails/Ravi.png";
+  static const String tanya = "assets/images/thumbnails/Tanya.png";
 }

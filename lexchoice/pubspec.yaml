@@ -35,6 +35,7 @@ dependencies:
   carousel_slider: ^5.0.0
   flutter_rating_bar: ^4.0.1
   capped_progress_indicator: ^0.0.2
+  flutter_staggered_grid_view: ^0.7.0
 
   
 dev_dependencies:
@@ -51,3 +52,4 @@ flutter:
     - assets/images/
     - assets/videos/
     - assets/animations/
+    - assets/images/thumbnails/

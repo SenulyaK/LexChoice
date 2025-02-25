@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:lexchoice/screens/authentication/screens/onboarding.dart';
 import 'package:lexchoice/utils/theme/theme.dart';
 import 'package:get/get.dart';
@@ -9,7 +10,13 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+      ),
+    );
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
       theme: LCAppTheme.lightTheme,
       darkTheme: LCAppTheme.darkTheme,

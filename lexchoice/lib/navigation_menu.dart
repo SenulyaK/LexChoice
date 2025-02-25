@@ -3,6 +3,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:get/get.dart';
 import 'package:lexchoice/utils/helpers/helper_functions.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
+import 'package:lexchoice/screens/home/home_screen.dart';
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});
@@ -20,7 +21,7 @@ class NavigationMenu extends StatelessWidget {
           selectedIndex: controller.selectedIndex.value,
           onDestinationSelected: (index) =>
               controller.selectedIndex.value = index,
-          backgroundColor: darkMode ? LCColors.dark : LCColors.light,
+          backgroundColor: darkMode ? const Color(0xFF191A48) : LCColors.light,
           indicatorColor: darkMode
               ? LCColors.white.withOpacity(0.1)
               : LCColors.black.withOpacity(0.1),
@@ -41,7 +42,7 @@ class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
   final screens = [
-    Container(color: Colors.green),
+    HomeScreen(),
     Container(color: Colors.blue),
     Container(color: Colors.red),
     Container(color: Colors.yellow),
