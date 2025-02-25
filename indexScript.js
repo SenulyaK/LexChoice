@@ -158,3 +158,183 @@ backToTop.addEventListener('click', (e) => {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+  // Structure updates - wrap all content after hero in a content wrapper
+  const heroSection = document.querySelector('.hero');
+  const allContentAfterHero = Array.from(document.body.children).filter(el => {
+    return el !== heroSection && el.tagName.toLowerCase() !== 'header' && el.tagName.toLowerCase() !== 'script';
+  });
+  
+  // Create content wrapper
+  const contentWrapper = document.createElement('div');
+  contentWrapper.className = 'content-wrapper';
+  
+  // Move all content after hero into the wrapper
+  allContentAfterHero.forEach(el => {
+    contentWrapper.appendChild(el);
+  });
+  
+  // Insert the wrapper after the hero
+  document.body.insertBefore(contentWrapper, heroSection.nextSibling);
+  
+  // Set hero text content
+  const heroTitle = document.querySelector('.hero h1');
+  const heroSubtitle = document.querySelector('.hero h2');
+  
+  heroTitle.textContent = 'LexChoice';
+  heroSubtitle.innerHTML = '<i>Empowering Kids with Legal Knowledge Through Fun</i>';
+  
+  // Create animated background patterns
+  const animatedBg = document.createElement('div');
+  animatedBg.className = 'animated-bg';
+  heroSection.appendChild(animatedBg);
+  
+  // Create floating legal icons
+  const iconContainer = document.createElement('div');
+  iconContainer.className = 'floating-icons';
+  
+  // Legal-themed icons from Font Awesome
+  const icons = [
+    'fa-solid fa-scale-balanced',
+    'fa-solid fa-gavel',
+    'fa-solid fa-book',
+    'fa-solid fa-shield',
+    'fa-solid fa-graduation-cap',
+    'fa-solid fa-gamepad',
+    'fa-solid fa-landmark',
+    'fa-solid fa-laptop-code',
+    'fa-solid fa-trophy',
+    'fa-solid fa-school',
+    'fa-solid fa-user-shield',
+    'fa-solid fa-children',
+    'fa-solid fa-road',
+    'fa-solid fa-paragraph',
+    'fa-solid fa-universal-access'
+  ];
+  
+  // Create 20 random icons with staggered animation
+  for (let i = 0; i < 20; i++) {
+    createFloatingIcon(iconContainer, icons, i);
+  }
+  
+  // Add highlight bubbles
+  for (let i = 0; i < 5; i++) {
+    createHighlightBubble(heroSection);
+  }
+  
+  // Add scroll indicator
+  const scrollIndicator = document.createElement('div');
+  scrollIndicator.className = 'scroll-indicator';
+  
+  const scrollDot = document.createElement('div');
+  scrollDot.className = 'scroll-dot';
+  
+  scrollIndicator.appendChild(scrollDot);
+  heroSection.appendChild(scrollIndicator);
+  
+  // Add skip button
+  const skipButton = document.createElement('button');
+  skipButton.className = 'skip-hero';
+  skipButton.textContent = 'Get Started';
+  skipButton.addEventListener('click', function() {
+    contentWrapper.scrollIntoView({ behavior: 'smooth' });
+  });
+  heroSection.appendChild(skipButton);
+  
+  // Add icons to hero section
+  heroSection.appendChild(iconContainer);
+  
+  // Interactive cursor effect
+  document.addEventListener('mousemove', function(e) {
+    // Only track mouse on desktop
+    if (window.innerWidth > 768) {
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+      
+      // Parallax effect for icons
+      document.querySelectorAll('.icon').forEach(icon => {
+        const speed = parseFloat(icon.getAttribute('data-speed')) || 0.05;
+        const x = (window.innerWidth / 2 - mouseX) * speed;
+        const y = (window.innerHeight / 2 - mouseY) * speed;
+        icon.style.transform = `translate(${x}px, ${y}px) ${icon.style.transform}`;
+      });
+    }
+  });
+  
+  // Auto-scroll functionality
+  setTimeout(() => {
+    // Add scroll event listener to hide fixed hero when scrolling down
+    window.addEventListener('scroll', function() {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition > 100) {
+        heroSection.style.opacity = Math.max(0, 1 - scrollPosition / window.innerHeight);
+      } else {
+        heroSection.style.opacity = 1;
+      }
+      
+      // Disable hero when fully scrolled past
+      if (scrollPosition > window.innerHeight) {
+        heroSection.style.pointerEvents = 'none';
+      } else {
+        heroSection.style.pointerEvents = 'auto';
+      }
+    });
+  }, 3000);
+});
+
+function createFloatingIcon(container, iconClasses, index) {
+  const icon = document.createElement('i');
+  
+  // Random icon class
+  const randomIcon = iconClasses[Math.floor(Math.random() * iconClasses.length)];
+  icon.className = `icon ${randomIcon}`;
+  
+  // Random starting position
+  const left = Math.random() * 100;
+  icon.style.left = `${left}%`;
+  
+  // Random movement pattern
+  const randX = Math.random() * 2 - 1; // value between -1 and 1
+  icon.style.setProperty('--rand-x', randX);
+  
+  // Random size
+  const size = Math.random() * 2 + 1.2;
+  icon.style.fontSize = `${size}rem`;
+  
+  // Random animation duration
+  const duration = Math.random() * 10 + 15;
+  icon.style.animationDuration = `${duration}s`;
+  
+  // Random delay
+  const delay = Math.random() * 12;
+  icon.style.animationDelay = `${delay}s`;
+  
+  // Parallax data attribute
+  icon.setAttribute('data-speed', (Math.random() * 0.05 + 0.02).toFixed(3));
+  
+  container.appendChild(icon);
+}
+
+function createHighlightBubble(container) {
+  const bubble = document.createElement('div');
+  bubble.className = 'highlight-bubble';
+  
+  // Random position
+  const left = Math.random() * 90 + 5;
+  const top = Math.random() * 90 + 5;
+  bubble.style.left = `${left}%`;
+  bubble.style.top = `${top}%`;
+  
+  // Random size
+  const size = Math.random() * 200 + 100;
+  bubble.style.width = `${size}px`;
+  bubble.style.height = `${size}px`;
+  
+  // Random animation duration and delay
+  const duration = Math.random() * 5 + 8;
+  const delay = Math.random() * 10;
+  bubble.style.animationDuration = `${duration}s`;
+  bubble.style.animationDelay = `${delay}s`;
+  
+  container.appendChild(bubble);
+}

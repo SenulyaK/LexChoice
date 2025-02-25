@@ -110,27 +110,266 @@ body {
  Hero Section
 =========================== */
 .hero {
-  background: url('images/laptop-background.png') center center/cover no-repeat, #09254C;
-  background-attachment: fixed;
-  color: white;
-  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  text-align: center;
+  align-items: center;
+  background: linear-gradient(135deg, #09254C, #09254C);
+  overflow: hidden;
   padding: 2rem;
+  color: white;
+  text-align: center;
+  z-index: 100;
 }
 
+/* Main title animation */
 .hero h1 {
-  font-size: 8rem;
-  color: #C5D3E8;
+  font-size: 4.5rem;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(50px) scale(0.8);
+  animation: heroTitleAnimation 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+  z-index: 5;
+  font-weight: 800;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(to right, #ffffff, #f0f8ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 2px;
 }
 
+/* Subtitle animation */
 .hero h2 {
   font-size: 2rem;
-  margin-bottom: 5rem;
-  color: #03C988;
+  font-family: 'Inter', sans-serif;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1.2s ease forwards 1s;
+  z-index: 5;
+  font-weight: 500;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Glowing effect for subtitle */
+.hero h2 i {
+  position: relative;
+  display: inline-block;
+  animation: glowPulse 3s ease-in-out infinite 2s;
+}
+
+/* Animated background patterns */
+.animated-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0.15;
+  background-image: 
+    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.3) 0%, transparent 8%),
+    radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.3) 0%, transparent 8%),
+    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.3) 0%, transparent 8%),
+    radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.3) 0%, transparent 8%);
+  animation: patternMovement 20s linear infinite;
+}
+
+/* Floating icons container */
+.floating-icons {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+/* Individual icon styling */
+.icon {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.4);
+  animation: float 15s linear infinite;
+  z-index: 2;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+}
+
+/* Interactive highlight bubble */
+.highlight-bubble {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  animation: bubbleExpand 3s ease-in-out infinite;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+/* Custom scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 60px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  z-index: 5;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 2.5s;
+}
+
+.scroll-dot {
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  animation: scrollDown 2s ease-in-out infinite;
+}
+
+/* Skip button for fixed hero section */
+.skip-hero {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  z-index: 5;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards 3s;
+}
+
+.skip-hero:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Content wrapper to position other sections below the fixed hero */
+.content-wrapper {
+  position: relative;
+  margin-top: 100vh;
+  background: white;
+  z-index: 200;
+  border-radius: 25px 25px 0 0;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation keyframes */
+@keyframes heroTitleAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.8);
+    letter-spacing: -5px;
+  }
+  60% {
+    letter-spacing: 8px;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    letter-spacing: 2px;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 25px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.5);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(calc(var(--rand-x) * 100px), -20vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes patternMovement {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+@keyframes bubbleExpand {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.15;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.25;
+  }
+}
+
+@keyframes scrollDown {
+  0% {
+    opacity: 1;
+    top: 10px;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    top: 40px;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
 
 /* =========================
