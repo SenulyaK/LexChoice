@@ -901,6 +901,26 @@ body {
   padding-top: 20px;
 }
 
+.footer-bottom a {
+  color: #03C988;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+/* Style for the new links in Quick Links */
+.quick-links ul li a {
+  color: #fff8de;
+  transition: color 0.3s;
+}
+
+.quick-links ul li a:hover {
+  color: #03C988;
+}
+
 /* =========================
  Back To Top Button
 =========================== */
