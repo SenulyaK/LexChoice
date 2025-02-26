@@ -221,17 +221,7 @@ document.addEventListener('DOMContentLoaded', function() {
   for (let i = 0; i < 5; i++) {
     createHighlightBubble(heroSection);
   }
-  
-  // Add scroll indicator
-  const scrollIndicator = document.createElement('div');
-  scrollIndicator.className = 'scroll-indicator';
-  
-  const scrollDot = document.createElement('div');
-  scrollDot.className = 'scroll-dot';
-  
-  scrollIndicator.appendChild(scrollDot);
-  heroSection.appendChild(scrollIndicator);
-  
+   
   // Add skip button
   const skipButton = document.createElement('button');
   skipButton.className = 'skip-hero';
@@ -243,23 +233,6 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Add icons to hero section
   heroSection.appendChild(iconContainer);
-  
-  // Interactive cursor effect
-  document.addEventListener('mousemove', function(e) {
-    // Only track mouse on desktop
-    if (window.innerWidth > 768) {
-      const mouseX = e.clientX;
-      const mouseY = e.clientY;
-      
-      // Parallax effect for icons
-      document.querySelectorAll('.icon').forEach(icon => {
-        const speed = parseFloat(icon.getAttribute('data-speed')) || 0.05;
-        const x = (window.innerWidth / 2 - mouseX) * speed;
-        const y = (window.innerHeight / 2 - mouseY) * speed;
-        icon.style.transform = `translate(${x}px, ${y}px) ${icon.style.transform}`;
-      });
-    }
-  });
   
   // Auto-scroll functionality
   setTimeout(() => {
@@ -338,3 +311,24 @@ function createHighlightBubble(container) {
   
   container.appendChild(bubble);
 }
+
+// FAQ Accordion functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    
+    question.addEventListener('click', () => {
+      // Toggle active class on the clicked item
+      item.classList.toggle('active');
+      
+      // Optional: Close other items when one is opened
+      faqItems.forEach(otherItem => {
+        if (otherItem !== item && otherItem.classList.contains('active')) {
+          otherItem.classList.remove('active');
+        }
+      });
+    });
+  });
+});
