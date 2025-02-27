@@ -28,12 +28,17 @@ class StoryItem extends StatelessWidget {
           ),
           const SizedBox(height: 8), // Spacing between image and text
           // Title Text
-          Text(
-            story.storyTitle,
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: LCColors.primary, // Uses app's primary color
+          Align(
+            alignment: Alignment.center, // Centers the text horizontally
+            child: Text(
+              story.storyTitle,
+              textAlign:
+                  TextAlign.center, // Ensures text content is also centered
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: LCColors.primary, // Uses app's primary color
+              ),
             ),
           ),
         ],

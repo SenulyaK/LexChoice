@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lexchoice/screens/home/widgets/custom_tab.dart';
 import 'package:lexchoice/screens/home/widgets/story_staggered_gridview.dart';
+import 'package:lexchoice/screens/home/widgets/welcome_user.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/utils/helpers/helper_functions.dart';
 
@@ -19,11 +20,12 @@ class _HomeScreenState extends State<HomeScreen> {
     final darkMode = LCHelperFunctions.isDarkMode(context);
     return Scaffold(
         backgroundColor: darkMode
-            ? const Color(0xFF191A48)
+            ? LCColors.secondary
             : LCColors.light, // Custom theme color
 
         /// App Bar
         appBar: AppBar(
+          toolbarHeight: 100,
           backgroundColor: Colors.transparent,
           elevation: 0,
           leading: IconButton(
@@ -51,6 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
         // Body
         body: Column(
           children: [
+            WelcomeUser(),
             CustomTab(
               tabIndex,
               (int index) {

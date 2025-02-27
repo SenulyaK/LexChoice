@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/utils/theme/custom_themes/text_theme.dart';
 
 import 'custom_themes/appbar_theme.dart';
@@ -34,10 +35,10 @@ class LCAppTheme {
     useMaterial3: true,
     fontFamily: 'Poppins',
     brightness: Brightness.dark,
-    primaryColor: Colors.blue,
+    primaryColor: LCColors.primary,
     textTheme: LCTextTheme.darkTextTheme,
     chipTheme: LCChipTheme.darkChipTheme,
-    scaffoldBackgroundColor: Colors.black,
+    scaffoldBackgroundColor: LCColors.secondary,
     appBarTheme: LCAppBarTheme.darkAppBarTheme,
     checkboxTheme: LCCheckboxTheme.darkCheckboxTheme,
     bottomSheetTheme: LCBottomSheetTheme.darkBottomSheetTheme,

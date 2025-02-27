@@ -38,7 +38,7 @@ class Story {
           "Ravi's Future",
 
           /// Type
-          "Child rights and child labor",
+          "Child rights and Child labor",
 
           /// Description
           "Ravi was a bright 12-year-old boy who loved going to school and playing cricket with his friends. He dreamed of becoming a teacher one day. However, one day, his life took a difficult turn.",

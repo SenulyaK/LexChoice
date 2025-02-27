@@ -5,8 +5,8 @@ class LCColors {
 
   //App Basic Colors
   static const Color primary = Color(0xFF31DCB7);
-  static const Color secondary = Color(0xFF3D50B9);
-  static const Color accent = Color(0xFFb0c7ff);
+  static const Color secondary = Color(0xFF0B0B20);
+  static const Color accent = Color(0xFF9E9E9E);
 
   // Text colors
   static const Color textPrimary = Color(0xFF333333);

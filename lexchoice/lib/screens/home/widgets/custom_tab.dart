@@ -12,7 +12,7 @@ class CustomTab extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: const Color(0xFF1d1f56),
+        color: const Color(0xFF121335),
         borderRadius: BorderRadius.circular(5),
       ),
       width: width,
@@ -26,7 +26,7 @@ class CustomTab extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: selected == index
                       ? LCColors.primary
-                      : const Color(0xFF1d1f56),
+                      : const Color(0xFF121335),
                   borderRadius: BorderRadius.circular(5),
                 ),
                 margin: const EdgeInsets.symmetric(vertical: 5),
