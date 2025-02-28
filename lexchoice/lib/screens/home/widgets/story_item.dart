@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lexchoice/models/story.dart';
 import 'package:lexchoice/screens/detail/detail.dart';
-import 'package:lexchoice/utils/constants/colors.dart';
 
 class StoryItem extends StatelessWidget {
   final Story story;

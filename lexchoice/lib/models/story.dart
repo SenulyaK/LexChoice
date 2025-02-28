@@ -31,7 +31,7 @@ class Story {
           LCImages.lila,
 
           /// Height
-          300),
+          280),
       Story(
 
           /// Title
@@ -88,7 +88,7 @@ class Story {
           LCImages.amy,
 
           /// Height
-          270),
+          290),
     ];
   }
 }

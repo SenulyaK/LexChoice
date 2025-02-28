@@ -21,14 +21,15 @@ class NavigationMenu extends StatelessWidget {
           selectedIndex: controller.selectedIndex.value,
           onDestinationSelected: (index) =>
               controller.selectedIndex.value = index,
-          backgroundColor: darkMode ? LCColors.background : LCColors.light,
+          backgroundColor: darkMode ? LCColors.background : LCColors.darkGrey,
           indicatorColor: darkMode
               ? LCColors.white.withOpacity(0.1)
-              : LCColors.black.withOpacity(0.1),
+              : LCColors.white.withOpacity(0.1),
           destinations: [
             NavigationDestination(icon: Icon(Iconsax.home), label: 'Home'),
             NavigationDestination(icon: Icon(Iconsax.chart), label: 'FeedBack'),
-            NavigationDestination(icon: Icon(Iconsax.setting), label: 'Settings'),
+            NavigationDestination(
+                icon: Icon(Iconsax.setting), label: 'Settings'),
             NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile'),
           ],
         ),

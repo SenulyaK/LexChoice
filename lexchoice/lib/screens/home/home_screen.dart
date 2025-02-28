@@ -4,8 +4,6 @@ import 'package:lexchoice/screens/home/widgets/story_staggered_gridview.dart';
 import 'package:lexchoice/screens/home/widgets/welcome_user.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/utils/helpers/helper_functions.dart';
-import 'dart:io';
-import 'package:flutter/services.dart';
 import 'package:lexchoice/utils/exit_dialog.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -49,13 +47,22 @@ class _HomeScreenState extends State<HomeScreen> {
         // Body
         body: Container(
           decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [
-                LCColors.secondary,
-                LCColors.background,
+            gradient: LinearGradient(
+              colors: [
+                // Check if the current theme is dark or light
+                Theme.of(context).brightness == Brightness.dark
+                    ? LCColors.secondary // Dark mode colors
+                    : Colors.white, // Light mode colors
+                Theme.of(context).brightness == Brightness.dark
+                    ? LCColors.background // Dark mode colors
+                    : LCColors.darkGrey, // Light mode colors
               ],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter)), // Gradient
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+
+          // Gradient
           child: Column(
             children: [
               WelcomeUser(),
