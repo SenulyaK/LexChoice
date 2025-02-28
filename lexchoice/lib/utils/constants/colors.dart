@@ -4,8 +4,9 @@ class LCColors {
   LCColors._();
 
   //App Basic Colors
-  static const Color primary = Color(0xFF31DCB7);
+  static const Color primary = Color.fromARGB(255, 39, 181, 140);
   static const Color secondary = Color(0xFF0B0B20);
+  static const Color background = Color.fromARGB(255, 2, 72, 65);
   static const Color accent = Color(0xFF9E9E9E);
 
   // Text colors

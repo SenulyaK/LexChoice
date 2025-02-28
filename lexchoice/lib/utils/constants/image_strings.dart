@@ -17,9 +17,9 @@ class LCImages {
   static const String facebook = "assets/images/facebook_logo.png";
 
   // -- Thumbnail Images
-  static const String aarya = "assets/images/thumbnails/Aarya.png";
-  static const String dillon = "assets/images/thumbnails/Dillon.png";
-  static const String lila = "assets/images/thumbnails/Lila.png";
-  static const String ravi = "assets/images/thumbnails/Ravi.png";
-  static const String tanya = "assets/images/thumbnails/Tanya.png";
+  static const String aarya = "assets/images/thumbnails/Aarya.gif";
+  static const String devin = "assets/images/thumbnails/Devin.gif";
+  static const String lila = "assets/images/thumbnails/Lila.gif";
+  static const String ravi = "assets/images/thumbnails/Ravi.gif";
+  static const String amy = "assets/images/thumbnails/Amy.gif";
 }

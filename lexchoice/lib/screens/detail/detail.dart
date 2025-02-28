@@ -22,7 +22,11 @@ class DetailPage extends StatelessWidget {
                   borderRadius: const BorderRadius.vertical(
                     bottom: Radius.circular(30),
                   ),
-                  child: Image.asset(story.imgUrl, fit: BoxFit.fitWidth),
+                  child: Image.asset(
+                    story.imgUrl,
+                    fit: BoxFit.fitWidth,
+                    alignment: Alignment.center,
+                  ),
                 ),
                 Positioned(
                     // ignore: sort_child_properties_last

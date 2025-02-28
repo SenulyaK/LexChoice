@@ -16,7 +16,7 @@ class Story {
       Story(
 
           /// Title
-          "Lila's choices",
+          "Lila's Choice",
 
           /// Type
           "Child abuse",
@@ -31,7 +31,7 @@ class Story {
           LCImages.lila,
 
           /// Height
-          220),
+          300),
       Story(
 
           /// Title
@@ -69,26 +69,26 @@ class Story {
           LCImages.aarya,
 
           /// Height
-          300),
+          260),
       Story(
 
           /// Title
-          "Tanya’s Cyber Safety Rules",
+          "Amy’s Cyber Rules",
 
           /// Type
           "Cyber crimes",
 
           /// Description
-          "Tanya was a 13-year-old girl who loved playing online games and chatting with her friends on social media. One day she comes across a mysterious friend online that taught her the importance of being safe online",
+          "Amy was a 13-year-old girl who loved playing online games and chatting with her friends on social media. One day she comes across a mysterious friend online that taught her the importance of being safe online",
 
           /// Law Name
           "Computer Crimes Act, No. 24 of 2007",
 
           /// Image
-          LCImages.tanya,
+          LCImages.amy,
 
           /// Height
-          320),
+          270),
     ];
   }
 }
