@@ -1,13 +1,44 @@
+import 'dart:async'; // Add this import for Timer
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class WelcomeUser extends StatelessWidget {
+class WelcomeUser extends StatefulWidget {
   WelcomeUser({Key? key}) : super(key: key);
+
+  @override
+  _WelcomeUserState createState() => _WelcomeUserState();
+}
+
+class _WelcomeUserState extends State<WelcomeUser> {
   final upcomings = [
     "assets/animations/welcome_user.gif",
     "assets/animations/coming_soon.gif",
   ];
   final _pageController = PageController();
+  late Timer _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    // Start the timer to auto-slide every 5 seconds
+    _timer = Timer.periodic(const Duration(seconds: 5), (timer) {
+      if (_pageController.page == upcomings.length - 1) {
+        _pageController.animateToPage(0,
+            duration: const Duration(milliseconds: 500),
+            curve: Curves.easeInOut);
+      } else {
+        _pageController.nextPage(
+            duration: const Duration(milliseconds: 500),
+            curve: Curves.easeInOut);
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel(); // Cancel the timer when the widget is disposed
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,23 +111,24 @@ class WelcomeUser extends StatelessWidget {
             left: 30,
             bottom: 10,
             child: SmoothPageIndicator(
-                controller: _pageController,
-                count: upcomings.length,
-                effect: const ExpandingDotsEffect(
-                  expansionFactor: 4,
-                  dotHeight: 8,
-                  dotWidth: 8,
-                  spacing: 4,
-                  activeDotColor: Colors.white,
-                  dotColor: Colors.white54,
-                ),
-                onDotClicked: (index) {
-                  _pageController.animateToPage(
-                    index,
-                    duration: const Duration(milliseconds: 500),
-                    curve: Curves.easeInOut,
-                  );
-                }),
+              controller: _pageController,
+              count: upcomings.length,
+              effect: const ExpandingDotsEffect(
+                expansionFactor: 4,
+                dotHeight: 8,
+                dotWidth: 8,
+                spacing: 4,
+                activeDotColor: Colors.white,
+                dotColor: Colors.white54,
+              ),
+              onDotClicked: (index) {
+                _pageController.animateToPage(
+                  index,
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.easeInOut,
+                );
+              },
+            ),
           ),
         ],
       ),

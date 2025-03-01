@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lexchoice/models/story.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
+import 'package:lexchoice/game/game.dart';
 
 class DetailPage extends StatelessWidget {
   final Story story;
@@ -129,7 +130,13 @@ class DetailPage extends StatelessWidget {
 
                 /// Button
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => GameScreen(story: story)),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: LCColors.primary,
                     shape: RoundedRectangleBorder(

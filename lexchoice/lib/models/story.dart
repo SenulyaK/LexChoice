@@ -22,7 +22,7 @@ class Story {
           "Child abuse",
 
           /// Description
-          "Lila was a cheerful 11-year-old who loved her small village. She enjoyed playing outside after school and helping her mother at home. One day, something happened that taught her the importance of speaking up and staying safe.",
+          "Lila was an 11-year-old girl who loved playing outside and helping her mom. One day, something happened that showed her how important it is to speak up and stay safe...",
 
           /// Law Name
           "The Children and Young Persons Ordinance (CYPO) (1939)",
@@ -41,7 +41,7 @@ class Story {
           "Child rights and Child labor",
 
           /// Description
-          "Ravi was a bright 12-year-old boy who loved going to school and playing cricket with his friends. He dreamed of becoming a teacher one day. However, one day, his life took a difficult turn.",
+          "Ravi was a 12-year-old boy who loved school and playing cricket. He dreamed of being a teacher, but one day, something tough happened that changed his life...",
 
           /// Law Name
           "The Employment of Women, Young Persons, and Children Act (1956)",
@@ -60,7 +60,7 @@ class Story {
           "Child offences",
 
           /// Description
-          "Aarya was a 13-year-old boy who loved playing cricket with his friends after school. He was usually cheerful and kind, but one day, he made a mistake that taught him a big lesson about right and wrong.",
+          "Aarya was a 13-year-old boy who loved cricket and hanging out with friends. One day, he made a mistake that taught him a big lesson about right and wrong...",
 
           /// Law Name
           "The Children and Young Persons Ordinance (CYPO) (1939)",
@@ -79,7 +79,7 @@ class Story {
           "Cyber crimes",
 
           /// Description
-          "Amy was a 13-year-old girl who loved playing online games and chatting with her friends on social media. One day she comes across a mysterious friend online that taught her the importance of being safe online",
+          "Amy was a 13-year-old girl who loved playing online games and chatting with friends. One day, she met a mysterious person online, which taught her how to stay safe on the internet...",
 
           /// Law Name
           "Computer Crimes Act, No. 24 of 2007",

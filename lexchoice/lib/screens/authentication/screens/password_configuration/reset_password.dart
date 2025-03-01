@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:lexchoice/utils/constants/sizes.dart';
 import 'package:lexchoice/utils/constants/text_strings.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:lottie/lottie.dart';
 import 'package:lexchoice/utils/constants/image_strings.dart';

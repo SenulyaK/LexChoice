@@ -37,6 +37,15 @@ dependencies:
   capped_progress_indicator: ^0.0.2
   flutter_staggered_grid_view: ^0.7.0
 
+  # Game video
+  video_player: ^2.9.3
+  card_swiper: ^3.0.1
+  chewie: ^1.10.0
+
+  # Firebase
+  firebase_core: ^3.12.1
+  firebase_storage: ^12.4.4
+
   
 dev_dependencies:
   flutter_test:
@@ -44,6 +53,7 @@ dev_dependencies:
 
   flutter_lints: ^5.0.0
   animated_splash_screen: ^1.3.0
+
 
 
 flutter:

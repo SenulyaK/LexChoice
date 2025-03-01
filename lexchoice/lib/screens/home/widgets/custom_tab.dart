@@ -33,7 +33,7 @@ class CustomTab extends StatelessWidget {
               color: selected == index
                   ? LCColors.primary
                   : darkMode
-                      ? LCColors.secondary // Dark mode inactive tab color
+                      ? const Color(0xFF121335) // Dark mode inactive tab color
                       : const Color(
                           0xFFE1E1E1), // Light mode inactive tab color
               borderRadius: BorderRadius.circular(5),
