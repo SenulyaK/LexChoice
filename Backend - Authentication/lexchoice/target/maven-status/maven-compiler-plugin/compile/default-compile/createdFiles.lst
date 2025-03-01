@@ -1,0 +1,5 @@
+com\lexchoice\lexchoice\SecurityConfig.class
+com\lexchoice\lexchoice\controlller\UserController.class
+com\lexchoice\lexchoice\LexchoiceApplication.class
+com\lexchoice\lexchoice\security\FirebaseAuthFilter.class
+com\lexchoice\lexchoice\FirebaseConfig.class
