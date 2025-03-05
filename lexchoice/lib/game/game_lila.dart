@@ -1,7 +1,9 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:lexchoice/game/widgets/HomeConfirmationDialog.dart';
 import 'package:lexchoice/utils/theme/custom_themes/glowing_button.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
+
 
 class LilaGameScreen extends StatefulWidget {
   @override
@@ -10,7 +12,7 @@ class LilaGameScreen extends StatefulWidget {
 
 class _LilaGameScreenState extends State<LilaGameScreen> {
   int _currentGifIndex = 1;
-  final int _totalGifs = 15;
+  final int _totalGifs = 22;
   double _opacity = 1.0;
   String? selectedChoice;
 
@@ -21,9 +23,9 @@ class _LilaGameScreenState extends State<LilaGameScreen> {
       "C. Ask Mr. Silva to call your parents.": false,
     },
     14: {
-      "A. Tell Nisha to stay quiet to avoid upsetting her uncle.": false,
-      "B. Tell Nisha to talk to a teacher or trusted adult.": true,
-      "C. Tell Nisha to ignore it because adults are always right.": false,
+      "A. Tell Talya to stay quiet to avoid upsetting her uncle.": false,
+      "B. Tell Talya to talk to a teacher or trusted adult.": true,
+      "C. Tell Talya to ignore it because adults are always right.": false,
     }
   };
 
@@ -106,6 +108,22 @@ class _LilaGameScreenState extends State<LilaGameScreen> {
     return Scaffold(
       body: Stack(
         children: [
+          // Back Button to Home Screen (Top Left)
+          Positioned(
+            top: 36, // Adjust as needed
+            left: 5,
+            child: IconButton(
+              onPressed: () {
+                HomeConfirmationDialog.showHomeConfirmationDialog(context);
+              }, // Confirmation dialog method
+              icon: const Icon(
+                Icons.arrow_back,
+                color: Colors.white, // Icon color
+                size: 28, // Icon size
+              ),
+            ),
+          ),
+
           // Title of the story (Add this at the top inside the Stack)
           Positioned(
             top: 36, // Adjust as needed
@@ -135,12 +153,14 @@ class _LilaGameScreenState extends State<LilaGameScreen> {
           AnimatedOpacity(
             duration: Duration(milliseconds: 300),
             opacity: _opacity,
-            child: Center(
-              child: Image.asset(
-                'assets/stories/lila/lila_$_currentGifIndex.gif',
-                width: double.infinity,
-                height: double.infinity,
-                fit: BoxFit.contain,
+            child: IgnorePointer(
+              child: Center(
+                child: Image.asset(
+                  'assets/stories/lila/lila_$_currentGifIndex.gif',
+                  width: double.infinity,
+                  height: double.infinity,
+                  fit: BoxFit.contain,
+                ),
               ),
             ),
           ),
