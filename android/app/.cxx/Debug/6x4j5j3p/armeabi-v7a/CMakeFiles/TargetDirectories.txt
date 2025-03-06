@@ -1,0 +1,2 @@
+/Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/.cxx/Debug/6x4j5j3p/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/.cxx/Debug/6x4j5j3p/armeabi-v7a/CMakeFiles/rebuild_cache.dir

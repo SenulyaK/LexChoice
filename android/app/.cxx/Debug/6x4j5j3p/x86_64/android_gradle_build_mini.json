@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "/Users/prabashdesilva/development/flutter/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/prabashdesilva/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/.cxx/Debug/6x4j5j3p/x86_64",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/prabashdesilva/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/.cxx/Debug/6x4j5j3p/x86_64",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {}
+}
