@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class LCColors {
   LCColors._();
 
-  //App Basic Colors
+  // App Basic Colors
   static const Color primary = Color.fromARGB(255, 39, 181, 140);
   static const Color secondary = Color(0xFF0B0B20);
   static const Color background = Color.fromARGB(255, 2, 72, 65);
@@ -21,7 +21,8 @@ class LCColors {
 
   // Background Container colors
   static const Color lightContainer = Color(0xFFF6F6F6);
-  static Color darkContainer = LCColors.white.withOpacity(0.1);
+  static const Color darkContainer =
+      Color(0xFF232323); // Changed to a valid color
 
   // Button colors
   static const Color buttonPrimary = Color(0xFF4b68ff);
@@ -46,4 +47,8 @@ class LCColors {
   static const Color softGrey = Color(0xFFF4F4F4);
   static const Color lightGrey = Color(0xFFF9F9F9);
   static const Color white = Color(0xFFFFFFFF);
+
+  // Fixed appBarColor
+  static const Color appBarColor =
+      primary; // You can change this to any color you prefer
 }

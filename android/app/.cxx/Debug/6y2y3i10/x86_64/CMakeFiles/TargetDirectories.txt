@@ -1,0 +1,2 @@
+/Users/prabashdesilva/Desktop/LexChoice/android/app/.cxx/Debug/6y2y3i10/x86_64/CMakeFiles/edit_cache.dir
+/Users/prabashdesilva/Desktop/LexChoice/android/app/.cxx/Debug/6y2y3i10/x86_64/CMakeFiles/rebuild_cache.dir

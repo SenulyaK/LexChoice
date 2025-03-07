@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:lexchoice/screens/home/home_screen.dart';
 import 'package:lexchoice/screens/settings/settings_page.dart';
 import 'package:lexchoice/screens/user_profile/user_profile_page.dart';
-import 'package:lexchoice/screens/feedback_screen/detailed_feedback_screen.dart';
+import 'package:lexchoice/screens/feedback_screen/feedback_screen.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/utils/helpers/helper_functions.dart';
 
@@ -48,7 +48,7 @@ class NavigationController extends GetxController {
 
   final screens = [
     HomeScreen(),
-    FeedbackScreen(),
+    FeedbackSelectionScreen(),
     SettingsPage(),
     UserProfilePage(),
   ];

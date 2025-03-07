@@ -13,8 +13,8 @@
 13         to allow setting breakpoints, to provide hot reload, etc.
 14    -->
 15    <uses-permission android:name="android.permission.INTERNET" />
-15-->/Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/debug/AndroidManifest.xml:6:5-66
-15-->/Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/debug/AndroidManifest.xml:6:22-64
+15-->/Users/prabashdesilva/Desktop/LexChoice/android/app/src/debug/AndroidManifest.xml:6:5-66
+15-->/Users/prabashdesilva/Desktop/LexChoice/android/app/src/debug/AndroidManifest.xml:6:22-64
 16    <!--
 17     Required to query activities that can process text, see:
 18         https://developer.android.com/training/package-visibility and
@@ -23,16 +23,16 @@
 21         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin.
 22    -->
 23    <queries>
-23-->/Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/main/AndroidManifest.xml:39:5-44:15
+23-->/Users/prabashdesilva/Desktop/LexChoice/android/app/src/main/AndroidManifest.xml:39:5-44:15
 24        <intent>
-24-->/Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/main/AndroidManifest.xml:40:9-43:18
+24-->/Users/prabashdesilva/Desktop/LexChoice/android/app/src/main/AndroidManifest.xml:40:9-43:18
 25            <action android:name="android.intent.action.PROCESS_TEXT" />
-25-->/Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/main/AndroidManifest.xml:41:13-72
-25-->/Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/main/AndroidManifest.xml:41:21-70
+25-->/Users/prabashdesilva/Desktop/LexChoice/android/app/src/main/AndroidManifest.xml:41:13-72
+25-->/Users/prabashdesilva/Desktop/LexChoice/android/app/src/main/AndroidManifest.xml:41:21-70
 26
 27            <data android:mimeType="text/plain" />
-27-->/Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/main/AndroidManifest.xml:42:13-50
-27-->/Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/main/AndroidManifest.xml:42:19-48
+27-->/Users/prabashdesilva/Desktop/LexChoice/android/app/src/main/AndroidManifest.xml:42:13-50
+27-->/Users/prabashdesilva/Desktop/LexChoice/android/app/src/main/AndroidManifest.xml:42:19-48
 28        </intent>
 29    </queries> <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
 30    <!-- <uses-sdk android:minSdkVersion="21"/> -->
@@ -94,25 +94,25 @@
 78            android:value="2" />
 79
 80        <service
-80-->[:firebase_storage] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-12:19
+80-->[:firebase_storage] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-12:19
 81            android:name="com.google.firebase.components.ComponentDiscoveryService"
-81-->[:firebase_storage] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:8:18-89
+81-->[:firebase_storage] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:8:18-89
 82            android:directBootAware="true"
 82-->[com.google.firebase:firebase-common:21.0.0] /Users/prabashdesilva/.gradle/caches/transforms-3/5f8f91a97205c39eda41b2b6b1678f15/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:32:13-43
 83            android:exported="false" >
 83-->[com.google.firebase:firebase-storage:21.0.1] /Users/prabashdesilva/.gradle/caches/transforms-3/9e7d4d5d0010c3388127dcc158651311/transformed/jetified-firebase-storage-21.0.1/AndroidManifest.xml:29:13-37
 84            <meta-data
-84-->[:firebase_storage] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:9:13-11:85
+84-->[:firebase_storage] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:9:13-11:85
 85                android:name="com.google.firebase.components:io.flutter.plugins.firebase.storage.FlutterFirebaseAppRegistrar"
-85-->[:firebase_storage] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:10:17-126
+85-->[:firebase_storage] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:10:17-126
 86                android:value="com.google.firebase.components.ComponentRegistrar" />
-86-->[:firebase_storage] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:11:17-82
+86-->[:firebase_storage] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:11:17-82
 87            <meta-data
-87-->[:firebase_core] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:9:13-11:85
+87-->[:firebase_core] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:9:13-11:85
 88                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
-88-->[:firebase_core] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:10:17-124
+88-->[:firebase_core] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:10:17-124
 89                android:value="com.google.firebase.components.ComponentRegistrar" />
-89-->[:firebase_core] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:11:17-82
+89-->[:firebase_core] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:11:17-82
 90            <meta-data
 90-->[com.google.firebase:firebase-storage:21.0.1] /Users/prabashdesilva/.gradle/caches/transforms-3/9e7d4d5d0010c3388127dcc158651311/transformed/jetified-firebase-storage-21.0.1/AndroidManifest.xml:30:13-32:85
 91                android:name="com.google.firebase.components:com.google.firebase.storage.FirebaseStorageKtxRegistrar"
@@ -152,13 +152,13 @@
 108        </service>
 109
 110        <activity
-110-->[:url_launcher_android] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-11:74
+110-->[:url_launcher_android] /Users/prabashdesilva/Desktop/LexChoice/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-11:74
 111            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
-111-->[:url_launcher_android] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:13-74
+111-->[:url_launcher_android] /Users/prabashdesilva/Desktop/LexChoice/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:13-74
 112            android:exported="false"
-112-->[:url_launcher_android] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:13-37
+112-->[:url_launcher_android] /Users/prabashdesilva/Desktop/LexChoice/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:13-37
 113            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-113-->[:url_launcher_android] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-71
+113-->[:url_launcher_android] /Users/prabashdesilva/Desktop/LexChoice/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-71
 114
 115        <provider
 115-->[androidx.emoji2:emoji2:1.2.0] /Users/prabashdesilva/.gradle/caches/transforms-3/b011a8ffdc3a977b120ab24aa1b09bb7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20

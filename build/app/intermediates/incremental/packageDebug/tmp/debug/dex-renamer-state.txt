@@ -1,10 +1,10 @@
-#Wed Mar 05 23:41:33 IST 2025
-base.0=/Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/app/intermediates/dex/debug/mergeExtDexDebug/classes.dex
-base.1=/Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/app/intermediates/dex/debug/mergeLibDexDebug/0/classes.dex
-base.2=/Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/app/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
-base.3=/Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/app/intermediates/dex/debug/mergeProjectDexDebug/1/classes.dex
-base.4=/Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/app/intermediates/dex/debug/mergeProjectDexDebug/8/classes.dex
-base.5=/Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/app/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
+#Fri Mar 07 23:37:34 IST 2025
+base.0=/Users/prabashdesilva/Desktop/LexChoice/build/app/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+base.1=/Users/prabashdesilva/Desktop/LexChoice/build/app/intermediates/dex/debug/mergeLibDexDebug/0/classes.dex
+base.2=/Users/prabashdesilva/Desktop/LexChoice/build/app/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
+base.3=/Users/prabashdesilva/Desktop/LexChoice/build/app/intermediates/dex/debug/mergeProjectDexDebug/1/classes.dex
+base.4=/Users/prabashdesilva/Desktop/LexChoice/build/app/intermediates/dex/debug/mergeProjectDexDebug/8/classes.dex
+base.5=/Users/prabashdesilva/Desktop/LexChoice/build/app/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=0/classes.dex

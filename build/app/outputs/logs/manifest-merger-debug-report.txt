@@ -1,11 +1,11 @@
 -- Merging decision tree log ---
 application
-INJECTED from /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/main/AndroidManifest.xml:2:5-33:19
-INJECTED from /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/debug/AndroidManifest.xml
-MERGED from [:firebase_storage] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-13:19
-MERGED from [:firebase_storage] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-13:19
-MERGED from [:firebase_core] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-13:19
-MERGED from [:firebase_core] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-13:19
+INJECTED from /Users/prabashdesilva/Desktop/LexChoice/android/app/src/main/AndroidManifest.xml:2:5-33:19
+INJECTED from /Users/prabashdesilva/Desktop/LexChoice/android/app/src/debug/AndroidManifest.xml
+MERGED from [:firebase_storage] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-13:19
+MERGED from [:firebase_storage] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-13:19
+MERGED from [:firebase_core] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-13:19
+MERGED from [:firebase_core] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-13:19
 MERGED from [com.google.firebase:firebase-storage:21.0.1] /Users/prabashdesilva/.gradle/caches/transforms-3/9e7d4d5d0010c3388127dcc158651311/transformed/jetified-firebase-storage-21.0.1/AndroidManifest.xml:26:5-37:19
 MERGED from [com.google.firebase:firebase-storage:21.0.1] /Users/prabashdesilva/.gradle/caches/transforms-3/9e7d4d5d0010c3388127dcc158651311/transformed/jetified-firebase-storage-21.0.1/AndroidManifest.xml:26:5-37:19
 MERGED from [com.google.firebase:firebase-appcheck:18.0.0] /Users/prabashdesilva/.gradle/caches/transforms-3/fb2c6a78c3ea6277185031625d5deeae/transformed/jetified-firebase-appcheck-18.0.0/AndroidManifest.xml:21:5-32:19
@@ -16,8 +16,8 @@ MERGED from [com.google.android.material:material:1.9.0] /Users/prabashdesilva/.
 MERGED from [com.google.android.material:material:1.9.0] /Users/prabashdesilva/.gradle/caches/transforms-3/5b4c355f9115b50c51e7f5f623641aa4/transformed/material-1.9.0/AndroidManifest.xml:24:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /Users/prabashdesilva/.gradle/caches/transforms-3/c422942ec6094462f7d4ed8c00dad669/transformed/constraintlayout-2.0.1/AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /Users/prabashdesilva/.gradle/caches/transforms-3/c422942ec6094462f7d4ed8c00dad669/transformed/constraintlayout-2.0.1/AndroidManifest.xml:9:5-20
-MERGED from [:url_launcher_android] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-12:19
-MERGED from [:url_launcher_android] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-12:19
+MERGED from [:url_launcher_android] /Users/prabashdesilva/Desktop/LexChoice/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-12:19
+MERGED from [:url_launcher_android] /Users/prabashdesilva/Desktop/LexChoice/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-12:19
 MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/prabashdesilva/.gradle/caches/transforms-3/b011a8ffdc3a977b120ab24aa1b09bb7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/prabashdesilva/.gradle/caches/transforms-3/b011a8ffdc3a977b120ab24aa1b09bb7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.window:window:1.2.0] /Users/prabashdesilva/.gradle/caches/transforms-3/9162cf22a9f1d8bce03ef88fd71812cb/transformed/jetified-window-1.2.0/AndroidManifest.xml:22:5-29:19
@@ -45,33 +45,33 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/prabashdesilva/.grad
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/prabashdesilva/.gradle/caches/transforms-3/bcf8a19e01f9c5e491260d0a868a1c96/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/prabashdesilva/.gradle/caches/transforms-3/bcf8a19e01f9c5e491260d0a868a1c96/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
 	android:extractNativeLibs
-		INJECTED from /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Users/prabashdesilva/Desktop/LexChoice/android/app/src/debug/AndroidManifest.xml
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.13.1] /Users/prabashdesilva/.gradle/caches/transforms-3/2c4eccc171290d66831f2af2778b865d/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
 	android:name
-		INJECTED from /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/prabashdesilva/Desktop/LexChoice/android/app/src/main/AndroidManifest.xml
 manifest
-ADDED from /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/main/AndroidManifest.xml:1:1-45:12
-MERGED from /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/main/AndroidManifest.xml:1:1-45:12
-INJECTED from /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/debug/AndroidManifest.xml:1:1-7:12
-INJECTED from /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/debug/AndroidManifest.xml:1:1-7:12
-INJECTED from /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/debug/AndroidManifest.xml:1:1-7:12
-MERGED from [:firebase_storage] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-15:12
-MERGED from [:firebase_core] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-15:12
+ADDED from /Users/prabashdesilva/Desktop/LexChoice/android/app/src/main/AndroidManifest.xml:1:1-45:12
+MERGED from /Users/prabashdesilva/Desktop/LexChoice/android/app/src/main/AndroidManifest.xml:1:1-45:12
+INJECTED from /Users/prabashdesilva/Desktop/LexChoice/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+INJECTED from /Users/prabashdesilva/Desktop/LexChoice/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+INJECTED from /Users/prabashdesilva/Desktop/LexChoice/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+MERGED from [:firebase_storage] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-15:12
+MERGED from [:firebase_core] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-15:12
 MERGED from [com.google.firebase:firebase-storage:21.0.1] /Users/prabashdesilva/.gradle/caches/transforms-3/9e7d4d5d0010c3388127dcc158651311/transformed/jetified-firebase-storage-21.0.1/AndroidManifest.xml:15:1-39:12
 MERGED from [com.google.firebase:firebase-appcheck:18.0.0] /Users/prabashdesilva/.gradle/caches/transforms-3/fb2c6a78c3ea6277185031625d5deeae/transformed/jetified-firebase-appcheck-18.0.0/AndroidManifest.xml:15:1-34:12
 MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/prabashdesilva/.gradle/caches/transforms-3/e9bbe994949499435fcc8e672c2a0430/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:2:1-18:12
-MERGED from [:wakelock_plus] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/wakelock_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:package_info_plus] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/package_info_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:wakelock_plus] /Users/prabashdesilva/Desktop/LexChoice/build/wakelock_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:package_info_plus] /Users/prabashdesilva/Desktop/LexChoice/build/package_info_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.material:material:1.9.0] /Users/prabashdesilva/.gradle/caches/transforms-3/5b4c355f9115b50c51e7f5f623641aa4/transformed/material-1.9.0/AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/prabashdesilva/.gradle/caches/transforms-3/7aadbd8fa792c924f27db55e91198d6e/transformed/jetified-appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /Users/prabashdesilva/.gradle/caches/transforms-3/c422942ec6094462f7d4ed8c00dad669/transformed/constraintlayout-2.0.1/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.6.1] /Users/prabashdesilva/.gradle/caches/transforms-3/d4f9aea749ddfbe417f877003f397369/transformed/appcompat-1.6.1/AndroidManifest.xml:17:1-22:12
-MERGED from [:url_launcher_android] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-14:12
-MERGED from [:connectivity_plus] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/connectivity_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
-MERGED from [:flutter_native_splash] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/flutter_native_splash/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:path_provider_android] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:video_player_android] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/video_player_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:url_launcher_android] /Users/prabashdesilva/Desktop/LexChoice/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-14:12
+MERGED from [:connectivity_plus] /Users/prabashdesilva/Desktop/LexChoice/build/connectivity_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:flutter_native_splash] /Users/prabashdesilva/Desktop/LexChoice/build/flutter_native_splash/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:path_provider_android] /Users/prabashdesilva/Desktop/LexChoice/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:video_player_android] /Users/prabashdesilva/Desktop/LexChoice/build/video_player_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.browser:browser:1.8.0] /Users/prabashdesilva/.gradle/caches/transforms-3/118e9e94d0be916d0f9aff57f82548a9/transformed/browser-1.8.0/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.media3:media3-extractor:1.4.1] /Users/prabashdesilva/.gradle/caches/transforms-3/5e44b4da1a362098b6543994e810798e/transformed/jetified-media3-extractor-1.4.1/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.media3:media3-container:1.4.1] /Users/prabashdesilva/.gradle/caches/transforms-3/840b3d697f5cbc82a98634ba772eaf48/transformed/jetified-media3-container-1.4.1/AndroidManifest.xml:17:1-22:12
@@ -135,49 +135,49 @@ MERGED from [androidx.window.extensions.core:core:1.0.0] /Users/prabashdesilva/.
 MERGED from [androidx.annotation:annotation-experimental:1.4.0] /Users/prabashdesilva/.gradle/caches/transforms-3/9ab4e9579ab5980539965f1297b237f9/transformed/jetified-annotation-experimental-1.4.0/AndroidManifest.xml:2:1-7:12
 MERGED from [com.getkeepsafe.relinker:relinker:1.4.5] /Users/prabashdesilva/.gradle/caches/transforms-3/0831d0da2cd7a6d716da79f8f3483a73/transformed/jetified-relinker-1.4.5/AndroidManifest.xml:2:1-7:12
 	package
-		INJECTED from /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Users/prabashdesilva/Desktop/LexChoice/android/app/src/debug/AndroidManifest.xml
 	android:versionName
-		INJECTED from /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Users/prabashdesilva/Desktop/LexChoice/android/app/src/debug/AndroidManifest.xml
 	android:versionCode
-		INJECTED from /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Users/prabashdesilva/Desktop/LexChoice/android/app/src/debug/AndroidManifest.xml
 	xmlns:android
-		ADDED from /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/main/AndroidManifest.xml:1:11-69
+		ADDED from /Users/prabashdesilva/Desktop/LexChoice/android/app/src/main/AndroidManifest.xml:1:11-69
 queries
-ADDED from /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/main/AndroidManifest.xml:39:5-44:15
+ADDED from /Users/prabashdesilva/Desktop/LexChoice/android/app/src/main/AndroidManifest.xml:39:5-44:15
 intent#action:name:android.intent.action.PROCESS_TEXT+data:mimeType:text/plain
-ADDED from /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/main/AndroidManifest.xml:40:9-43:18
+ADDED from /Users/prabashdesilva/Desktop/LexChoice/android/app/src/main/AndroidManifest.xml:40:9-43:18
 action#android.intent.action.PROCESS_TEXT
-ADDED from /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/main/AndroidManifest.xml:41:13-72
+ADDED from /Users/prabashdesilva/Desktop/LexChoice/android/app/src/main/AndroidManifest.xml:41:13-72
 	android:name
-		ADDED from /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/main/AndroidManifest.xml:41:21-70
+		ADDED from /Users/prabashdesilva/Desktop/LexChoice/android/app/src/main/AndroidManifest.xml:41:21-70
 data
-ADDED from /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/main/AndroidManifest.xml:42:13-50
+ADDED from /Users/prabashdesilva/Desktop/LexChoice/android/app/src/main/AndroidManifest.xml:42:13-50
 	android:mimeType
-		ADDED from /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/main/AndroidManifest.xml:42:19-48
+		ADDED from /Users/prabashdesilva/Desktop/LexChoice/android/app/src/main/AndroidManifest.xml:42:19-48
 uses-permission#android.permission.INTERNET
-ADDED from /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/debug/AndroidManifest.xml:6:5-66
+ADDED from /Users/prabashdesilva/Desktop/LexChoice/android/app/src/debug/AndroidManifest.xml:6:5-66
 MERGED from [com.google.firebase:firebase-storage:21.0.1] /Users/prabashdesilva/.gradle/caches/transforms-3/9e7d4d5d0010c3388127dcc158651311/transformed/jetified-firebase-storage-21.0.1/AndroidManifest.xml:24:5-67
 MERGED from [com.google.firebase:firebase-storage:21.0.1] /Users/prabashdesilva/.gradle/caches/transforms-3/9e7d4d5d0010c3388127dcc158651311/transformed/jetified-firebase-storage-21.0.1/AndroidManifest.xml:24:5-67
 	android:name
-		ADDED from /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/debug/AndroidManifest.xml:6:22-64
+		ADDED from /Users/prabashdesilva/Desktop/LexChoice/android/app/src/debug/AndroidManifest.xml:6:22-64
 uses-sdk
-INJECTED from /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/debug/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/debug/AndroidManifest.xml
-INJECTED from /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/debug/AndroidManifest.xml
-MERGED from [:firebase_storage] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:firebase_storage] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:firebase_core] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:firebase_core] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+INJECTED from /Users/prabashdesilva/Desktop/LexChoice/android/app/src/debug/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/prabashdesilva/Desktop/LexChoice/android/app/src/debug/AndroidManifest.xml
+INJECTED from /Users/prabashdesilva/Desktop/LexChoice/android/app/src/debug/AndroidManifest.xml
+MERGED from [:firebase_storage] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:firebase_storage] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:firebase_core] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:firebase_core] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-storage:21.0.1] /Users/prabashdesilva/.gradle/caches/transforms-3/9e7d4d5d0010c3388127dcc158651311/transformed/jetified-firebase-storage-21.0.1/AndroidManifest.xml:19:5-44
 MERGED from [com.google.firebase:firebase-storage:21.0.1] /Users/prabashdesilva/.gradle/caches/transforms-3/9e7d4d5d0010c3388127dcc158651311/transformed/jetified-firebase-storage-21.0.1/AndroidManifest.xml:19:5-44
 MERGED from [com.google.firebase:firebase-appcheck:18.0.0] /Users/prabashdesilva/.gradle/caches/transforms-3/fb2c6a78c3ea6277185031625d5deeae/transformed/jetified-firebase-appcheck-18.0.0/AndroidManifest.xml:18:5-44
 MERGED from [com.google.firebase:firebase-appcheck:18.0.0] /Users/prabashdesilva/.gradle/caches/transforms-3/fb2c6a78c3ea6277185031625d5deeae/transformed/jetified-firebase-appcheck-18.0.0/AndroidManifest.xml:18:5-44
 MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/prabashdesilva/.gradle/caches/transforms-3/e9bbe994949499435fcc8e672c2a0430/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/prabashdesilva/.gradle/caches/transforms-3/e9bbe994949499435fcc8e672c2a0430/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:5:5-44
-MERGED from [:wakelock_plus] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/wakelock_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:wakelock_plus] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/wakelock_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:package_info_plus] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/package_info_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:package_info_plus] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/package_info_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:wakelock_plus] /Users/prabashdesilva/Desktop/LexChoice/build/wakelock_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:wakelock_plus] /Users/prabashdesilva/Desktop/LexChoice/build/wakelock_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:package_info_plus] /Users/prabashdesilva/Desktop/LexChoice/build/package_info_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:package_info_plus] /Users/prabashdesilva/Desktop/LexChoice/build/package_info_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.material:material:1.9.0] /Users/prabashdesilva/.gradle/caches/transforms-3/5b4c355f9115b50c51e7f5f623641aa4/transformed/material-1.9.0/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.material:material:1.9.0] /Users/prabashdesilva/.gradle/caches/transforms-3/5b4c355f9115b50c51e7f5f623641aa4/transformed/material-1.9.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/prabashdesilva/.gradle/caches/transforms-3/7aadbd8fa792c924f27db55e91198d6e/transformed/jetified-appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
@@ -186,16 +186,16 @@ MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /Users/prabashdes
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /Users/prabashdesilva/.gradle/caches/transforms-3/c422942ec6094462f7d4ed8c00dad669/transformed/constraintlayout-2.0.1/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.appcompat:appcompat:1.6.1] /Users/prabashdesilva/.gradle/caches/transforms-3/d4f9aea749ddfbe417f877003f397369/transformed/appcompat-1.6.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.6.1] /Users/prabashdesilva/.gradle/caches/transforms-3/d4f9aea749ddfbe417f877003f397369/transformed/appcompat-1.6.1/AndroidManifest.xml:20:5-44
-MERGED from [:url_launcher_android] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:url_launcher_android] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:connectivity_plus] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/connectivity_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:connectivity_plus] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/connectivity_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:flutter_native_splash] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/flutter_native_splash/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:flutter_native_splash] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/flutter_native_splash/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:path_provider_android] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:path_provider_android] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:video_player_android] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/video_player_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:video_player_android] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/video_player_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:url_launcher_android] /Users/prabashdesilva/Desktop/LexChoice/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:url_launcher_android] /Users/prabashdesilva/Desktop/LexChoice/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:connectivity_plus] /Users/prabashdesilva/Desktop/LexChoice/build/connectivity_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:connectivity_plus] /Users/prabashdesilva/Desktop/LexChoice/build/connectivity_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_native_splash] /Users/prabashdesilva/Desktop/LexChoice/build/flutter_native_splash/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_native_splash] /Users/prabashdesilva/Desktop/LexChoice/build/flutter_native_splash/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:path_provider_android] /Users/prabashdesilva/Desktop/LexChoice/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:path_provider_android] /Users/prabashdesilva/Desktop/LexChoice/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:video_player_android] /Users/prabashdesilva/Desktop/LexChoice/build/video_player_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:video_player_android] /Users/prabashdesilva/Desktop/LexChoice/build/video_player_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [androidx.browser:browser:1.8.0] /Users/prabashdesilva/.gradle/caches/transforms-3/118e9e94d0be916d0f9aff57f82548a9/transformed/browser-1.8.0/AndroidManifest.xml:5:5-44
 MERGED from [androidx.browser:browser:1.8.0] /Users/prabashdesilva/.gradle/caches/transforms-3/118e9e94d0be916d0f9aff57f82548a9/transformed/browser-1.8.0/AndroidManifest.xml:5:5-44
 MERGED from [androidx.media3:media3-extractor:1.4.1] /Users/prabashdesilva/.gradle/caches/transforms-3/5e44b4da1a362098b6543994e810798e/transformed/jetified-media3-extractor-1.4.1/AndroidManifest.xml:20:5-44
@@ -321,13 +321,13 @@ MERGED from [androidx.annotation:annotation-experimental:1.4.0] /Users/prabashde
 MERGED from [com.getkeepsafe.relinker:relinker:1.4.5] /Users/prabashdesilva/.gradle/caches/transforms-3/0831d0da2cd7a6d716da79f8f3483a73/transformed/jetified-relinker-1.4.5/AndroidManifest.xml:5:5-43
 MERGED from [com.getkeepsafe.relinker:relinker:1.4.5] /Users/prabashdesilva/.gradle/caches/transforms-3/0831d0da2cd7a6d716da79f8f3483a73/transformed/jetified-relinker-1.4.5/AndroidManifest.xml:5:5-43
 	android:targetSdkVersion
-		INJECTED from /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Users/prabashdesilva/Desktop/LexChoice/android/app/src/debug/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Users/prabashdesilva/Desktop/LexChoice/android/app/src/debug/AndroidManifest.xml
 service#com.google.firebase.components.ComponentDiscoveryService
-ADDED from [:firebase_storage] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-12:19
-MERGED from [:firebase_core] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-12:19
-MERGED from [:firebase_core] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-12:19
+ADDED from [:firebase_storage] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-12:19
+MERGED from [:firebase_core] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-12:19
+MERGED from [:firebase_core] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-12:19
 MERGED from [com.google.firebase:firebase-storage:21.0.1] /Users/prabashdesilva/.gradle/caches/transforms-3/9e7d4d5d0010c3388127dcc158651311/transformed/jetified-firebase-storage-21.0.1/AndroidManifest.xml:27:9-36:19
 MERGED from [com.google.firebase:firebase-storage:21.0.1] /Users/prabashdesilva/.gradle/caches/transforms-3/9e7d4d5d0010c3388127dcc158651311/transformed/jetified-firebase-storage-21.0.1/AndroidManifest.xml:27:9-36:19
 MERGED from [com.google.firebase:firebase-appcheck:18.0.0] /Users/prabashdesilva/.gradle/caches/transforms-3/fb2c6a78c3ea6277185031625d5deeae/transformed/jetified-firebase-appcheck-18.0.0/AndroidManifest.xml:22:9-31:19
@@ -343,23 +343,23 @@ MERGED from [com.google.firebase:firebase-common:21.0.0] /Users/prabashdesilva/.
 	android:directBootAware
 		ADDED from [com.google.firebase:firebase-common:21.0.0] /Users/prabashdesilva/.gradle/caches/transforms-3/5f8f91a97205c39eda41b2b6b1678f15/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:32:13-43
 	android:name
-		ADDED from [:firebase_storage] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:8:18-89
+		ADDED from [:firebase_storage] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:8:18-89
 meta-data#com.google.firebase.components:io.flutter.plugins.firebase.storage.FlutterFirebaseAppRegistrar
-ADDED from [:firebase_storage] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:9:13-11:85
+ADDED from [:firebase_storage] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:9:13-11:85
 	android:value
-		ADDED from [:firebase_storage] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:11:17-82
+		ADDED from [:firebase_storage] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:11:17-82
 	android:name
-		ADDED from [:firebase_storage] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:10:17-126
+		ADDED from [:firebase_storage] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:10:17-126
 meta-data#com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar
-ADDED from [:firebase_core] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:9:13-11:85
+ADDED from [:firebase_core] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:9:13-11:85
 	android:value
-		ADDED from [:firebase_core] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:11:17-82
+		ADDED from [:firebase_core] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:11:17-82
 	android:name
-		ADDED from [:firebase_core] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:10:17-124
+		ADDED from [:firebase_core] /Users/prabashdesilva/Desktop/LexChoice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:10:17-124
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [com.google.firebase:firebase-storage:21.0.1] /Users/prabashdesilva/.gradle/caches/transforms-3/9e7d4d5d0010c3388127dcc158651311/transformed/jetified-firebase-storage-21.0.1/AndroidManifest.xml:23:5-79
-MERGED from [:connectivity_plus] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/connectivity_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-79
-MERGED from [:connectivity_plus] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/connectivity_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-79
+MERGED from [:connectivity_plus] /Users/prabashdesilva/Desktop/LexChoice/build/connectivity_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-79
+MERGED from [:connectivity_plus] /Users/prabashdesilva/Desktop/LexChoice/build/connectivity_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-79
 MERGED from [androidx.media3:media3-common:1.4.1] /Users/prabashdesilva/.gradle/caches/transforms-3/866952954f8b9eec44035dc8b143df81/transformed/jetified-media3-common-1.4.1/AndroidManifest.xml:22:5-79
 MERGED from [androidx.media3:media3-common:1.4.1] /Users/prabashdesilva/.gradle/caches/transforms-3/866952954f8b9eec44035dc8b143df81/transformed/jetified-media3-common-1.4.1/AndroidManifest.xml:22:5-79
 MERGED from [androidx.media3:media3-exoplayer:1.4.1] /Users/prabashdesilva/.gradle/caches/transforms-3/86422992012525ff47d9649a9f2a9bc8/transformed/jetified-media3-exoplayer-1.4.1/AndroidManifest.xml:22:5-79
@@ -397,13 +397,13 @@ ADDED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/prabashdesilv
 	android:name
 		ADDED from [com.google.firebase:firebase-common-ktx:21.0.0] /Users/prabashdesilva/.gradle/caches/transforms-3/e9bbe994949499435fcc8e672c2a0430/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:13:17-116
 activity#io.flutter.plugins.urllauncher.WebViewActivity
-ADDED from [:url_launcher_android] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-11:74
+ADDED from [:url_launcher_android] /Users/prabashdesilva/Desktop/LexChoice/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-11:74
 	android:exported
-		ADDED from [:url_launcher_android] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:13-37
+		ADDED from [:url_launcher_android] /Users/prabashdesilva/Desktop/LexChoice/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:13-37
 	android:theme
-		ADDED from [:url_launcher_android] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-71
+		ADDED from [:url_launcher_android] /Users/prabashdesilva/Desktop/LexChoice/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-71
 	android:name
-		ADDED from [:url_launcher_android] /Users/prabashdesilva/Downloads/LexChoice-Frontend_suvindu/lexchoice/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:13-74
+		ADDED from [:url_launcher_android] /Users/prabashdesilva/Desktop/LexChoice/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:13-74
 provider#androidx.startup.InitializationProvider
 ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/prabashdesilva/.gradle/caches/transforms-3/b011a8ffdc3a977b120ab24aa1b09bb7/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
 MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/prabashdesilva/.gradle/caches/transforms-3/181bb416f3be7508701a79e7c7fd5c20/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:24:9-32:20
