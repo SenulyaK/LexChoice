@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:lexchoice/game/widgets/HomeConfirmationDialog.dart';
 import 'package:lexchoice/utils/theme/custom_themes/glowing_button.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
-
+import 'package:lexchoice/game/widgets/congratulations_dialog.dart';
 
 class LilaGameScreen extends StatefulWidget {
   @override
@@ -41,6 +41,8 @@ class _LilaGameScreenState extends State<LilaGameScreen> {
           selectedChoice = null;
         });
       });
+    } else {
+      CongratulationsDialog.showCongratulationsDialog(context);
     }
   }
 
@@ -191,6 +193,25 @@ class _LilaGameScreenState extends State<LilaGameScreen> {
                   Icons.arrow_forward,
                   color: Colors.black,
                   size: 28,
+                ),
+              ),
+            ),
+
+          // Finish Button (Only on last slide)
+          if (_currentGifIndex == _totalGifs)
+            Positioned(
+              bottom: 20,
+              right: 20,
+              child: GlowingButton(
+                color1: Colors.red,
+                color2: Colors.yellowAccent,
+                onPressed: () {
+                  CongratulationsDialog.showCongratulationsDialog(context);
+                },
+                child: const Icon(
+                  Icons.flag, // Finish flag icon
+                  color: Colors.black,
+                  size: 28, // Adjust size as needed
                 ),
               ),
             ),
