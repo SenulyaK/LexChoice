@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/utils/constants/sizes.dart';
+import 'package:url_launcher/url_launcher.dart'; // Import the package
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -37,6 +38,19 @@ class _SettingsPageState extends State<SettingsPage> {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Logging out...')),
     );
+    // TODO: Navigate user to Login screen after logout
+  }
+
+  // Function to launch URL
+  void _launchURL(String url) async {
+    final Uri uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Could not open the website')),
+      );
+    }
   }
 
   @override
@@ -75,7 +89,15 @@ class _SettingsPageState extends State<SettingsPage> {
             _buildSectionTitle('About & Help ❓'),
             _buildInfoTile('Game Instructions', Icons.help_outline),
             _buildInfoTile('Privacy Policy & Terms', Icons.lock_outline),
-            _buildInfoTile('Support & Contact Info', Icons.contact_support),
+
+            // Updated "Support & Contact Info" to open a website
+            _buildInfoTile(
+              'Support & Contact Info',
+              Icons.contact_support,
+              onTap: () => _launchURL(
+                  'https://lex-choice-website.vercel.app/'), // Replace with your actual website
+            ),
+
             const SizedBox(height: 20),
             _buildLogoutButton(),
           ],
@@ -92,7 +114,7 @@ class _SettingsPageState extends State<SettingsPage> {
         style: TextStyle(
           fontSize: LCSizes.fontSizeMd,
           fontWeight: FontWeight.w900,
-          color: const Color.fromARGB(255, 255, 255, 255),
+          color: Colors.white,
         ),
       ),
     );
@@ -151,7 +173,7 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
-  Widget _buildInfoTile(String title, IconData icon) {
+  Widget _buildInfoTile(String title, IconData icon, {VoidCallback? onTap}) {
     return ListTile(
       contentPadding: EdgeInsets.zero,
       leading: Icon(icon, color: LCColors.primary),
@@ -162,12 +184,12 @@ class _SettingsPageState extends State<SettingsPage> {
           fontWeight: FontWeight.w500,
         ),
       ),
-      onTap: () {
-        // Add navigation or dialog functionality here
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('$title tapped')),
-        );
-      },
+      onTap: onTap ??
+          () {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('$title tapped')),
+            );
+          },
     );
   }
 
