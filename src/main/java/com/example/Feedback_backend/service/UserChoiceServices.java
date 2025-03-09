@@ -15,8 +15,8 @@ public class UserChoiceServices {
         this.userChoiceRepository = userChoiceRepository;
     }
 
-    public UserChoiceServices(UserChoiceRepository userChoiceRepository) {
-        this.userChoiceRepository = userChoiceRepository;
+    public List<UserChoice> getUserChoices(String userId) {
+        return userChoiceRepository.findByUserId(userId);
     }
-    
+
 }
