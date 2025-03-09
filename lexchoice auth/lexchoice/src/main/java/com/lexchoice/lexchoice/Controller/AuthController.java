@@ -1,42 +1,38 @@
 package com.lexchoice.lexchoice.controller;
 
-import com.lexchoice.lexchoice.dto.AuthRequest;
-import com.lexchoice.lexchoice.dto.AuthResponse;
-import com.lexchoice.lexchoice.service.AuthService;
-import com.lexchoice.lexchoice.config.JwtUtil;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
+import com.lexchoice.lexchoice.model.User;
+import com.lexchoice.lexchoice.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/auth")
 public class AuthController {
 
-    private final AuthenticationManager authenticationManager;
-    private final JwtUtil jwtUtil;
-    private final UserDetailsService userDetailsService;
-    private final AuthService authService;
+    @Autowired
+    private UserService userService;
 
-    public AuthController(AuthenticationManager authenticationManager, JwtUtil jwtUtil, 
-                          UserDetailsService userDetailsService, AuthService authService) {
-        this.authenticationManager = authenticationManager;
-        this.jwtUtil = jwtUtil;
-        this.userDetailsService = userDetailsService;
-        this.authService = authService;
+    @PostMapping("/register")
+    public Map<String, String> registerUser(@RequestBody User user) {
+        userService.registerUser(user);
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "User registered successfully!");
+        return response;
     }
 
     @PostMapping("/login")
-    public ResponseEntity<AuthResponse> login(@RequestBody AuthRequest request) {
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())
-        );
-
-        UserDetails userDetails = userDetailsService.loadUserByUsername(request.getUsername());
-        String token = jwtUtil.generateToken(userDetails.getUsername());
-
-        return ResponseEntity.ok(new AuthResponse(token));
+    public Map<String, String> loginUser(@RequestBody Map<String, String> credentials) {
+        String token = userService.loginUser(credentials.get("email"), credentials.get("password"));
+        Map<String, String> response = new HashMap<>();
+        if (token != null) {
+            response.put("token", token);
+            response.put("message", "Login successful!");
+        } else {
+            response.put("message", "Invalid credentials");
+        }
+        return response;
     }
 }
