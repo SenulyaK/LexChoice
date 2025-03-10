@@ -20,32 +20,42 @@ class FeedbackSelectionScreen extends StatelessWidget {
           "Feedback",
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
-        backgroundColor: LCColors.appBarColor,
+        backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
       ),
       body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              // Check if the current theme is dark or light
+              Theme.of(context).brightness == Brightness.dark
+                  ? LCColors.secondary // Dark mode colors
+                  : Colors.white, // Light mode colors
+              Theme.of(context).brightness == Brightness.dark
+                  ? LCColors.background // Dark mode colors
+                  : LCColors.darkGrey, // Light mode colors
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
         padding: const EdgeInsets.all(LCSizes.md),
-        color: LCColors.background,
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: 20), // Prevents edge-to-edge buttons
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment:
-                  CrossAxisAlignment.stretch, // Expands buttons horizontally
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: stories.map((story) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: LCSizes.sm),
                   child: SizedBox(
-                    width:
-                        double.infinity, // Makes the button expand horizontally
+                    width: double.infinity,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: LCColors.primary,
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 16), // Adjust button height
+                        padding: const EdgeInsets.symmetric(vertical: 16),
                         shape: RoundedRectangleBorder(
                           borderRadius:
                               BorderRadius.circular(LCSizes.borderRadiusMd),
