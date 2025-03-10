@@ -12,5 +12,13 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.lexchoice.filter.JwtRequestFilter;
 
+@Configuration
+@EnableWebSecurity
 public class SecurityConfig {
-}
+
+    private final JwtRequestFilter jwtRequestFilter;
+
+    public SecurityConfig(JwtRequestFilter jwtRequestFilter) {
+        this.jwtRequestFilter = jwtRequestFilter;
+    }
+
