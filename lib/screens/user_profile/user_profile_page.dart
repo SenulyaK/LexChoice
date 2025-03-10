@@ -20,11 +20,26 @@ class UserProfilePage extends StatelessWidget {
           "User Profile",
           style: TextStyle(fontWeight: FontWeight.w600),
         ),
-        backgroundColor: LCColors.primary,
+        backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
       ),
-      body: Padding(
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              // Check if the current theme is dark or light
+              Theme.of(context).brightness == Brightness.dark
+                  ? LCColors.secondary // Dark mode colors
+                  : Colors.white, // Light mode colors
+              Theme.of(context).brightness == Brightness.dark
+                  ? LCColors.background // Dark mode colors
+                  : LCColors.darkGrey, // Light mode colors
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
         padding: EdgeInsets.all(LCSizes.md),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
