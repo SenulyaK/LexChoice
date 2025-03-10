@@ -3,9 +3,13 @@ package com.lexchoice.lexchoice.controller;
 import com.lexchoice.lexchoice.model.User;
 import com.lexchoice.lexchoice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.Map;
 
 @RestController
@@ -15,24 +19,26 @@ public class AuthController {
     @Autowired
     private UserService userService;
 
+    private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
+
     @PostMapping("/register")
-    public Map<String, String> registerUser(@RequestBody User user) {
+    public ResponseEntity<Map<String, String>> registerUser(@RequestBody User user) {
+        logger.info("📩 Received REGISTER request: {}", user); // Log request input
         userService.registerUser(user);
-        Map<String, String> response = new HashMap<>();
-        response.put("message", "User registered successfully!");
-        return response;
+        return ResponseEntity.ok(Collections.singletonMap("message", "User registered successfully!"));
     }
 
     @PostMapping("/login")
-    public Map<String, String> loginUser(@RequestBody Map<String, String> credentials) {
+    public ResponseEntity<Map<String, String>> loginUser(@RequestBody Map<String, String> credentials) {
+        logger.info("🔑 Received LOGIN request for email: {}", credentials.get("email")); // Log request input
+
         String token = userService.loginUser(credentials.get("email"), credentials.get("password"));
-        Map<String, String> response = new HashMap<>();
         if (token != null) {
-            response.put("token", token);
-            response.put("message", "Login successful!");
+            logger.info("✅ Login successful for email: {}", credentials.get("email"));
+            return ResponseEntity.ok(Collections.singletonMap("token", token));
         } else {
-            response.put("message", "Invalid credentials");
+            logger.warn("❌ Login FAILED for email: {}", credentials.get("email"));
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Collections.singletonMap("message", "Invalid credentials"));
         }
-        return response;
     }
 }
