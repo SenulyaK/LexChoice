@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface UserChoiceRepository extends JpaRepository<UserChoice, Long> {
-    List<UserChoice> findByUserId(String userId);
+    List<UserChoice> findByUserId(String userId);  //Finds all choices made by a specific user
 }
