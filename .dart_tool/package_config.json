@@ -21,7 +21,7 @@
     },
     {
       "name": "archive",
-      "rootUri": "file:///Users/prabashdesilva/.pub-cache/hosted/pub.dev/archive-4.0.3",
+      "rootUri": "file:///Users/prabashdesilva/.pub-cache/hosted/pub.dev/archive-4.0.4",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -357,9 +357,9 @@
     },
     {
       "name": "path_provider_android",
-      "rootUri": "file:///Users/prabashdesilva/.pub-cache/hosted/pub.dev/path_provider_android-2.2.15",
+      "rootUri": "file:///Users/prabashdesilva/.pub-cache/hosted/pub.dev/path_provider_android-2.2.16",
       "packageUri": "lib/",
-      "languageVersion": "3.5"
+      "languageVersion": "3.6"
     },
     {
       "name": "path_provider_foundation",
@@ -489,9 +489,9 @@
     },
     {
       "name": "url_launcher_android",
-      "rootUri": "file:///Users/prabashdesilva/.pub-cache/hosted/pub.dev/url_launcher_android-6.3.14",
+      "rootUri": "file:///Users/prabashdesilva/.pub-cache/hosted/pub.dev/url_launcher_android-6.3.15",
       "packageUri": "lib/",
-      "languageVersion": "3.5"
+      "languageVersion": "3.6"
     },
     {
       "name": "url_launcher_ios",
@@ -543,7 +543,7 @@
     },
     {
       "name": "video_player_android",
-      "rootUri": "file:///Users/prabashdesilva/.pub-cache/hosted/pub.dev/video_player_android-2.7.17",
+      "rootUri": "file:///Users/prabashdesilva/.pub-cache/hosted/pub.dev/video_player_android-2.8.1",
       "packageUri": "lib/",
       "languageVersion": "3.6"
     },
@@ -620,7 +620,7 @@
       "languageVersion": "3.6"
     }
   ],
-  "generated": "2025-03-08T08:53:21.486495Z",
+  "generated": "2025-03-09T20:51:13.872421Z",
   "generator": "pub",
   "generatorVersion": "3.7.0",
   "flutterRoot": "file:///Users/prabashdesilva/development/flutter",

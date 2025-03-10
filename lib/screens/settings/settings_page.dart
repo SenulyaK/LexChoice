@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/utils/constants/sizes.dart';
-import 'package:url_launcher/url_launcher.dart'; // Import the package
+import 'package:url_launcher/url_launcher.dart';
+import 'package:lexchoice/screens/authentication/screens/login/login.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -38,7 +41,7 @@ class _SettingsPageState extends State<SettingsPage> {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Logging out...')),
     );
-    // TODO: Navigate user to Login screen after logout
+    Get.offAll(() => const LoginScreen());
   }
 
   // Function to launch URL
@@ -94,8 +97,9 @@ class _SettingsPageState extends State<SettingsPage> {
             _buildInfoTile(
               'Support & Contact Info',
               Icons.contact_support,
-              onTap: () => _launchURL(
-                  'https://lex-choice-website.vercel.app/'), // Replace with your actual website
+              onTap: () {
+                _launchURL('https://lex-choice-website.vercel.app/');
+              },
             ),
 
             const SizedBox(height: 20),

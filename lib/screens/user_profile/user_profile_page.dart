@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:lexchoice/screens/user_profile/edit_profile_screen.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/utils/constants/sizes.dart';
+import 'package:get/get.dart';
 
 class UserProfilePage extends StatelessWidget {
   const UserProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Assuming these are the current user details
+    String currentName = "John Doe";
+    String currentEmail = "john.doe@example.com";
+    String currentPassword = "password123"; // Just for demonstration
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -29,20 +36,19 @@ class UserProfilePage extends StatelessWidget {
                   CircleAvatar(
                     radius: 50,
                     backgroundColor: LCColors.light,
-                    backgroundImage: AssetImage(
-                        'assets/avatars/avatar1.png'), // Default avatar
+                    backgroundImage: AssetImage('assets/avatars/avatar1.png'),
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    "John Doe", // Sample Name
+                    currentName,
                     style: TextStyle(
                       fontSize: LCSizes.fontSizeMd,
                       fontWeight: FontWeight.w700,
-                      color: Colors.white, // Changed to white
+                      color: Colors.white,
                     ),
                   ),
                   Text(
-                    "john.doe@example.com", // Sample Email
+                    currentEmail,
                     style: TextStyle(
                       fontSize: LCSizes.fontSizeSm,
                       color: LCColors.textSecondary,
@@ -55,9 +61,30 @@ class UserProfilePage extends StatelessWidget {
             const SizedBox(height: 20),
 
             // Editable Settings
-            _buildSettingsTile(context, "Change Display Name", Icons.edit),
-            _buildSettingsTile(context, "Change Email", Icons.email),
-            _buildSettingsTile(context, "Change Password", Icons.lock),
+            _buildSettingsTile(context, "Change Display Name", Icons.edit, () {
+              // Passing required parameters to the EditProfileScreen
+              Get.to(() => EditProfileScreen(
+                    initialName: currentName,
+                    initialEmail: currentEmail,
+                    initialPassword: currentPassword,
+                  ));
+            }),
+            _buildSettingsTile(context, "Change Email", Icons.email, () {
+              // Passing required parameters to the EditProfileScreen
+              Get.to(() => EditProfileScreen(
+                    initialName: currentName,
+                    initialEmail: currentEmail,
+                    initialPassword: currentPassword,
+                  ));
+            }),
+            _buildSettingsTile(context, "Change Password", Icons.lock, () {
+              // Passing required parameters to the EditProfileScreen
+              Get.to(() => EditProfileScreen(
+                    initialName: currentName,
+                    initialEmail: currentEmail,
+                    initialPassword: currentPassword,
+                  ));
+            }),
 
             const SizedBox(height: 20),
 
@@ -67,7 +94,7 @@ class UserProfilePage extends StatelessWidget {
               style: TextStyle(
                 fontSize: LCSizes.fontSizeMd,
                 fontWeight: FontWeight.w700,
-                color: Colors.white, // Changed to white
+                color: Colors.white,
               ),
             ),
             const SizedBox(height: 10),
@@ -86,7 +113,8 @@ class UserProfilePage extends StatelessWidget {
   }
 
   // Reusable Settings Tile
-  Widget _buildSettingsTile(BuildContext context, String title, IconData icon) {
+  Widget _buildSettingsTile(
+      BuildContext context, String title, IconData icon, VoidCallback onTap) {
     return ListTile(
       contentPadding: EdgeInsets.zero,
       leading: Icon(icon, color: LCColors.primary),
@@ -97,11 +125,7 @@ class UserProfilePage extends StatelessWidget {
       ),
       trailing: Icon(Icons.arrow_forward_ios,
           size: 16, color: LCColors.textSecondary),
-      onTap: () {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('$title tapped!')),
-        );
-      },
+      onTap: onTap,
     );
   }
 
