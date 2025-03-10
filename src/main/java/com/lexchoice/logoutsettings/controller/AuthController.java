@@ -13,5 +13,16 @@ public class AuthController {
         this.tokenBlacklistService = tokenBlacklistService;
     }
 
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout(@RequestHeader("Authorization") String authHeader) {
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            return ResponseEntity.badRequest().body("Invalid token");
+        }
+        String token = authHeader.substring(7);
+        tokenBlacklistService.blacklistToken(token);
+        return ResponseEntity.ok("Logged out successfully");
+    }
+}
+
 
 
