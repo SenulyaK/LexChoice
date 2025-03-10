@@ -1,4 +1,6 @@
 import 'package:lexchoice/utils/constants/image_strings.dart';
+import 'package:lexchoice/game/game_lila.dart';
+import 'package:lexchoice/game/game_ravi.dart';
 
 class Story {
   String storyTitle;
@@ -10,6 +12,23 @@ class Story {
 
   Story(this.storyTitle, this.type, this.description, this.lawName, this.imgUrl,
       this.height);
+
+  dynamic getGameScreen() {
+    switch (storyTitle) {
+      case "Lila's Choice":
+        return LilaGameScreen();
+      case "Ravi's Future":
+        return RaviGameScreen();
+      case "Aarya's Decisions":
+        print("error: unknown story title");
+        ;
+      case "Amy’s Cyber Rules":
+        print("error: unknown story title");
+        ;
+      default:
+        print("error: unknown story title");
+    }
+  }
 
   static List<Story> generateStories() {
     return [
