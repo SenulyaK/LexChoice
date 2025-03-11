@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lexchoice/screens/feedback_screen/topic2_feedback.dart';
 import 'package:lexchoice/screens/feedback_screen/topic3_feedback.dart';
+import 'package:lexchoice/screens/feedback_screen/topic4_feedback.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/utils/constants/sizes.dart';
 import 'package:lexchoice/screens/feedback_screen/topic1_feedback.dart';
@@ -49,7 +50,8 @@ class FeedbackSelectionScreen extends StatelessWidget {
                     const DetailedFeedbackScreenTopic2()),
                 _buildFeedbackButton(context, "Ravi’s Future",
                     const DetailedFeedbackScreenTopic3()),
-                _buildFeedbackButton(context, "Dillon’s Traffic Trouble", null),
+                _buildFeedbackButton(context, "Dillon’s Traffic Trouble",
+                    const DetailedFeedbackScreenTopic4()),
               ],
             ),
           ),
