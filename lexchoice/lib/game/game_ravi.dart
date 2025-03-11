@@ -10,14 +10,14 @@ class RaviGameScreen extends BaseGameScreen {
           assetPrefix: "assets/stories/ravi", // Ravi's asset path
           choiceSlides: {
             19: {
-              "A. Trust the stranger and follow him.": false,
-              "B. Politely refuse and find a safe place.": true,
-              "C. Call a friend and tell them first.": false,
+              "A. Tell his mother he wants to stay in school and look for other solutions.": true,
+              "B. Accept the job because his family needs money.": false,
+              "C. Stay silent and hope the problem goes away": false,
             },
             33: {
-              "A. Ignore the warning and keep the secret.": false,
-              "B. Talk to a trusted adult for guidance.": true,
-              "C. Keep quiet because you don't want trouble.": false,
+              "A. To stop children from helping their families.": false,
+              "B. To protect children’s health, education, and future.": true,
+              "C. Because adults don’t want children to work.": false,
             }
           },
         );

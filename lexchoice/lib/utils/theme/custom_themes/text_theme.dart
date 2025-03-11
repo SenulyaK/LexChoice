@@ -45,14 +45,14 @@ class LCTextTheme {
     titleMedium: GoogleFonts.poppins(
         fontSize: 16.0, fontWeight: FontWeight.w500, color: Colors.white),
     titleSmall: GoogleFonts.poppins(
-        fontSize: 14.0, fontWeight: FontWeight.w100, color: Colors.white),
+        fontSize: 14.0, fontWeight: FontWeight.w300, color: Colors.white),
     bodyLarge: GoogleFonts.poppins(
-        fontSize: 14.0, fontWeight: FontWeight.w100, color: Colors.white),
+        fontSize: 14.0, fontWeight: FontWeight.w200, color: Colors.white),
     bodyMedium: GoogleFonts.poppins(
-        fontSize: 14.0, fontWeight: FontWeight.w100, color: Colors.white),
+        fontSize: 14.0, fontWeight: FontWeight.w200, color: Colors.white),
     bodySmall: GoogleFonts.poppins(
         fontSize: 14.0,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w100,
         color: Colors.white.withOpacity(0.5)),
     labelLarge: GoogleFonts.poppins(
         fontSize: 12.0, fontWeight: FontWeight.normal, color: Colors.white),

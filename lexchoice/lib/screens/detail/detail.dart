@@ -128,7 +128,6 @@ class DetailPage extends StatelessWidget {
                 const SizedBox(height: 17),
 
                 /// Button
-                /// Button
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(

@@ -5,11 +5,13 @@ import 'package:lexchoice/utils/theme/custom_themes/glowing_button.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/game/widgets/congratulations_dialog.dart';
 
+// Abstract base class for game screens
 abstract class BaseGameScreen extends StatefulWidget {
-  final int totalGifs;
-  final String storyTitle;
-  final String assetPrefix;
-  final Map<int, Map<String, bool>> choiceSlides;
+  final int totalGifs; // Total number of GIFs in the story
+  final String storyTitle; // Title of the story
+  final String assetPrefix; // Path prefix for assets
+  final Map<int, Map<String, bool>>
+      choiceSlides; // Map of choices for interactive slides
 
   const BaseGameScreen({
     required this.totalGifs,
@@ -20,11 +22,13 @@ abstract class BaseGameScreen extends StatefulWidget {
   }) : super(key: key);
 }
 
+// Abstract state class to manage game logic
 abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
-  int _currentGifIndex = 1;
-  double _opacity = 1.0;
-  String? selectedChoice;
+  int _currentGifIndex = 1; // Current GIF index
+  double _opacity = 1.0; // Opacity for GIF transitions
+  String? selectedChoice; // Stores the selected choice
 
+// Advances to the next GIF or shows the congratulations dialog
   void _nextGif() {
     if (_currentGifIndex < widget.totalGifs) {
       setState(() => _opacity = 0.0);
@@ -40,6 +44,7 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
     }
   }
 
+// Moves back to the previous GIF
   void _previousGif() {
     if (_currentGifIndex > 1) {
       setState(() => _opacity = 0.0);
@@ -52,12 +57,14 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
     }
   }
 
+// Handles choice selection and checks if it's correct
   void _selectChoice(String choice) {
     bool isCorrect = widget.choiceSlides[_currentGifIndex]![choice]!;
     setState(() => selectedChoice = choice);
     isCorrect ? _nextGif() : _showTryAgainDialog();
   }
 
+// Displays a "Try Again" dialog for incorrect choices
   void _showTryAgainDialog() {
     showDialog(
       context: context,
@@ -86,35 +93,32 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
     );
   }
 
-  void _resetGame() {
-    setState(() {
-      _currentGifIndex = 1;
-      selectedChoice = null;
-      _opacity = 1.0;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     bool isChoiceSlide = widget.choiceSlides.containsKey(_currentGifIndex);
     return Scaffold(
       body: Stack(
         children: [
+          // Back button
           Positioned(
             top: 36,
             left: 5,
             child: IconButton(
-              onPressed: () => HomeConfirmationDialog.showHomeConfirmationDialog(context),
+              onPressed: () =>
+                  HomeConfirmationDialog.showHomeConfirmationDialog(context),
               icon: const Icon(Icons.arrow_back, color: Colors.white, size: 28),
             ),
           ),
+
+          // Story title
           Positioned(
             top: 36,
             left: 0,
             right: 0,
             child: Center(
               child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                 child: Text(
                   widget.storyTitle,
                   style: const TextStyle(
@@ -126,6 +130,8 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
               ),
             ),
           ),
+
+          // Animated GIF display
           AnimatedOpacity(
             duration: const Duration(milliseconds: 300),
             opacity: _opacity,
@@ -140,24 +146,32 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
               ),
             ),
           ),
+
+          // Previous button
           if (_currentGifIndex > 1)
             Positioned(
               bottom: 20,
               left: 20,
               child: GlowingButton(
                 onPressed: _previousGif,
-                child: const Icon(Icons.arrow_back, color: Colors.black, size: 28),
+                child:
+                    const Icon(Icons.arrow_back, color: Colors.black, size: 28),
               ),
             ),
+
+          // Next button
           if (_currentGifIndex < widget.totalGifs && !isChoiceSlide)
             Positioned(
               bottom: 20,
               right: 20,
               child: GlowingButton(
                 onPressed: _nextGif,
-                child: const Icon(Icons.arrow_forward, color: Colors.black, size: 28),
+                child: const Icon(Icons.arrow_forward,
+                    color: Colors.black, size: 28),
               ),
             ),
+
+          // Congratulations button on the final slide
           if (_currentGifIndex == widget.totalGifs)
             Positioned(
               bottom: 20,
@@ -165,19 +179,24 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
               child: GlowingButton(
                 color1: Colors.red,
                 color2: Colors.yellowAccent,
-                onPressed: () => CongratulationsDialog.showCongratulationsDialog(context),
+                onPressed: () =>
+                    CongratulationsDialog.showCongratulationsDialog(context),
                 child: const Icon(Icons.flag, color: Colors.black, size: 28),
               ),
             ),
+
+          // Choice buttons
           if (isChoiceSlide)
             Positioned(
               bottom: 100,
               left: 0,
               right: 0,
               child: Column(
-                children: widget.choiceSlides[_currentGifIndex]!.keys.map((choice) {
+                children:
+                    widget.choiceSlides[_currentGifIndex]!.keys.map((choice) {
                   return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(15),
                       child: BackdropFilter(
@@ -216,6 +235,7 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
                 }).toList(),
               ),
             ),
+
           // Progress Bar
           Positioned(
             bottom: 40,
@@ -231,7 +251,8 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
                 children: [
                   AnimatedContainer(
                     duration: const Duration(milliseconds: 300),
-                    width: (MediaQuery.of(context).size.width * 0.40) * (_currentGifIndex / widget.totalGifs),
+                    width: (MediaQuery.of(context).size.width * 0.40) *
+                        (_currentGifIndex / widget.totalGifs),
                     height: 8,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
