@@ -6,7 +6,7 @@ class RaviGameScreen extends BaseGameScreen {
       : super(
           key: key,
           totalGifs: 37, // Adjusted total GIF count for Ravi's story
-          storyTitle: "Ravi's Adventure",
+          storyTitle: "Ravi's Future",
           assetPrefix: "assets/stories/ravi", // Ravi's asset path
           choiceSlides: {
             19: {

@@ -16,10 +16,9 @@ class LCAppTheme {
   /// Light Theme
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
-    fontFamily: 'Poppins',
     brightness: Brightness.light,
     primaryColor: Colors.blue,
-    textTheme: LCTextTheme.lightTextTheme,
+    textTheme: LCTextTheme.lightTextTheme, 
     chipTheme: LCChipTheme.lightChipTheme,
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: LCAppBarTheme.lightAppBarTheme,
@@ -33,10 +32,9 @@ class LCAppTheme {
   /// Dark Theme
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
-    fontFamily: 'Poppins',
     brightness: Brightness.dark,
     primaryColor: LCColors.primary,
-    textTheme: LCTextTheme.darkTextTheme,
+    textTheme: LCTextTheme.darkTextTheme, 
     chipTheme: LCChipTheme.darkChipTheme,
     scaffoldBackgroundColor: LCColors.secondary,
     appBarTheme: LCAppBarTheme.darkAppBarTheme,
@@ -47,3 +45,4 @@ class LCAppTheme {
     inputDecorationTheme: LCTextFormFieldTheme.darkInputDecorationTheme,
   );
 }
+

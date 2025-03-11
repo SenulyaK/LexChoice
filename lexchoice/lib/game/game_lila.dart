@@ -6,13 +6,13 @@ class LilaGameScreen extends BaseGameScreen {
       : super(
           key: key,
           totalGifs: 22, // Adjusted total GIF count for Lila's story
-          storyTitle: "Lila's Journey",
+          storyTitle: "Lila's Choice",
           assetPrefix: "assets/stories/lila", // Lila's asset path
           choiceSlides: {
             7: {
-              "A. Take the ride, Mr. Silva seems nice.": false,
-              "B. Say no and keep walking.": true,
-              "C. Ask Mr. Silva to call your parents.": false,
+              "A. Take the ride, Mr. Perera seems nice.": false,
+              "B. Ask Mr. Perera to call your parents.": false,
+              "C. Say no and keep walking.": true,
             },
             14: {
               "A. Tell Talya to stay quiet to avoid upsetting her uncle.":
