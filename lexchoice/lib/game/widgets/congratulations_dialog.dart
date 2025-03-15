@@ -1,33 +1,70 @@
 import 'package:flutter/material.dart';
+import 'package:lexchoice/utils/theme/custom_themes/glowing_button.dart';
+import 'package:lexchoice/utils/constants/colors.dart';
 
 class CongratulationsDialog {
-  static void showCongratulationsDialog(BuildContext context) {
+  static void showCongratulationsDialog(
+      BuildContext context, String assetPrefix, bool isDarkMode) {
     showDialog(
       context: context,
       barrierDismissible: false,
       builder: (context) {
         return AlertDialog(
-          title: Text("🎉 Congratulations!", textAlign: TextAlign.center),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Image.asset(
-                  "assets/stories/lila/congrats.gif"), // Add your own GIF
-              SizedBox(height: 10),
-              Text(
-                "You've successfully completed the story!",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          backgroundColor: isDarkMode
+              ? LCColors.secondary
+              : Colors.white, // Dark mode support
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          title: Center(
+            child: const Text(
+              "WELL DONE!",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 32, // Bigger modern font
+                fontWeight: FontWeight.bold,
+                color: LCColors.primary,
               ),
-            ],
+            ),
+          ),
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  "Thing you should remember:",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: isDarkMode ? Colors.white : Colors.black,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Image.asset(
+                  "$assetPrefix/congrats.gif",
+                  height: 500,
+                  fit: BoxFit.contain,
+                ),
+              ],
+            ),
           ),
           actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context); // Close dialog
-                Navigator.pop(context); // Go back to home screen
-              },
-              child: Text("OK", style: TextStyle(fontSize: 16)),
+            Center(
+              child: GlowingButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                },
+                child: const Text(
+                  "OK",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
             ),
           ],
         );

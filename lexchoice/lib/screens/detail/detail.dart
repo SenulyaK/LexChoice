@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lexchoice/models/story.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
+import 'package:lexchoice/utils/theme/custom_themes/glowing_button.dart';
+import 'package:lexchoice/game/widgets/story_splash_screen.dart';
 
 class DetailPage extends StatelessWidget {
   final Story story;
@@ -128,25 +130,23 @@ class DetailPage extends StatelessWidget {
                 const SizedBox(height: 17),
 
                 /// Button
-                ElevatedButton(
+                GlowingButton(
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => story.getGameScreen(),
+                        builder: (context) => StorySplashScreen(
+                          storyTitle: story.storyTitle,
+                          splashGif:
+                              'assets/images/splash/${story.storyTitle.toLowerCase().replaceAll(" ", "_")}.gif',
+                          gameScreen: story.getGameScreen(),
+                        ),
                       ),
                     );
                   },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: LCColors.primary,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    padding: const EdgeInsets.all(12),
-                  ),
                   child: Icon(
                     Icons.play_arrow_rounded,
-                    color: Colors.white,
+                    color: Colors.black,
                     size: 28,
                   ),
                 ),

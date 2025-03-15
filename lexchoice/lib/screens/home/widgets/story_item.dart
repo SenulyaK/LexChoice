@@ -25,9 +25,6 @@ class StoryItem extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
             ),
           ),
-          const SizedBox(height: 8), // Spacing between image and text
-          // Title Text
-          //
         ],
       ),
     );
