@@ -25,6 +25,9 @@ class Story {
       case "Amy’s Cyber Rules":
         print("error: unknown story title");
         ;
+      case "Devin's Traffic Trouble":
+        print("error: unknown story title");
+        ;
       default:
         print("error: unknown story title");
     }
@@ -69,7 +72,7 @@ class Story {
           LCImages.ravi,
 
           /// Height
-          250),
+          260),
       Story(
 
           /// Title
@@ -88,7 +91,7 @@ class Story {
           LCImages.aarya,
 
           /// Height
-          260),
+          280),
       Story(
 
           /// Title
@@ -108,6 +111,25 @@ class Story {
 
           /// Height
           290),
+      Story(
+
+          /// Title
+          "Devin's Traffic Trouble",
+
+          /// Type
+          "Road Safty",
+
+          /// Description
+          "Amy was a 13-year-old girl who loved playing online games and chatting with friends. One day, she met a mysterious person online, which taught her how to stay safe on the internet...",
+
+          /// Law Name
+          "Computer Crimes Act, No. 24 of 2007",
+
+          /// Image
+          LCImages.devin,
+
+          /// Height
+          250),
     ];
   }
 }

@@ -42,6 +42,7 @@ dependencies:
   chewie: ^1.10.0
   cloudinary_public: ^0.23.1
   google_fonts: ^6.2.1
+  audioplayers: ^6.4.0
 
 dev_dependencies:
   flutter_test:
@@ -60,3 +61,4 @@ flutter:
     - assets/images/splash/
     - assets/stories/lila/
     - assets/stories/ravi/
+    - assets/audio/

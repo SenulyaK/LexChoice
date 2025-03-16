@@ -5,6 +5,7 @@ import 'package:lexchoice/utils/theme/custom_themes/glowing_button.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/game/widgets/congratulations_dialog.dart';
 import 'package:lexchoice/game/widgets/tryagain_screen.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 // Abstract base class for game screens
 abstract class BaseGameScreen extends StatefulWidget {
@@ -66,20 +67,38 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
     setState(() => selectedChoice = choice);
 
     if (isCorrect) {
-      _nextGif();
+      _playSound("audio/correct.mp3"); // Play correct answer sound
+      _nextGif(); // Proceed to next slide
     } else {
-      bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+      _playSound("audio/wrong.mp3"); // Play wrong answer sound
 
+      bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
       TryAgainDialog.showTryAgainDialog(context, widget.assetPrefix, () {
         setState(() => selectedChoice = null);
       }, isDarkMode);
     }
   }
 
+  /// Click Sound
+  final AudioPlayer _audioPlayer = AudioPlayer();
+
+  void _playClickSound() {
+    _audioPlayer.play(AssetSource('audio/click.mp3'));
+  }
+
+  void _playCongratsSound() async {
+    await _audioPlayer.play(AssetSource('audio/congrats.mp3'));
+  }
+
+  void _playSound(String soundPath) {
+    _audioPlayer.play(AssetSource(soundPath));
+  }
+
   @override
   Widget build(BuildContext context) {
     bool isChoiceSlide = widget.choiceSlides.containsKey(_currentGifIndex);
     bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     return Scaffold(
       body: Stack(
         children: [
@@ -139,7 +158,10 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
               child: GlowingButton(
                 color1: Colors.lightGreenAccent,
                 color2: Colors.greenAccent,
-                onPressed: _previousGif,
+                onPressed: () {
+                  _playClickSound(); // Play the click sound
+                  _previousGif();
+                },
                 child:
                     const Icon(Icons.arrow_back, color: Colors.black, size: 28),
               ),
@@ -153,7 +175,10 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
               child: GlowingButton(
                 color1: Colors.lightBlueAccent,
                 color2: Colors.cyan,
-                onPressed: _nextGif,
+                onPressed: () {
+                  _playClickSound(); // Play the click sound
+                  _nextGif();
+                },
                 child: const Icon(Icons.arrow_forward,
                     color: Colors.black, size: 28),
               ),
@@ -167,9 +192,11 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
               child: GlowingButton(
                 color1: Colors.red,
                 color2: Colors.yellowAccent,
-                onPressed: () =>
-                    CongratulationsDialog.showCongratulationsDialog(
-                        context, widget.assetPrefix, isDarkMode),
+                onPressed: () {
+                  _playCongratsSound(); // Play the congrats sound
+                  CongratulationsDialog.showCongratulationsDialog(
+                      context, widget.assetPrefix, isDarkMode);
+                },
                 child: const Icon(Icons.flag, color: Colors.black, size: 28),
               ),
             ),
@@ -198,7 +225,10 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
                             border: Border.all(color: Colors.greenAccent),
                           ),
                           child: OutlinedButton(
-                            onPressed: () => _selectChoice(choice),
+                            onPressed: () {
+                              _selectChoice(
+                                  choice); // Then execute the choice selection
+                            },
                             style: OutlinedButton.styleFrom(
                               padding: const EdgeInsets.symmetric(vertical: 15),
                               alignment: Alignment.center,
