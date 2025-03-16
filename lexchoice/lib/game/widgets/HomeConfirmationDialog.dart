@@ -3,10 +3,13 @@ import 'package:lexchoice/utils/constants/colors.dart';
 
 class HomeConfirmationDialog {
   static void showHomeConfirmationDialog(BuildContext context) {
+    bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: LCColors.secondary, // Dialog background color
+        backgroundColor:
+            isDarkMode ? LCColors.secondary : Colors.white, // Adjust for theme
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
@@ -16,7 +19,7 @@ class HomeConfirmationDialog {
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
-            color: LCColors.grey, // Title text color
+            color: isDarkMode ? LCColors.white : Colors.red, // Adjust for theme
           ),
         ),
         content: Text(
@@ -24,7 +27,7 @@ class HomeConfirmationDialog {
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 16,
-            color: LCColors.white, // Content text color
+            color: isDarkMode ? Colors.white : Colors.black, // Adjust for theme
           ),
         ),
         actionsAlignment: MainAxisAlignment.spaceAround,
@@ -36,12 +39,15 @@ class HomeConfirmationDialog {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
-              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
               side: BorderSide.none,
             ),
-            child: const Text(
+            child: Text(
               "Cancel",
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(
+                  color: isDarkMode
+                      ? Colors.white
+                      : Colors.white), // Adjust for theme
             ),
           ),
           ElevatedButton(
@@ -54,12 +60,15 @@ class HomeConfirmationDialog {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
-              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
               side: BorderSide.none,
             ),
-            child: const Text(
+            child: Text(
               "Go Back",
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(
+                  color: isDarkMode
+                      ? Colors.white
+                      : Colors.white), // Adjust for theme
             ),
           ),
         ],

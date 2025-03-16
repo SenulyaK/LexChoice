@@ -35,7 +35,7 @@ class CongratulationsDialog {
                   "Thing you should remember:",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 14,
                     fontWeight: FontWeight.w500,
                     color: isDarkMode ? Colors.white : Colors.black,
                   ),
@@ -43,7 +43,7 @@ class CongratulationsDialog {
                 const SizedBox(height: 10),
                 Image.asset(
                   "$assetPrefix/congrats.gif",
-                  height: 500,
+                  height: 450,
                   fit: BoxFit.contain,
                 ),
               ],

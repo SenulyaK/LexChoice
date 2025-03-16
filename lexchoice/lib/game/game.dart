@@ -6,6 +6,7 @@ import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/game/widgets/congratulations_dialog.dart';
 import 'package:lexchoice/game/widgets/tryagain_screen.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:lexchoice/game/widgets/animated_background.dart'; // Import BackgroundAnimation
 
 // Abstract base class for game screens
 abstract class BaseGameScreen extends StatefulWidget {
@@ -30,7 +31,7 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
   double _opacity = 1.0; // Opacity for GIF transitions
   String? selectedChoice; // Stores the selected choice
 
-// Advances to the next GIF or shows the congratulations dialog
+  // Advances to the next GIF or shows the congratulations dialog
   void _nextGif() {
     if (_currentGifIndex < widget.totalGifs) {
       setState(() => _opacity = 0.0);
@@ -48,7 +49,7 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
     }
   }
 
-// Moves back to the previous GIF
+  // Moves back to the previous GIF
   void _previousGif() {
     if (_currentGifIndex > 1) {
       setState(() => _opacity = 0.0);
@@ -61,7 +62,7 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
     }
   }
 
-// Try Again Screen
+  // Try Again Screen
   void _selectChoice(String choice) {
     bool isCorrect = widget.choiceSlides[_currentGifIndex]![choice]!;
     setState(() => selectedChoice = choice);
@@ -102,14 +103,20 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
     return Scaffold(
       body: Stack(
         children: [
+          BackgroundAnimation(), // Add the animated background here
+
           // Back button
           Positioned(
             top: 36,
-            left: 5,
+            left: 1,
             child: IconButton(
               onPressed: () =>
                   HomeConfirmationDialog.showHomeConfirmationDialog(context),
-              icon: const Icon(Icons.arrow_back, color: Colors.white, size: 28),
+              icon: Icon(
+                Icons.arrow_back_ios_outlined,
+                color: isDarkMode ? Colors.white : Colors.black,
+                size: 20,
+              ),
             ),
           ),
 
@@ -124,10 +131,10 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                 child: Text(
                   widget.storyTitle,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: isDarkMode ? Colors.white : Colors.black,
                   ),
                 ),
               ),
@@ -142,9 +149,9 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
               child: Center(
                 child: Image.asset(
                   '${widget.assetPrefix}/${widget.assetPrefix.split('/').last}_$_currentGifIndex.gif',
-                  width: double.infinity,
-                  height: double.infinity,
-                  fit: BoxFit.contain,
+                  width: 365,
+                  height: 670,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -153,7 +160,7 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
           // Previous button
           if (_currentGifIndex > 1)
             Positioned(
-              bottom: 20,
+              bottom: 26,
               left: 20,
               child: GlowingButton(
                 color1: Colors.lightGreenAccent,
@@ -162,15 +169,15 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
                   _playClickSound(); // Play the click sound
                   _previousGif();
                 },
-                child:
-                    const Icon(Icons.arrow_back, color: Colors.black, size: 28),
+                child: const Icon(Icons.arrow_back_rounded,
+                    color: Colors.black, size: 28),
               ),
             ),
 
           // Next button
           if (_currentGifIndex < widget.totalGifs && !isChoiceSlide)
             Positioned(
-              bottom: 20,
+              bottom: 26,
               right: 20,
               child: GlowingButton(
                 color1: Colors.lightBlueAccent,
@@ -179,7 +186,7 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
                   _playClickSound(); // Play the click sound
                   _nextGif();
                 },
-                child: const Icon(Icons.arrow_forward,
+                child: const Icon(Icons.arrow_forward_rounded,
                     color: Colors.black, size: 28),
               ),
             ),
@@ -187,7 +194,7 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
           // Congratulations button on the final slide
           if (_currentGifIndex == widget.totalGifs)
             Positioned(
-              bottom: 20,
+              bottom: 26,
               right: 20,
               child: GlowingButton(
                 color1: Colors.red,
@@ -204,7 +211,7 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
           // Choice buttons
           if (isChoiceSlide)
             Positioned(
-              bottom: 100,
+              bottom: 110,
               left: 0,
               right: 0,
               child: Column(
@@ -242,7 +249,7 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
                               textAlign: TextAlign.center,
                               style: const TextStyle(
                                 color: Colors.greenAccent,
-                                fontSize: 17,
+                                fontSize: 15,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -257,7 +264,7 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
 
           // Progress Bar
           Positioned(
-            bottom: 40,
+            bottom: 46,
             left: MediaQuery.of(context).size.width * 0.30,
             right: MediaQuery.of(context).size.width * 0.30,
             child: Container(

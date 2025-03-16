@@ -94,7 +94,7 @@ class DetailPage extends StatelessWidget {
                     style: TextStyle(
                       color: darkMode
                           ? const Color.fromARGB(131, 224, 224, 224)
-                          : LCColors.secondary,
+                          : LCColors.darkerGrey,
                     ),
                   ),
                 ),
@@ -109,7 +109,9 @@ class DetailPage extends StatelessWidget {
                       story.lawName,
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: darkMode ? LCColors.primary : LCColors.secondary,
+                        color: darkMode
+                            ? LCColors.primary
+                            : const Color.fromARGB(255, 30, 107, 158),
                       ),
                     ),
                   ),
@@ -119,11 +121,14 @@ class DetailPage extends StatelessWidget {
                 /// Description
                 Align(
                   alignment: Alignment.center,
-                  child: Text(
-                    story.description,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: darkMode ? LCColors.grey : LCColors.secondary,
+                  child: Container(
+                    width: 370, // Set your desired width
+                    child: Text(
+                      story.description,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: darkMode ? LCColors.grey : LCColors.secondary,
+                      ),
                     ),
                   ),
                 ),
