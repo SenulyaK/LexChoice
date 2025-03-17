@@ -147,11 +147,15 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
             opacity: _opacity,
             child: IgnorePointer(
               child: Center(
-                child: Image.asset(
-                  '${widget.assetPrefix}/${widget.assetPrefix.split('/').last}_$_currentGifIndex.gif',
-                  width: 365,
-                  height: 670,
-                  fit: BoxFit.cover,
+                child: ClipRRect(
+                  borderRadius:
+                      BorderRadius.circular(20), // Add your desired radius here
+                  child: Image.asset(
+                    '${widget.assetPrefix}/${widget.assetPrefix.split('/').last}_$_currentGifIndex.gif',
+                    width: 365,
+                    height: 670,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),

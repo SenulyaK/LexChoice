@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lexchoice/utils/theme/custom_themes/glowing_button.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class CongratulationsDialog {
   static void showCongratulationsDialog(
@@ -10,18 +11,16 @@ class CongratulationsDialog {
       barrierDismissible: false,
       builder: (context) {
         return AlertDialog(
-          backgroundColor: isDarkMode
-              ? LCColors.secondary
-              : Colors.white, // Dark mode support
+          backgroundColor: isDarkMode ? LCColors.secondary : Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
           ),
-          title: Center(
-            child: const Text(
+          title: const Center(
+            child: Text(
               "WELL DONE!",
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 32, // Bigger modern font
+                fontSize: 32,
                 fontWeight: FontWeight.bold,
                 color: LCColors.primary,
               ),
@@ -52,7 +51,9 @@ class CongratulationsDialog {
           actions: [
             Center(
               child: GlowingButton(
-                onPressed: () {
+                onPressed: () async {
+                  final player = AudioPlayer();
+                  await player.play(AssetSource('audio/ok.mp3')); // Play sound
                   Navigator.pop(context);
                   Navigator.pop(context);
                 },

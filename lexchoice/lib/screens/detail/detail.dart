@@ -3,6 +3,7 @@ import 'package:lexchoice/models/story.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/utils/theme/custom_themes/glowing_button.dart';
 import 'package:lexchoice/game/widgets/story_splash_screen.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class DetailPage extends StatelessWidget {
   final Story story;
@@ -11,6 +12,12 @@ class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final darkMode = Theme.of(context).brightness == Brightness.dark;
+
+    final AudioPlayer _audioPlayer = AudioPlayer();
+
+  void _playPlaySound() {
+    _audioPlayer.play(AssetSource('audio/play.mp3'));
+  }
 
     return Scaffold(
       body: Container(
@@ -137,6 +144,7 @@ class DetailPage extends StatelessWidget {
                 /// Button
                 GlowingButton(
                   onPressed: () {
+                    _playPlaySound();
                     Navigator.push(
                       context,
                       MaterialPageRoute(

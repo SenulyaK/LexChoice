@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lexchoice/utils/theme/custom_themes/glowing_button.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class TryAgainDialog {
   static void showTryAgainDialog(BuildContext context, String assetPrefix,
@@ -9,9 +10,7 @@ class TryAgainDialog {
       context: context,
       builder: (context) {
         return AlertDialog(
-          backgroundColor: isDarkMode
-              ? LCColors.secondary
-              : Colors.white, // Dark mode support
+          backgroundColor: isDarkMode ? LCColors.secondary : Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
           ),
@@ -33,7 +32,7 @@ class TryAgainDialog {
                 "TRY AGAIN!",
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 32, // Bigger modern font
+                  fontSize: 32,
                   fontWeight: FontWeight.bold,
                   color: LCColors.error,
                 ),
@@ -56,7 +55,7 @@ class TryAgainDialog {
                 const SizedBox(height: 20),
                 Image.asset(
                   "$assetPrefix/try_again.gif",
-                  height: 400, // Adjust height to fit well
+                  height: 400,
                   fit: BoxFit.contain,
                 ),
               ],
@@ -65,9 +64,12 @@ class TryAgainDialog {
           actions: [
             Center(
               child: SizedBox(
-                width: 160, // Adjust width as needed
+                width: 160,
                 child: GlowingButton(
-                  onPressed: () {
+                  onPressed: () async {
+                    final player = AudioPlayer();
+                    await player
+                        .play(AssetSource('audio/tryagain.mp3')); // Play sound
                     Navigator.pop(context); // Close the dialog
                     onTryAgain(); // Reset selected choice
                   },
