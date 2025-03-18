@@ -1,6 +1,7 @@
 import 'package:lexchoice/utils/constants/image_strings.dart';
 import 'package:lexchoice/game/game_lila.dart';
 import 'package:lexchoice/game/game_ravi.dart';
+import 'package:lexchoice/game/game_amy.dart';
 
 class Story {
   String storyTitle;
@@ -22,9 +23,8 @@ class Story {
       case "Aarya's Decisions":
         print("error: unknown story title");
         ;
-      case "Amy’s Cyber Rules":
-        print("error: unknown story title");
-        ;
+      case "Amy's Cyber Rules":
+        return AmyGameScreen();
       case "Devin's Traffic Trouble":
         print("error: unknown story title");
         ;
@@ -95,7 +95,7 @@ class Story {
       Story(
 
           /// Title
-          "Amy’s Cyber Rules",
+          "Amy's Cyber Rules",
 
           /// Type
           "Cyber crimes",
