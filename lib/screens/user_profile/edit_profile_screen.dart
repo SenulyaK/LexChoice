@@ -29,7 +29,7 @@ class EditProfileScreen extends StatelessWidget {
         title: const Text(
           "Edit Profile",
           style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 22, color: Colors.white),
+              fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white),
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,

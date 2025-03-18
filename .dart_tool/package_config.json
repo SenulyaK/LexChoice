@@ -224,6 +224,12 @@
       "languageVersion": "2.16"
     },
     {
+      "name": "google_fonts",
+      "rootUri": "file:///Users/prabashdesilva/.pub-cache/hosted/pub.dev/google_fonts-6.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
       "name": "html",
       "rootUri": "file:///Users/prabashdesilva/.pub-cache/hosted/pub.dev/html-0.15.5",
       "packageUri": "lib/",
@@ -620,7 +626,7 @@
       "languageVersion": "3.6"
     }
   ],
-  "generated": "2025-03-09T20:51:13.872421Z",
+  "generated": "2025-03-18T08:59:54.573577Z",
   "generator": "pub",
   "generatorVersion": "3.7.0",
   "flutterRoot": "file:///Users/prabashdesilva/development/flutter",
