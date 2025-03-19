@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lexchoice/game/widgets/score_manager.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
 
 class HomeConfirmationDialog {
@@ -53,7 +54,8 @@ class HomeConfirmationDialog {
           ElevatedButton(
             onPressed: () {
               Navigator.of(context).pop(); // Close the dialog
-              Navigator.of(context).pop(); // Go back to the previous screen
+              Navigator.of(context).pop();
+              scoreManager.resetScore(); // Go back to the previous screen
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.red,
