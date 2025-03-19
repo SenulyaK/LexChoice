@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:lexchoice/utils/theme/custom_themes/glowing_button.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:lexchoice/game/widgets/star_board.dart';
+import 'package:lexchoice/game/widgets/score_manager.dart';
 
 class CongratulationsDialog {
   static void showCongratulationsDialog(
@@ -50,19 +52,32 @@ class CongratulationsDialog {
           ),
           actions: [
             Center(
-              child: GlowingButton(
-                onPressed: () async {
-                  final player = AudioPlayer();
-                  await player.play(AssetSource('audio/ok.mp3')); // Play sound
-                  Navigator.pop(context);
-                  Navigator.pop(context);
-                },
-                child: const Text(
-                  "OK",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
+              child: SizedBox(
+                width: 130,
+                child: GlowingButton(
+                  onPressed: () async {
+                    final player = AudioPlayer();
+                    await player
+                        .play(AssetSource('audio/ok.mp3')); // Play sound
+
+                    Navigator.pop(context); // Close current dialog
+
+                    // Navigate to StarBoard screen
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            StarBoard(finalScore: scoreManager.getScore()),
+                      ),
+                    );
+                  },
+                  child: const Text(
+                    "Got it!",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
                   ),
                 ),
               ),

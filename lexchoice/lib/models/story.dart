@@ -2,6 +2,7 @@ import 'package:lexchoice/utils/constants/image_strings.dart';
 import 'package:lexchoice/game/game_lila.dart';
 import 'package:lexchoice/game/game_ravi.dart';
 import 'package:lexchoice/game/game_amy.dart';
+import 'package:lexchoice/game/game_devin.dart';
 
 class Story {
   String storyTitle;
@@ -26,8 +27,7 @@ class Story {
       case "Amy's Cyber Rules":
         return AmyGameScreen();
       case "Devin's Traffic Trouble":
-        print("error: unknown story title");
-        ;
+        return DevinGameScreen();
       default:
         print("error: unknown story title");
     }
@@ -44,7 +44,7 @@ class Story {
           "Child abuse",
 
           /// Description
-          "Lila was an 11-year-old girl who loved playing outside and helping her mom. One day, something happened that showed her how important it is to speak up and stay safe...",
+          "Lila was a 11-year-old girl who loved playing outside and helping her mom. One day, something happened that showed her how important it is to speak up and stay safe...",
 
           /// Law Name
           "The Children and Young Persons Ordinance (CYPO) (1939)",
@@ -98,7 +98,7 @@ class Story {
           "Amy's Cyber Rules",
 
           /// Type
-          "Cyber crimes",
+          "Cyber Crimes",
 
           /// Description
           "Amy was a 13-year-old girl who loved playing online games and chatting with friends. One day, she met a mysterious person online, which taught her how to stay safe on the internet...",
@@ -117,10 +117,10 @@ class Story {
           "Devin's Traffic Trouble",
 
           /// Type
-          "Road Safty",
+          "Road Safety",
 
           /// Description
-          "Amy was a 13-year-old girl who loved playing online games and chatting with friends. One day, she met a mysterious person online, which taught her how to stay safe on the internet...",
+          "Devin was a cheerful boy who rode his bicycle to and from school. One day while going home, an incident on road taught him the importance of road rules...",
 
           /// Law Name
           "Computer Crimes Act, No. 24 of 2007",

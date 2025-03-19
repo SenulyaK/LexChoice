@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     : Colors.white, // Light mode colors
                 Theme.of(context).brightness == Brightness.dark
                     ? LCColors.background // Dark mode colors
-                    : LCColors.darkGrey, // Light mode colors
+                    : LCColors.white, // Light mode colors
               ],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,

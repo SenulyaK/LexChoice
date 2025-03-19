@@ -15,9 +15,9 @@ class DetailPage extends StatelessWidget {
 
     final AudioPlayer _audioPlayer = AudioPlayer();
 
-  void _playPlaySound() {
-    _audioPlayer.play(AssetSource('audio/play.mp3'));
-  }
+    void _playPlaySound() {
+      _audioPlayer.play(AssetSource('audio/play.mp3'));
+    }
 
     return Scaffold(
       body: Container(
@@ -25,7 +25,7 @@ class DetailPage extends StatelessWidget {
           gradient: LinearGradient(
             colors: [
               darkMode ? LCColors.secondary : LCColors.light,
-              darkMode ? LCColors.background : LCColors.darkGrey,
+              darkMode ? LCColors.background : LCColors.white,
             ],
             begin: Alignment.center,
             end: Alignment.bottomCenter,

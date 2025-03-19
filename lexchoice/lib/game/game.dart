@@ -6,7 +6,8 @@ import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/game/widgets/congratulations_dialog.dart';
 import 'package:lexchoice/game/widgets/tryagain_screen.dart';
 import 'package:audioplayers/audioplayers.dart';
-import 'package:lexchoice/game/widgets/animated_background.dart'; // Import BackgroundAnimation
+import 'package:lexchoice/game/widgets/animated_background.dart';
+import 'package:lexchoice/game/widgets/score_manager.dart';
 
 // Abstract base class for game screens
 abstract class BaseGameScreen extends StatefulWidget {
@@ -71,7 +72,8 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
       _playSound("audio/correct.mp3"); // Play correct answer sound
       _nextGif(); // Proceed to next slide
     } else {
-      _playSound("audio/wrong.mp3"); // Play wrong answer sound
+      _playSound("audio/wrong.mp3");
+      scoreManager.deductPoints(); // Play wrong answer sound
 
       bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
       TryAgainDialog.showTryAgainDialog(context, widget.assetPrefix, () {
