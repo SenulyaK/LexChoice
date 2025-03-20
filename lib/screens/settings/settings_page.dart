@@ -13,29 +13,34 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
+  // State variables for user settings
   bool _notificationsEnabled = true;
   bool _soundEffectsEnabled = true;
   bool _backgroundMusicEnabled = true;
   double _volume = 1.0;
 
+  // Toggles notifications setting
   void _toggleNotifications(bool value) {
     setState(() {
       _notificationsEnabled = value;
     });
   }
 
+  // Toggles sound effects setting
   void _toggleSoundEffects(bool value) {
     setState(() {
       _soundEffectsEnabled = value;
     });
   }
 
+  // Toggles background music setting
   void _toggleBackgroundMusic(bool value) {
     setState(() {
       _backgroundMusicEnabled = value;
     });
   }
 
+  // Handles user logout and navigates to login screen
   void _logout() {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Logging out...')),
@@ -43,7 +48,7 @@ class _SettingsPageState extends State<SettingsPage> {
     Get.offAll(() => const LoginScreen());
   }
 
-  // Function to launch URL
+  // Function to open an external website
   void _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
@@ -71,13 +76,13 @@ class _SettingsPageState extends State<SettingsPage> {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              // Check if the current theme is dark or light
+              // Apply different colors based on theme mode
               Theme.of(context).brightness == Brightness.dark
-                  ? LCColors.secondary // Dark mode colors
-                  : Colors.white, // Light mode colors
+                  ? LCColors.secondary
+                  : Colors.white,
               Theme.of(context).brightness == Brightness.dark
-                  ? LCColors.background // Dark mode colors
-                  : LCColors.darkGrey, // Light mode colors
+                  ? LCColors.background
+                  : LCColors.darkGrey,
             ],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -106,8 +111,6 @@ class _SettingsPageState extends State<SettingsPage> {
             _buildSectionTitle('About & Help ❓'),
             _buildInfoTile('Game Instructions', Icons.help_outline),
             _buildInfoTile('Privacy Policy & Terms', Icons.lock_outline),
-
-            // Updated "Support & Contact Info" to open a website
             _buildInfoTile(
               'Support & Contact Info',
               Icons.contact_support,
@@ -115,7 +118,6 @@ class _SettingsPageState extends State<SettingsPage> {
                 _launchURL('https://lex-choice-website.vercel.app/');
               },
             ),
-
             const SizedBox(height: 20),
             _buildLogoutButton(),
           ],
@@ -124,6 +126,7 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
+  // Builds section title widget
   Widget _buildSectionTitle(String title) {
     return Padding(
       padding: EdgeInsets.only(top: LCSizes.spaceBtwItems),
@@ -138,6 +141,7 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
+  // Builds switch tile widget for toggling settings
   Widget _buildSwitchTile({
     required String title,
     required bool value,
@@ -162,6 +166,7 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
+  // Builds volume control slider
   Widget _buildVolumeSlider() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -191,6 +196,7 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
+  // Builds information tile for help and support sections
   Widget _buildInfoTile(String title, IconData icon, {VoidCallback? onTap}) {
     return ListTile(
       contentPadding: EdgeInsets.zero,
@@ -211,6 +217,7 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
+  // Builds logout button
   Widget _buildLogoutButton() {
     return SizedBox(
       width: double.infinity,

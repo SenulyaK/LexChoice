@@ -17,6 +17,7 @@ class EditProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Controllers for text fields to hold and update user inputs
     TextEditingController nameController =
         TextEditingController(text: initialName);
     TextEditingController emailController =
@@ -75,9 +76,11 @@ class EditProfileScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
+                    // Show a snackbar to indicate profile update
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text("Profile Updated!")),
                     );
+                    // Navigate back to the previous screen
                     Navigator.pop(context);
                   },
                   style: ElevatedButton.styleFrom(
@@ -105,6 +108,7 @@ class EditProfileScreen extends StatelessWidget {
     );
   }
 
+  // Widget for section titles
   Widget _buildSectionTitle(String title) {
     return Padding(
       padding: EdgeInsets.only(top: LCSizes.spaceBtwItems),
@@ -119,6 +123,7 @@ class EditProfileScreen extends StatelessWidget {
     );
   }
 
+  // Widget to create text fields with customizable properties
   Widget _buildTextField({
     required TextEditingController controller,
     required String hintText,

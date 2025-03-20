@@ -6,25 +6,30 @@ import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/utils/constants/sizes.dart';
 import 'package:lexchoice/screens/feedback_screen/topic1_feedback.dart';
 
+// This is the main widget for the Feedback Selection Screen.
+// It allows users to select a topic to provide feedback on.
 class FeedbackSelectionScreen extends StatelessWidget {
   const FeedbackSelectionScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // AppBar with a title "Feedback"
       appBar: AppBar(
         title: const Text(
           "Feedback",
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        centerTitle: true,
+        backgroundColor: Colors.transparent, // Transparent background
+        elevation: 0, // No shadow
+        centerTitle: true, // Center the title
       ),
+      // Body of the screen with a gradient background
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
+              // Gradient colors change based on the theme (light/dark mode)
               Theme.of(context).brightness == Brightness.dark
                   ? LCColors.secondary
                   : Colors.white,
@@ -36,14 +41,19 @@ class FeedbackSelectionScreen extends StatelessWidget {
             end: Alignment.bottomCenter,
           ),
         ),
-        padding: const EdgeInsets.all(LCSizes.md),
+        padding:
+            const EdgeInsets.all(LCSizes.md), // Padding around the container
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(
+                horizontal: 20), // Horizontal padding
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment:
+                  MainAxisAlignment.center, // Center the column vertically
+              crossAxisAlignment:
+                  CrossAxisAlignment.stretch, // Stretch children horizontally
               children: [
+                // Buttons for each feedback topic
                 _buildFeedbackButton(context, "Lila’s Choice",
                     const DetailedFeedbackScreenTopic1()),
                 _buildFeedbackButton(context, "Aarya’s Decision",
@@ -60,21 +70,25 @@ class FeedbackSelectionScreen extends StatelessWidget {
     );
   }
 
+  // Helper method to build a feedback button
   Widget _buildFeedbackButton(
       BuildContext context, String title, Widget? screen) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: LCSizes.sm),
+      padding:
+          const EdgeInsets.symmetric(vertical: LCSizes.sm), // Vertical padding
       child: SizedBox(
-        width: double.infinity,
+        width: double.infinity, // Make the button take the full width
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: LCColors.primary,
-            padding: const EdgeInsets.symmetric(vertical: 16),
+            backgroundColor: LCColors.primary, // Button background color
+            padding: const EdgeInsets.symmetric(vertical: 16), // Button padding
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(LCSizes.borderRadiusMd),
+              borderRadius: BorderRadius.circular(
+                  LCSizes.borderRadiusMd), // Rounded corners
             ),
           ),
           onPressed: () {
+            // Navigate to the corresponding feedback screen when pressed
             if (screen != null) {
               Navigator.push(
                 context,
@@ -87,7 +101,7 @@ class FeedbackSelectionScreen extends StatelessWidget {
             style: const TextStyle(
               fontSize: LCSizes.fontSizeMd,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: Colors.white, // Text color
             ),
           ),
         ),
