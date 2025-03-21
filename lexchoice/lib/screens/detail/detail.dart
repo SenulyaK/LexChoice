@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lexchoice/game/widgets/timer_manager.dart';
 import 'package:lexchoice/models/story.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/utils/theme/custom_themes/glowing_button.dart';
@@ -145,6 +146,7 @@ class DetailPage extends StatelessWidget {
                 GlowingButton(
                   onPressed: () {
                     _playPlaySound();
+                    timerManager.startTimer();
                     Navigator.push(
                       context,
                       MaterialPageRoute(

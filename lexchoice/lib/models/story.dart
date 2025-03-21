@@ -3,6 +3,7 @@ import 'package:lexchoice/game/game_lila.dart';
 import 'package:lexchoice/game/game_ravi.dart';
 import 'package:lexchoice/game/game_amy.dart';
 import 'package:lexchoice/game/game_devin.dart';
+import 'package:lexchoice/game/game_aarya.dart';
 
 class Story {
   String storyTitle;
@@ -22,8 +23,7 @@ class Story {
       case "Ravi's Future":
         return RaviGameScreen();
       case "Aarya's Decisions":
-        print("error: unknown story title");
-        ;
+        return AaryaGameScreen();
       case "Amy's Cyber Rules":
         return AmyGameScreen();
       case "Devin's Traffic Trouble":
@@ -123,7 +123,7 @@ class Story {
           "Devin was a cheerful boy who rode his bicycle to and from school. One day while going home, an incident on road taught him the importance of road rules...",
 
           /// Law Name
-          "Computer Crimes Act, No. 24 of 2007",
+          "Motor traffic act",
 
           /// Image
           LCImages.devin,

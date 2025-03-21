@@ -206,7 +206,7 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
                 color1: Colors.red,
                 color2: Colors.yellowAccent,
                 onPressed: () {
-                  _playCongratsSound(); // Play the congrats sound
+                  _playCongratsSound(); // Play the congrats sound;
                   CongratulationsDialog.showCongratulationsDialog(
                       context, widget.assetPrefix, isDarkMode);
                 },

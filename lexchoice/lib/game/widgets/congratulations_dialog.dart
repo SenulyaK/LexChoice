@@ -22,14 +22,15 @@ class CongratulationsDialog {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+              filter: ImageFilter.blur(sigmaX: 6.0, sigmaY: 6.0),
               child: Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: Colors.white
+                  color: LCColors.secondary
                       .withOpacity(0.3), // Adjust opacity for effect
                   borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: Colors.white.withOpacity(0.2)),
+                  border:
+                      Border.all(color: Colors.transparent.withOpacity(0.2)),
                 ),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -40,7 +41,7 @@ class CongratulationsDialog {
                       style: TextStyle(
                         fontSize: 32,
                         fontWeight: FontWeight.bold,
-                        color: LCColors.black,
+                        color: LCColors.primary,
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -48,7 +49,7 @@ class CongratulationsDialog {
                       "Thing you should remember:",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 16,
                         fontWeight: FontWeight.w500,
                         color: Colors.white,
                       ),

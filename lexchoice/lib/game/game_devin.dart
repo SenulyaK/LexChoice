@@ -10,19 +10,23 @@ class DevinGameScreen extends BaseGameScreen {
           assetPrefix: "assets/stories/devin", // Devin's asset path
           choiceSlides: {
             8: {
-              "A. Cross the road without looking.": false,
-              "B. Wait for the signal before crossing.": true,
-              "C. Run across quickly to save time.": false,
+              "A. Agree with his friend and go through the traffic.": false,
+              "B. Realise it's dangerous to do so and stop his friend as well.":
+                  true,
+              "C. Stop being friends with Kasun.": false,
             },
             16: {
-              "A. Ride a bike without a helmet.": false,
-              "B. Always wear a helmet while cycling.": true,
-              "C. Ride on the wrong side of the road.": false,
+              "A. Waiting on their bicycles in the middle of the traffic.":
+                  false,
+              "B. Go through the traffic in an unsafe way.": false,
+              "C.  Waiting in the side of the road till the traffic clears out and talk to a police officer about road safety.":
+                  true,
             },
             24: {
-              "A. Ignore traffic signs if no one is around.": false,
-              "B. Follow traffic signs and signals.": true,
-              "C. Cross wherever you feel like.": false,
+              "A. About the consequences of not obeying road safety.": true,
+              "B. That it's okay to take the risk when in traffic to reach the destination fast.":
+                  false,
+              "C. How to ride a bicycle.": false,
             }
           },
         );
