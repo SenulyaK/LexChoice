@@ -4,6 +4,9 @@ import 'package:get/get.dart';
 import 'package:lexchoice/utils/helpers/helper_functions.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/screens/home/home_screen.dart';
+import 'package:lexchoice/screens/settings/settings_page.dart';
+import 'package:lexchoice/screens/user_profile/user_profile_page.dart';
+import 'package:lexchoice/screens/feedback_screen/feedback_screen.dart';
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});
@@ -44,8 +47,8 @@ class NavigationController extends GetxController {
 
   final screens = [
     HomeScreen(),
-    Container(color: Colors.blue),
-    Container(color: Colors.red),
-    Container(color: Colors.yellow),
+    FeedbackSelectionScreen(),
+    SettingsPage(),
+    UserProfilePage(),
   ];
 }
