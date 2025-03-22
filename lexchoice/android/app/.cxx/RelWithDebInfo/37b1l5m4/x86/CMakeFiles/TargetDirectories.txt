@@ -1,0 +1,2 @@
+C:/Users/User/Desktop/SDGP/LexChoice/lexchoice/android/app/.cxx/RelWithDebInfo/37b1l5m4/x86/CMakeFiles/edit_cache.dir
+C:/Users/User/Desktop/SDGP/LexChoice/lexchoice/android/app/.cxx/RelWithDebInfo/37b1l5m4/x86/CMakeFiles/rebuild_cache.dir
