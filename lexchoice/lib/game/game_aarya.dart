@@ -10,8 +10,8 @@ class AaryaGameScreen extends BaseGameScreen {
           assetPrefix: "assets/stories/aarya", // Aarya's asset path
           choiceSlides: {
             10: {
-              "A. Try to solve the problem alone.": false,
-              "B. Ask a trusted friend for help.": true,
+              "A. Try to solve the problem alone.": true,
+              "B. Ask a trusted friend for help.": false,
               "C. Ignore the issue and hope it goes away.": false,
             },
             24: {

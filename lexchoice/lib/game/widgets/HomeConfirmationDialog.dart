@@ -1,10 +1,21 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:lexchoice/game/widgets/audio_manager.dart';
 import 'package:lexchoice/game/widgets/score_manager.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
 
 class HomeConfirmationDialog {
   static void showHomeConfirmationDialog(BuildContext context) {
     bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final AudioPlayer _audioPlayer = AudioPlayer();
+
+    void _playTapSound() {
+      _audioPlayer.play(AssetSource('audio/tap.mp3'));
+    }
+
+    void _playExitSound() {
+      _audioPlayer.play(AssetSource('audio/exit.mp3'));
+    }
 
     showDialog(
       context: context,
@@ -31,10 +42,15 @@ class HomeConfirmationDialog {
             color: isDarkMode ? Colors.white : Colors.black, // Adjust for theme
           ),
         ),
+
         actionsAlignment: MainAxisAlignment.spaceAround,
+
         actions: [
           ElevatedButton(
-            onPressed: () => Navigator.of(context).pop(), // Close the dialog
+            onPressed: () {
+              _playTapSound();
+              Navigator.of(context).pop();
+            }, // Close the dialog
             style: ElevatedButton.styleFrom(
               backgroundColor: LCColors.primary,
               shape: RoundedRectangleBorder(
@@ -53,9 +69,14 @@ class HomeConfirmationDialog {
           ),
           ElevatedButton(
             onPressed: () {
+              _playExitSound();
               Navigator.of(context).pop(); // Close the dialog
               Navigator.of(context).pop();
-              scoreManager.resetScore(); // Go back to the previous screen
+              scoreManager.resetScore();
+              audioManager.stopBackgroundMusic();
+              Future.delayed(Duration(seconds: 1), () {
+                      audioManager.playHomeMusic();
+                    }); // Go back to the previous screen
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.red,

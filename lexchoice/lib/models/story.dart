@@ -44,7 +44,7 @@ class Story {
           "Child abuse",
 
           /// Description
-          "Lila was a 11-year-old girl who loved playing outside and helping her mom. One day, something happened that showed her how important it is to speak up and stay safe...",
+          "Lila was an 11-year-old girl who loved going school. One day, a stranger approached her, showing her how important it is to stay safe and speak up...",
 
           /// Law Name
           "The Children and Young Persons Ordinance (CYPO) (1939)",
@@ -63,7 +63,7 @@ class Story {
           "Child rights and Child labor",
 
           /// Description
-          "Ravi was a 12-year-old boy who loved school and playing cricket. He dreamed of being a teacher, but one day, something tough happened that changed his life...",
+          "Ravi was a 12-year-old boy who loved school and playing football. He dreamed of being a teacher, but one day, something tough happened that changed his life...",
 
           /// Law Name
           "The Employment of Women, Young Persons, and Children Act (1956)",
@@ -79,13 +79,13 @@ class Story {
           "Aarya's Decisions",
 
           /// Type
-          "Child offences",
+          "Theft and Robbery",
 
           /// Description
-          "Aarya was a 13-year-old boy who loved cricket and hanging out with friends. One day, he made a mistake that taught him a big lesson about right and wrong...",
+          "Aarya was a 10-year-old boy who loved going to the market with his mom. He got a bicycle as a birthday present and loved riding it wherever he went. But one day ...",
 
           /// Law Name
-          "The Children and Young Persons Ordinance (CYPO) (1939)",
+          "Penal Code of Sri Lanka, No. 2 of 1883",
 
           /// Image
           LCImages.aarya,
@@ -123,7 +123,7 @@ class Story {
           "Devin was a cheerful boy who rode his bicycle to and from school. One day while going home, an incident on road taught him the importance of road rules...",
 
           /// Law Name
-          "Motor traffic act",
+          "Motor Traffic Act (No. 14 of 1951)",
 
           /// Image
           LCImages.devin,

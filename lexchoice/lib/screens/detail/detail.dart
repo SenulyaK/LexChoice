@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:lexchoice/game/widgets/audio_manager.dart';
 import 'package:lexchoice/game/widgets/timer_manager.dart';
 import 'package:lexchoice/models/story.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
@@ -18,6 +20,10 @@ class DetailPage extends StatelessWidget {
 
     void _playPlaySound() {
       _audioPlayer.play(AssetSource('audio/play.mp3'));
+    }
+
+    void _playTapSound() {
+      _audioPlayer.play(AssetSource('audio/tap.mp3'));
     }
 
     return Scaffold(
@@ -54,7 +60,10 @@ class DetailPage extends StatelessWidget {
                       top: 56,
                       left: 20,
                       child: GestureDetector(
-                        onTap: () => Navigator.of(context).pop(),
+                        onTap: () {
+                          _playTapSound();
+                          Navigator.of(context).pop();
+                        },
                         child: Container(
                           padding: const EdgeInsets.all(10),
                           decoration: BoxDecoration(
@@ -146,7 +155,12 @@ class DetailPage extends StatelessWidget {
                 GlowingButton(
                   onPressed: () {
                     _playPlaySound();
+                    HapticFeedback.heavyImpact();
                     timerManager.startTimer();
+                    audioManager.stopHomeMusic();
+                    Future.delayed(Duration(seconds: 3), () {
+                      audioManager.playBackgroundMusic();
+                    });
                     Navigator.push(
                       context,
                       MaterialPageRoute(

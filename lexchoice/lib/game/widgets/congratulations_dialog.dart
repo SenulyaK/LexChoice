@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:lexchoice/game/widgets/audio_manager.dart';
 import 'package:lexchoice/utils/theme/custom_themes/glowing_button.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:audioplayers/audioplayers.dart';
@@ -67,6 +68,7 @@ class CongratulationsDialog {
                         onPressed: () async {
                           final player = AudioPlayer();
                           await player.play(AssetSource('audio/ok.mp3'));
+                          audioManager.stopBackgroundMusic();
 
                           Navigator.pop(context); // Close dialog
 

@@ -1,6 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:lexchoice/game/widgets/HomeConfirmationDialog.dart';
+import 'package:lexchoice/game/widgets/audio_manager.dart';
 import 'package:lexchoice/utils/theme/custom_themes/glowing_button.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/game/widgets/congratulations_dialog.dart';
@@ -69,11 +71,13 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
     setState(() => selectedChoice = choice);
 
     if (isCorrect) {
-      _playSound("audio/correct.mp3"); // Play correct answer sound
+      _playSound("audio/correct.mp3");
+      HapticFeedback.heavyImpact; // Play correct answer sound
       _nextGif(); // Proceed to next slide
     } else {
       _playSound("audio/wrong.mp3");
-      scoreManager.deductPoints(); // Play wrong answer sound
+      scoreManager.deductPoints();
+      audioManager.pauseBackgroundMusic(); // Play wrong answer sound
 
       bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
       TryAgainDialog.showTryAgainDialog(context, widget.assetPrefix, () {
@@ -97,6 +101,10 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
     _audioPlayer.play(AssetSource(soundPath));
   }
 
+  void _playTapSound() {
+    _audioPlayer.play(AssetSource('audio/tap.mp3'));
+  }
+
   @override
   Widget build(BuildContext context) {
     bool isChoiceSlide = widget.choiceSlides.containsKey(_currentGifIndex);
@@ -108,12 +116,16 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
           BackgroundAnimation(), // Add the animated background here
 
           // Back button
+
           Positioned(
             top: 36,
             left: 1,
             child: IconButton(
-              onPressed: () =>
-                  HomeConfirmationDialog.showHomeConfirmationDialog(context),
+              onPressed: () {
+                _playTapSound(); // Play tap sound
+                HomeConfirmationDialog.showHomeConfirmationDialog(
+                    context); // Show dialog
+              },
               icon: Icon(
                 Icons.arrow_back_ios_outlined,
                 color: isDarkMode ? Colors.white : Colors.black,
@@ -172,6 +184,7 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
                 color1: Colors.lightGreenAccent,
                 color2: Colors.greenAccent,
                 onPressed: () {
+                  HapticFeedback.heavyImpact();
                   _playClickSound(); // Play the click sound
                   _previousGif();
                 },
@@ -189,6 +202,7 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
                 color1: Colors.lightBlueAccent,
                 color2: Colors.cyan,
                 onPressed: () {
+                  HapticFeedback.heavyImpact();
                   _playClickSound(); // Play the click sound
                   _nextGif();
                 },
@@ -206,6 +220,7 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
                 color1: Colors.red,
                 color2: Colors.yellowAccent,
                 onPressed: () {
+                  HapticFeedback.heavyImpact();
                   _playCongratsSound(); // Play the congrats sound;
                   CongratulationsDialog.showCongratulationsDialog(
                       context, widget.assetPrefix, isDarkMode);

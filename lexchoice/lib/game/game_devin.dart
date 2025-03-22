@@ -5,7 +5,7 @@ class DevinGameScreen extends BaseGameScreen {
   DevinGameScreen({Key? key})
       : super(
           key: key,
-          totalGifs: 24, // Adjusted total GIF count for Devin's story
+          totalGifs: 23, // Adjusted total GIF count for Devin's story
           storyTitle: "Devin's Traffic Trouble",
           assetPrefix: "assets/stories/devin", // Devin's asset path
           choiceSlides: {
@@ -21,12 +21,6 @@ class DevinGameScreen extends BaseGameScreen {
               "B. Go through the traffic in an unsafe way.": false,
               "C.  Waiting in the side of the road till the traffic clears out and talk to a police officer about road safety.":
                   true,
-            },
-            24: {
-              "A. About the consequences of not obeying road safety.": true,
-              "B. That it's okay to take the risk when in traffic to reach the destination fast.":
-                  false,
-              "C. How to ride a bicycle.": false,
             }
           },
         );

@@ -1,5 +1,7 @@
 import 'dart:ui';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:lexchoice/game/widgets/audio_manager.dart';
 import 'package:lexchoice/game/widgets/score_manager.dart';
 import 'package:lexchoice/utils/theme/custom_themes/glowing_button.dart';
 import 'package:lexchoice/game/widgets/timer_manager.dart'; // Import TimerManager
@@ -19,6 +21,7 @@ class _StarBoardState extends State<StarBoard> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+
     _rotationController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 2),
@@ -31,6 +34,12 @@ class _StarBoardState extends State<StarBoard> with TickerProviderStateMixin {
   void dispose() {
     _rotationController.dispose();
     super.dispose();
+  }
+
+  final AudioPlayer _audioPlayer = AudioPlayer();
+
+  void _playExitSound() {
+    _audioPlayer.play(AssetSource('audio/exit.mp3'));
   }
 
   @override
@@ -144,10 +153,14 @@ class _StarBoardState extends State<StarBoard> with TickerProviderStateMixin {
                     height: 80,
                     child: GlowingButton(
                       onPressed: () {
+                        _playExitSound();
                         timerManager.resetTimer(); // Reset timer when exiting
                         scoreManager.resetScore(); // Reset score
                         Navigator.pop(context);
                         Navigator.pop(context);
+                        Future.delayed(Duration(seconds: 1), () {
+                          audioManager.playHomeMusic();
+                        });
                       },
                       child: const Icon(
                         Icons.check_rounded,
