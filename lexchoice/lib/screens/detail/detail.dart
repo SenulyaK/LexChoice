@@ -8,6 +8,7 @@ import 'package:lexchoice/utils/theme/custom_themes/glowing_button.dart';
 import 'package:lexchoice/game/widgets/story_splash_screen.dart';
 import 'package:audioplayers/audioplayers.dart';
 
+
 class DetailPage extends StatelessWidget {
   final Story story;
   const DetailPage(this.story, {Key? key}) : super(key: key);
@@ -22,9 +23,6 @@ class DetailPage extends StatelessWidget {
       _audioPlayer.play(AssetSource('audio/play.mp3'));
     }
 
-    void _playTapSound() {
-      _audioPlayer.play(AssetSource('audio/tap.mp3'));
-    }
 
     return Scaffold(
       body: Container(
@@ -60,10 +58,8 @@ class DetailPage extends StatelessWidget {
                       top: 56,
                       left: 20,
                       child: GestureDetector(
-                        onTap: () {
-                          _playTapSound();
-                          Navigator.of(context).pop();
-                        },
+                        onTap: () { 
+                          Navigator.of(context).pop();},
                         child: Container(
                           padding: const EdgeInsets.all(10),
                           decoration: BoxDecoration(
@@ -154,8 +150,8 @@ class DetailPage extends StatelessWidget {
                 /// Button
                 GlowingButton(
                   onPressed: () {
+                    HapticFeedback.heavyImpact;
                     _playPlaySound();
-                    HapticFeedback.heavyImpact();
                     timerManager.startTimer();
                     audioManager.stopHomeMusic();
                     Future.delayed(Duration(seconds: 3), () {

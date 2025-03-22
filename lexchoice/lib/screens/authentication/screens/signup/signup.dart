@@ -97,44 +97,62 @@ class SignupScreen extends StatelessWidget {
                   Row(
                     children: [
                       SizedBox(
-                          width: 24,
-                          height: 24,
-                          child: Checkbox(value: true, onChanged: (value) {})),
+                        width: 24,
+                        height: 24,
+                        child: Checkbox(value: true, onChanged: (value) {}),
+                      ),
                       const SizedBox(width: LCSizes.spaceBtwItems),
-                      Text.rich(TextSpan(children: [
-                        TextSpan(
-                            text: '${LCTexts.iAgreeTo} ',
-                            style: Theme.of(context).textTheme.bodySmall),
-                        TextSpan(
-                            text: LCTexts.privacyPolicy,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium!
-                                .apply(
-                                    color: dark
-                                        ? LCColors.light
-                                        : LCColors.primary,
-                                    decoration: TextDecoration.underline,
-                                    decorationColor: dark
-                                        ? LCColors.white
-                                        : LCColors.primary)),
-                        TextSpan(
-                            text: ' ${LCTexts.and} ',
-                            style: Theme.of(context).textTheme.bodySmall),
-                        TextSpan(
-                            text: LCTexts.termsOfUse,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium!
-                                .apply(
-                                    color: dark
-                                        ? LCColors.light
-                                        : LCColors.primary,
-                                    decoration: TextDecoration.underline,
-                                    decorationColor: dark
-                                        ? LCColors.white
-                                        : LCColors.primary)),
-                      ]))
+                      Expanded(
+                        // Allows text to take up remaining space and avoid overflow
+                        child: Text.rich(
+                          TextSpan(children: [
+                            TextSpan(
+                              text: '${LCTexts.iAgreeTo} ',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall!
+                                  .copyWith(fontSize: 12), // Adjusted font size
+                            ),
+                            TextSpan(
+                              text: LCTexts.privacyPolicy,
+                              style:
+                                  Theme.of(context).textTheme.bodyMedium!.apply(
+                                        color: dark
+                                            ? LCColors.light
+                                            : LCColors.primary,
+                                        decoration: TextDecoration.underline,
+                                        decorationColor: dark
+                                            ? LCColors.white
+                                            : LCColors.primary,
+                                        fontSizeFactor:
+                                            0.9, // Reducing font size slightly
+                                      ),
+                            ),
+                            TextSpan(
+                              text: ' ${LCTexts.and} ',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall!
+                                  .copyWith(fontSize: 12), // Adjusted font size
+                            ),
+                            TextSpan(
+                              text: LCTexts.termsOfUse,
+                              style:
+                                  Theme.of(context).textTheme.bodyMedium!.apply(
+                                        color: dark
+                                            ? LCColors.light
+                                            : LCColors.primary,
+                                        decoration: TextDecoration.underline,
+                                        decorationColor: dark
+                                            ? LCColors.white
+                                            : LCColors.primary,
+                                        fontSizeFactor:
+                                            0.9, // Reducing font size slightly
+                                      ),
+                            ),
+                          ]),
+                        ),
+                      ),
                     ],
                   ),
 
@@ -189,22 +207,6 @@ class SignupScreen extends StatelessWidget {
                             width: LCSizes.iconMd,
                             height: LCSizes.iconMd,
                             image: AssetImage(LCImages.google),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: LCSizes.spaceBtwItems),
-
-                      /// Facebook
-                      Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(color: LCColors.grey),
-                            borderRadius: BorderRadius.circular(100)),
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: const Image(
-                            width: LCSizes.iconMd,
-                            height: LCSizes.iconMd,
-                            image: AssetImage(LCImages.facebook),
                           ),
                         ),
                       ),

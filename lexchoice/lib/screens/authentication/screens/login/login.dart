@@ -169,22 +169,8 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const SizedBox(width: LCSizes.spaceBtwItems),
+                      
 
-                      /// Facebook
-                      Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(color: LCColors.grey),
-                            borderRadius: BorderRadius.circular(100)),
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: const Image(
-                            width: LCSizes.iconMd,
-                            height: LCSizes.iconMd,
-                            image: AssetImage(LCImages.facebook),
-                          ),
-                        ),
-                      ),
                     ],
                   )
                 ],

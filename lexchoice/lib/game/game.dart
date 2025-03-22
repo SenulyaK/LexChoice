@@ -73,7 +73,10 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
     if (isCorrect) {
       _playSound("audio/correct.mp3");
       HapticFeedback.heavyImpact; // Play correct answer sound
-      _nextGif(); // Proceed to next slide
+      _nextGif();
+      Future.delayed(Duration(seconds: 1), () {
+        audioManager.resumeBackgroundMusic();
+      }); // Proceed to next slide
     } else {
       _playSound("audio/wrong.mp3");
       scoreManager.deductPoints();
@@ -101,10 +104,6 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
     _audioPlayer.play(AssetSource(soundPath));
   }
 
-  void _playTapSound() {
-    _audioPlayer.play(AssetSource('audio/tap.mp3'));
-  }
-
   @override
   Widget build(BuildContext context) {
     bool isChoiceSlide = widget.choiceSlides.containsKey(_currentGifIndex);
@@ -116,16 +115,12 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
           BackgroundAnimation(), // Add the animated background here
 
           // Back button
-
           Positioned(
             top: 36,
             left: 1,
             child: IconButton(
-              onPressed: () {
-                _playTapSound(); // Play tap sound
-                HomeConfirmationDialog.showHomeConfirmationDialog(
-                    context); // Show dialog
-              },
+              onPressed: () =>
+                  HomeConfirmationDialog.showHomeConfirmationDialog(context),
               icon: Icon(
                 Icons.arrow_back_ios_outlined,
                 color: isDarkMode ? Colors.white : Colors.black,
@@ -187,6 +182,9 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
                   HapticFeedback.heavyImpact();
                   _playClickSound(); // Play the click sound
                   _previousGif();
+                  Future.delayed(Duration(seconds: 1), () {
+                    audioManager.resumeBackgroundMusic();
+                  });
                 },
                 child: const Icon(Icons.arrow_back_rounded,
                     color: Colors.black, size: 28),
@@ -205,6 +203,9 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
                   HapticFeedback.heavyImpact();
                   _playClickSound(); // Play the click sound
                   _nextGif();
+                  Future.delayed(Duration(seconds: 1), () {
+                    audioManager.resumeBackgroundMusic();
+                  });
                 },
                 child: const Icon(Icons.arrow_forward_rounded,
                     color: Colors.black, size: 28),

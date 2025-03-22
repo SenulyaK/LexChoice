@@ -5,19 +5,21 @@ class AaryaGameScreen extends BaseGameScreen {
   AaryaGameScreen({Key? key})
       : super(
           key: key,
-          totalGifs: 42, 
+          totalGifs: 42,
           storyTitle: "Aarya's Decisions",
           assetPrefix: "assets/stories/aarya", // Aarya's asset path
           choiceSlides: {
             10: {
-              "A. Try to solve the problem alone.": true,
-              "B. Ask a trusted friend for help.": false,
-              "C. Ignore the issue and hope it goes away.": false,
+              "A. Go back to his mother and tell her about it.": true,
+              "B. Going around the market to find it by himself.": false,
+              "C. Ignoring the situation.": false,
             },
             24: {
-              "A. Take a shortcut through an unfamiliar path.": false,
-              "B. Follow the main road, even if it takes longer.": true,
-              "C. Stay in one place and wait for someone to find you.": false,
+              "A. Ignore that information.": false,
+              "B. Telling the officer all the infomation he can remember about that person.":
+                  true,
+              "C. Trying to find that person by himself without telling the officer.":
+                  false,
             }
           },
         );
