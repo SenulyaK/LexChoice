@@ -16,14 +16,24 @@ class FeedbackSelectionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       // AppBar with a title "Feedback"
-      appBar: AppBar(
-        title: const Text(
-          "Feedback",
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(120.0), // Adjust the height as needed
+        child: AppBar(
+          automaticallyImplyLeading: false,
+          title: const Text(
+            'Feedback',
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 70.0, // Larger font size
+            ),
+          ),
+          backgroundColor: Colors.transparent,
+          toolbarHeight: 120,
+          elevation: 0,
+          centerTitle: false, // Align title to the left
+          titleSpacing:
+              20.0, // Optional, to add some space between the title and the left edge
         ),
-        backgroundColor: Colors.transparent, // Transparent background
-        elevation: 0, // No shadow
-        centerTitle: true, // Center the title
       ),
       // Body of the screen with a gradient background
       body: Container(
@@ -36,7 +46,7 @@ class FeedbackSelectionScreen extends StatelessWidget {
                   : Colors.white,
               Theme.of(context).brightness == Brightness.dark
                   ? LCColors.background
-                  : LCColors.darkGrey,
+                  : LCColors.white,
             ],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,

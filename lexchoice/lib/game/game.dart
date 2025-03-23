@@ -73,10 +73,7 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
     if (isCorrect) {
       _playSound("audio/correct.mp3");
       HapticFeedback.heavyImpact; // Play correct answer sound
-      _nextGif();
-      Future.delayed(Duration(seconds: 1), () {
-        audioManager.resumeBackgroundMusic();
-      }); // Proceed to next slide
+      _nextGif(); // Proceed to next slide
     } else {
       _playSound("audio/wrong.mp3");
       scoreManager.deductPoints();
@@ -182,9 +179,6 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
                   HapticFeedback.heavyImpact();
                   _playClickSound(); // Play the click sound
                   _previousGif();
-                  Future.delayed(Duration(seconds: 1), () {
-                    audioManager.resumeBackgroundMusic();
-                  });
                 },
                 child: const Icon(Icons.arrow_back_rounded,
                     color: Colors.black, size: 28),
@@ -203,9 +197,6 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
                   HapticFeedback.heavyImpact();
                   _playClickSound(); // Play the click sound
                   _nextGif();
-                  Future.delayed(Duration(seconds: 1), () {
-                    audioManager.resumeBackgroundMusic();
-                  });
                 },
                 child: const Icon(Icons.arrow_forward_rounded,
                     color: Colors.black, size: 28),

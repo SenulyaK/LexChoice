@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/utils/constants/sizes.dart';
-import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 // This is the detailed feedback screen for Topic 1.
@@ -22,11 +21,12 @@ class DetailedFeedbackScreenTopic5 extends StatelessWidget {
       // AppBar with a celebratory title and a back button
       appBar: AppBar(
         title: const Text(
-          "🎉 Great Job! 🎉",
+          "",
           style: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white),
         ),
-        backgroundColor: Colors.transparent, // Transparent background
+        backgroundColor: Colors.transparent,
+        toolbarHeight: 120, // Transparent background
         elevation: 0, // No shadow
         centerTitle: true, // Center the title
         leading: IconButton(
@@ -140,7 +140,7 @@ class DetailedFeedbackScreenTopic5 extends StatelessWidget {
 
                       // Score section with a progress bar
                       _buildSectionTitle(
-                        "⭐ Your Score", // Section title
+                        " Your Score", // Section title
                         icon: Icons.star, // Star icon
                         iconColor: LCColors.warning, // Icon color
                       ),
@@ -204,7 +204,7 @@ class DetailedFeedbackScreenTopic5 extends StatelessWidget {
 
                       // Performance breakdown section
                       _buildSectionTitle(
-                        "🎯 What Your Child Learned", // Section title
+                        " What Your Child Learned", // Section title
                         icon: Icons.lightbulb_outline, // Lightbulb icon
                         iconColor: LCColors.warning, // Icon color
                       ),

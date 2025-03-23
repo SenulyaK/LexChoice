@@ -16,14 +16,24 @@ class UserProfilePage extends StatelessWidget {
     String currentPassword = "password123"; // Just for demonstration
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "User Profile",
-          style: TextStyle(fontWeight: FontWeight.w600),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(120.0), // Adjust the height as needed
+        child: AppBar(
+          automaticallyImplyLeading: false,
+          title: const Text(
+            'Profile',
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 70.0, // Larger font size
+            ),
+          ),
+          backgroundColor: Colors.transparent,
+          toolbarHeight: 120,
+          elevation: 0,
+          centerTitle: false, // Align title to the left
+          titleSpacing:
+              20.0, // Optional, to add some space between the title and the left edge
         ),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        centerTitle: true,
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -111,7 +121,7 @@ class UserProfilePage extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 30),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
