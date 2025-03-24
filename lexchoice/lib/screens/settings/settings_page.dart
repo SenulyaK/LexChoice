@@ -17,6 +17,7 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   bool _notificationsEnabled = true;
   bool _backgroundMusicEnabled = true;
+  double _volume = 1.0;
 
   @override
   void initState() {
@@ -74,20 +75,20 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(120.0), // Adjust the height as needed
+        preferredSize: Size.fromHeight(80.0), // Adjust the height as needed
         child: AppBar(
           automaticallyImplyLeading: false,
           title: const Text(
             'Settings',
             style: TextStyle(
               fontWeight: FontWeight.w600,
-              fontSize: 70.0, // Larger font size
+              fontSize: 30.0, // Larger font size
             ),
           ),
           backgroundColor: Colors.transparent,
           toolbarHeight: 120,
           elevation: 0,
-          centerTitle: false, // Align title to the left
+          centerTitle: true, // Align title to the left
           titleSpacing:
               20.0, // Optional, to add some space between the title and the left edge
         ),
@@ -110,11 +111,15 @@ class _SettingsPageState extends State<SettingsPage> {
         padding: EdgeInsets.all(LCSizes.md),
         child: ListView(
           children: [
+            const SizedBox(height: 30),
             _buildSwitchTile('Enable Notifications', _notificationsEnabled,
                 _toggleNotifications),
             _buildSwitchTile('Background Music', _backgroundMusicEnabled,
                 _toggleBackgroundMusic),
+            const SizedBox(height: 50),
+            _buildVolumeSlider(),
             _buildSectionTitle('About & Help ❓'),
+            const SizedBox(height: 20),
             _buildInfoTile('Game Instructions', Icons.help_outline),
             _buildInfoTile('Privacy Policy & Terms', Icons.lock_outline),
             _buildInfoTile('Support & Contact Info', Icons.contact_support,
@@ -131,12 +136,14 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget _buildSectionTitle(String title) {
     return Padding(
       padding: EdgeInsets.only(top: LCSizes.spaceBtwItems),
-      child: Text(
-        title,
-        style: TextStyle(
-          fontSize: LCSizes.fontSizeMd,
-          fontWeight: FontWeight.w900,
-          color: Colors.white,
+      child: Center(
+        child: Text(
+          title,
+          style: TextStyle(
+            fontSize: LCSizes.fontSizeLg,
+            fontWeight: FontWeight.w900,
+            color: Colors.white,
+          ),
         ),
       ),
     );
@@ -169,8 +176,9 @@ class _SettingsPageState extends State<SettingsPage> {
       title: Text(
         title,
         style: TextStyle(
-          fontSize: LCSizes.fontSizeMd,
-          fontWeight: FontWeight.w500,
+          color: Colors.grey,
+          fontSize: LCSizes.fontSizeSm,
+          fontWeight: FontWeight.bold,
         ),
       ),
       onTap: onTap ??
@@ -188,12 +196,11 @@ class _SettingsPageState extends State<SettingsPage> {
       child: ElevatedButton(
         onPressed: _logout,
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.red,
+          backgroundColor: LCColors.primary,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
               LCSizes.buttonRadius,
             ),
-            side: BorderSide(color: Colors.red, width: 2),
           ),
           padding: EdgeInsets.symmetric(vertical: LCSizes.buttonHeight),
         ),
@@ -206,6 +213,36 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
         ),
       ),
+    );
+  }
+
+  // Builds volume control slider
+  Widget _buildVolumeSlider() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Volume',
+          style: TextStyle(
+            fontSize: LCSizes.fontSizeMd,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        Slider(
+          value: _volume,
+          min: 0.0,
+          max: 1.0,
+          divisions: 10,
+          label: '${(_volume * 100).round()}%',
+          onChanged: (double value) {
+            setState(() {
+              _volume = value;
+            });
+          },
+          activeColor: LCColors.primary,
+          inactiveColor: LCColors.grey,
+        ),
+      ],
     );
   }
 }

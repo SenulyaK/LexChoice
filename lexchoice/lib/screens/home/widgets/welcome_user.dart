@@ -89,9 +89,7 @@ class _WelcomeUserState extends State<WelcomeUser> {
                     left: 30,
                     top: 20,
                     child: Text(
-                      index == 0
-                          ? "Welcome User"
-                          : "New Stories\nComing Soon...",
+                      index == 0 ? "Welcome" : "New Stories\nComing Soon...",
                       style: const TextStyle(fontSize: 24, color: Colors.white),
                     ),
                   ),

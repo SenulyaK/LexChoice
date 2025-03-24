@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lexchoice/screens/authentication/screens/signup/verify_email.dart';
+import 'package:lexchoice/services/auth_service.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/utils/constants/sizes.dart';
 import 'package:lexchoice/utils/constants/text_strings.dart';
@@ -14,6 +15,16 @@ class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = LCHelperFunctions.isDarkMode(context);
+
+    final TextEditingController firstNameController = TextEditingController();
+    final TextEditingController lastNameController = TextEditingController();
+    final TextEditingController usernameController = TextEditingController();
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController phoneController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+
+    bool _obscureText = true;
+
     return Scaffold(
         appBar: AppBar(),
         body: SingleChildScrollView(
@@ -35,6 +46,7 @@ class SignupScreen extends StatelessWidget {
                       /// First Name
                       Expanded(
                         child: TextFormField(
+                          controller: firstNameController,
                           expands: false,
                           decoration: const InputDecoration(
                               labelText: LCTexts.firstName,
@@ -46,6 +58,7 @@ class SignupScreen extends StatelessWidget {
                       /// Last Name
                       Expanded(
                         child: TextFormField(
+                          controller: lastNameController,
                           expands: false,
                           decoration: const InputDecoration(
                               labelText: LCTexts.lastName,
@@ -58,6 +71,7 @@ class SignupScreen extends StatelessWidget {
 
                   /// Username
                   TextFormField(
+                    controller: usernameController,
                     expands: false,
                     decoration: const InputDecoration(
                         labelText: LCTexts.username,
@@ -68,6 +82,7 @@ class SignupScreen extends StatelessWidget {
 
                   /// Email
                   TextFormField(
+                    controller: emailController,
                     decoration: const InputDecoration(
                         labelText: LCTexts.email,
                         prefixIcon: Icon(Iconsax.direct)),
@@ -77,6 +92,7 @@ class SignupScreen extends StatelessWidget {
 
                   /// Phone Number
                   TextFormField(
+                    controller: phoneController,
                     decoration: const InputDecoration(
                         labelText: LCTexts.phoneNo,
                         prefixIcon: Icon(Iconsax.call)),
@@ -84,13 +100,32 @@ class SignupScreen extends StatelessWidget {
                   const SizedBox(height: LCSizes.spaceBtwInputFields),
 
                   /// Password
-                  TextFormField(
-                    obscureText: true,
-                    decoration: const InputDecoration(
-                        labelText: LCTexts.password,
-                        prefixIcon: Icon(Iconsax.password_check),
-                        suffixIcon: Icon(Iconsax.eye_slash)),
+                  // Move outside StatefulBuilder
+
+                  StatefulBuilder(
+                    builder: (context, setState) {
+                      return TextFormField(
+                        controller: passwordController,
+                        obscureText: _obscureText,
+                        decoration: InputDecoration(
+                          labelText: LCTexts.password,
+                          prefixIcon: const Icon(Iconsax.password_check),
+                          suffixIcon: IconButton(
+                            icon: Icon(_obscureText
+                                ? Icons.visibility_off
+                                : Icons.visibility),
+                            onPressed: () {
+                              setState(() {
+                                _obscureText =
+                                    !_obscureText; // This will now work
+                              });
+                            },
+                          ),
+                        ),
+                      );
+                    },
                   ),
+
                   const SizedBox(height: LCSizes.spaceBtwSections),
 
                   /// Terms and Conditions Checkbox
@@ -162,7 +197,27 @@ class SignupScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () => Get.to(() => VerifyEmailScreen()),
+                      onPressed: () async {
+                        AuthService authService = AuthService();
+
+                        final response = await authService.registerUser(
+                          firstName: firstNameController.text.trim(),
+                          lastName: lastNameController.text.trim(),
+                          username: usernameController.text.trim(),
+                          email: emailController.text.trim(),
+                          phone: phoneController.text.trim(),
+                          password: passwordController.text.trim(),
+                        );
+
+                        if (response['message'] ==
+                            'User registered successfully!') {
+                          Get.to(() =>
+                              VerifyEmailScreen()); // Navigate to next screen
+                        } else {
+                          Get.snackbar("Error",
+                              response['message'] ?? "Something went wrong");
+                        }
+                      },
                       child: const Text(LCTexts.createAccount),
                     ),
                   ),

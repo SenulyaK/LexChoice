@@ -45,6 +45,7 @@ dependencies:
   cloudinary_public: ^0.23.1
   google_fonts: ^6.2.1
   audioplayers: ^6.4.0
+  flutter_secure_storage: ^9.2.4
 
 dev_dependencies:
   flutter_test:

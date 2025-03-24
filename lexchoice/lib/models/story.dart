@@ -12,9 +12,12 @@ class Story {
   String lawName;
   String imgUrl;
   double height;
+  int gameID;
 
   Story(this.storyTitle, this.type, this.description, this.lawName, this.imgUrl,
-      this.height);
+      this.height, this.gameID);
+
+  
 
   dynamic getGameScreen() {
     switch (storyTitle) {
@@ -53,7 +56,9 @@ class Story {
           LCImages.lila,
 
           /// Height
-          280),
+          280,
+          
+          1),
       Story(
 
           /// Title
@@ -72,7 +77,9 @@ class Story {
           LCImages.ravi,
 
           /// Height
-          260),
+          260,
+          
+          3),
       Story(
 
           /// Title
@@ -91,7 +98,9 @@ class Story {
           LCImages.aarya,
 
           /// Height
-          280),
+          280,
+          
+          2),
       Story(
 
           /// Title
@@ -110,7 +119,9 @@ class Story {
           LCImages.amy,
 
           /// Height
-          290),
+          290,
+          
+          5),
       Story(
 
           /// Title
@@ -129,7 +140,9 @@ class Story {
           LCImages.devin,
 
           /// Height
-          250),
+          250,
+          
+          4),
     ];
   }
 }

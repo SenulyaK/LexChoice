@@ -62,7 +62,7 @@ class AudioManager extends WidgetsBindingObserver {
     } else if (state == AppLifecycleState.resumed) {
       // Resume audio when the app is resumed
       if (!_isMuted) {
-        playHomeMusic();
+        
       }
     }
   }
