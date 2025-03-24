@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lexchoice/game/game_aarya.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/utils/constants/sizes.dart';
 
@@ -187,7 +188,7 @@ class DetailedFeedbackScreenTopic2 extends StatelessWidget {
                                         .borderRadiusMd), // Rounded corners
                                   ),
                                   child: Text(
-                                    "7/10", // Score text
+                                    "80/100", // Score text
                                     style: GoogleFonts.poppins(
                                       fontSize: LCSizes.fontSizeLg,
                                       fontWeight: FontWeight.bold,
@@ -247,7 +248,7 @@ class DetailedFeedbackScreenTopic2 extends StatelessWidget {
                           ),
                           child: ElevatedButton(
                             onPressed: () {
-                              Navigator.pop(context); // Navigate back on press
+                              AaryaGameScreen(); // Navigate back on press
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor:

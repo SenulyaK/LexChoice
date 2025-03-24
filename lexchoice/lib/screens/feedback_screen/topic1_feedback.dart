@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lexchoice/game/game_lila.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/utils/constants/sizes.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -123,7 +124,7 @@ class DetailedFeedbackScreenTopic1 extends StatelessWidget {
                                     size: LCSizes.iconMd - 2), // Timer icon
                                 SizedBox(width: LCSizes.sm), // Spacing
                                 Text(
-                                  "5 minutes 30 seconds", // Time taken
+                                  "1 minutes 30 seconds", // Time taken
                                   style: GoogleFonts.poppins(
                                     fontSize: LCSizes.fontSizeMd,
                                     fontWeight: FontWeight.w500,
@@ -186,7 +187,7 @@ class DetailedFeedbackScreenTopic1 extends StatelessWidget {
                                         .borderRadiusMd), // Rounded corners
                                   ),
                                   child: Text(
-                                    "7/10", // Score text
+                                    "60/100", // Score text
                                     style: GoogleFonts.poppins(
                                       fontSize: LCSizes.fontSizeLg,
                                       fontWeight: FontWeight.bold,
@@ -246,7 +247,7 @@ class DetailedFeedbackScreenTopic1 extends StatelessWidget {
                           ),
                           child: ElevatedButton(
                             onPressed: () {
-                              Navigator.pop(context); // Navigate back on press
+                              LilaGameScreen(); // Navigate back on press
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor:

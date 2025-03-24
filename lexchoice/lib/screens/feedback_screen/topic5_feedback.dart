@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lexchoice/game/game_amy.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/utils/constants/sizes.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -246,7 +247,7 @@ class DetailedFeedbackScreenTopic5 extends StatelessWidget {
                           ),
                           child: ElevatedButton(
                             onPressed: () {
-                              Navigator.pop(context); // Navigate back on press
+                              AmyGameScreen(); // Navigate back on press
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor:

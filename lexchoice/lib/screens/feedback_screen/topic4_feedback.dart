@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lexchoice/game/game_devin.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/utils/constants/sizes.dart';
 
@@ -247,7 +248,7 @@ class DetailedFeedbackScreenTopic4 extends StatelessWidget {
                           ),
                           child: ElevatedButton(
                             onPressed: () {
-                              Navigator.pop(context); // Navigate back on press
+                              DevinGameScreen(); // Navigate back on press
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor:

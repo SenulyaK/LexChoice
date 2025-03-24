@@ -11,26 +11,26 @@ class UserProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Simulated user data (should be replaced with actual user data retrieval)
-    String currentName = "John Doe";
-    String currentEmail = "john.doe@example.com";
-    String currentPassword = "password123"; // Just for demonstration
+    String currentName = "Suvindu";
+    String currentEmail = "suvindu@example.com";
+    String currentPassword = "1234"; // Just for demonstration
 
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(120.0), // Adjust the height as needed
+        preferredSize: Size.fromHeight(80.0), // Adjust the height as needed
         child: AppBar(
           automaticallyImplyLeading: false,
           title: const Text(
             'Profile',
             style: TextStyle(
               fontWeight: FontWeight.w600,
-              fontSize: 70.0, // Larger font size
+              fontSize: 30.0, // Larger font size
             ),
           ),
           backgroundColor: Colors.transparent,
           toolbarHeight: 120,
           elevation: 0,
-          centerTitle: false, // Align title to the left
+          centerTitle: true, // Align title to the left
           titleSpacing:
               20.0, // Optional, to add some space between the title and the left edge
         ),
@@ -55,6 +55,7 @@ class UserProfilePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: 30),
             // Display user profile information
             Center(
               child: Column(

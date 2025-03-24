@@ -17,20 +17,20 @@ class FeedbackSelectionScreen extends StatelessWidget {
     return Scaffold(
       // AppBar with a title "Feedback"
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(120.0), // Adjust the height as needed
+        preferredSize: Size.fromHeight(80.0), // Adjust the height as needed
         child: AppBar(
           automaticallyImplyLeading: false,
           title: const Text(
             'Feedback',
             style: TextStyle(
               fontWeight: FontWeight.w600,
-              fontSize: 70.0, // Larger font size
+              fontSize: 30.0, // Larger font size
             ),
           ),
           backgroundColor: Colors.transparent,
           toolbarHeight: 120,
           elevation: 0,
-          centerTitle: false, // Align title to the left
+          centerTitle: true, // Align title to the left
           titleSpacing:
               20.0, // Optional, to add some space between the title and the left edge
         ),
