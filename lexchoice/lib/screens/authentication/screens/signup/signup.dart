@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lexchoice/screens/authentication/screens/signup/verify_email.dart';
-import 'package:lexchoice/services/auth_service.dart';
+import 'package:lexchoice/services/api_service.dart'; 
 import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/utils/constants/sizes.dart';
 import 'package:lexchoice/utils/constants/text_strings.dart';
@@ -9,29 +9,57 @@ import 'package:lexchoice/utils/helpers/helper_functions.dart';
 import 'package:get/get.dart';
 import 'package:lexchoice/utils/constants/image_strings.dart';
 
-class SignupScreen extends StatelessWidget {
+class SignupScreen extends StatefulWidget { 
   const SignupScreen({super.key});
+
+  @override
+  _SignupScreenState createState() => _SignupScreenState();
+}
+
+class _SignupScreenState extends State<SignupScreen> {
+  final ApiService _authService = ApiService(); 
+
+  final TextEditingController firstNameController = TextEditingController();
+  final TextEditingController lastNameController = TextEditingController();
+  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  bool _obscureText = true;
+  bool isLoading = false; 
+
+  void _signup() async { 
+    setState(() => isLoading = true);
+
+    final response = await _authService.registerUser(
+      firstName: firstNameController.text.trim(),
+      lastName: lastNameController.text.trim(),
+      username: usernameController.text.trim(),
+      email: emailController.text.trim(),
+      phone: phoneController.text.trim(),
+      password: passwordController.text.trim(),
+    );
+
+    setState(() => isLoading = false);
+
+    if (response['message'] == 'User registered successfully!') {
+      Get.to(() => VerifyEmailScreen());
+    } else {
+      Get.snackbar("Error", response['message'] ?? "Something went wrong");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     final dark = LCHelperFunctions.isDarkMode(context);
-
-    final TextEditingController firstNameController = TextEditingController();
-    final TextEditingController lastNameController = TextEditingController();
-    final TextEditingController usernameController = TextEditingController();
-    final TextEditingController emailController = TextEditingController();
-    final TextEditingController phoneController = TextEditingController();
-    final TextEditingController passwordController = TextEditingController();
-
-    bool _obscureText = true;
 
     return Scaffold(
         appBar: AppBar(),
         body: SingleChildScrollView(
             child: Padding(
           padding: EdgeInsets.all(LCSizes.defaultSpace),
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             /// Signup Title
             Text(LCTexts.signupTitle,
                 style: Theme.of(context).textTheme.headlineMedium),
@@ -100,8 +128,6 @@ class SignupScreen extends StatelessWidget {
                   const SizedBox(height: LCSizes.spaceBtwInputFields),
 
                   /// Password
-                  // Move outside StatefulBuilder
-
                   StatefulBuilder(
                     builder: (context, setState) {
                       return TextFormField(
@@ -116,8 +142,7 @@ class SignupScreen extends StatelessWidget {
                                 : Icons.visibility),
                             onPressed: () {
                               setState(() {
-                                _obscureText =
-                                    !_obscureText; // This will now work
+                                _obscureText = !_obscureText;
                               });
                             },
                           ),
@@ -138,7 +163,6 @@ class SignupScreen extends StatelessWidget {
                       ),
                       const SizedBox(width: LCSizes.spaceBtwItems),
                       Expanded(
-                        // Allows text to take up remaining space and avoid overflow
                         child: Text.rich(
                           TextSpan(children: [
                             TextSpan(
@@ -146,7 +170,7 @@ class SignupScreen extends StatelessWidget {
                               style: Theme.of(context)
                                   .textTheme
                                   .bodySmall!
-                                  .copyWith(fontSize: 12), // Adjusted font size
+                                  .copyWith(fontSize: 12),
                             ),
                             TextSpan(
                               text: LCTexts.privacyPolicy,
@@ -156,11 +180,6 @@ class SignupScreen extends StatelessWidget {
                                             ? LCColors.light
                                             : LCColors.primary,
                                         decoration: TextDecoration.underline,
-                                        decorationColor: dark
-                                            ? LCColors.white
-                                            : LCColors.primary,
-                                        fontSizeFactor:
-                                            0.9, // Reducing font size slightly
                                       ),
                             ),
                             TextSpan(
@@ -168,7 +187,7 @@ class SignupScreen extends StatelessWidget {
                               style: Theme.of(context)
                                   .textTheme
                                   .bodySmall!
-                                  .copyWith(fontSize: 12), // Adjusted font size
+                                  .copyWith(fontSize: 12),
                             ),
                             TextSpan(
                               text: LCTexts.termsOfUse,
@@ -178,11 +197,6 @@ class SignupScreen extends StatelessWidget {
                                             ? LCColors.light
                                             : LCColors.primary,
                                         decoration: TextDecoration.underline,
-                                        decorationColor: dark
-                                            ? LCColors.white
-                                            : LCColors.primary,
-                                        fontSizeFactor:
-                                            0.9, // Reducing font size slightly
                                       ),
                             ),
                           ]),
@@ -197,28 +211,10 @@ class SignupScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () async {
-                        AuthService authService = AuthService();
-
-                        final response = await authService.registerUser(
-                          firstName: firstNameController.text.trim(),
-                          lastName: lastNameController.text.trim(),
-                          username: usernameController.text.trim(),
-                          email: emailController.text.trim(),
-                          phone: phoneController.text.trim(),
-                          password: passwordController.text.trim(),
-                        );
-
-                        if (response['message'] ==
-                            'User registered successfully!') {
-                          Get.to(() =>
-                              VerifyEmailScreen()); // Navigate to next screen
-                        } else {
-                          Get.snackbar("Error",
-                              response['message'] ?? "Something went wrong");
-                        }
-                      },
-                      child: const Text(LCTexts.createAccount),
+                      onPressed: isLoading ? null : _signup, 
+                      child: isLoading
+                          ? const CircularProgressIndicator(color: Colors.white) 
+                          : const Text(LCTexts.createAccount),
                     ),
                   ),
 

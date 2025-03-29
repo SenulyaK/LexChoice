@@ -11,7 +11,8 @@ import 'package:iconsax/iconsax.dart';
 import 'package:lexchoice/utils/helpers/helper_functions.dart';
 import 'package:get/get.dart';
 import 'package:lexchoice/screens/authentication/screens/onboarding.dart';
-import 'package:lexchoice/services/auth_service.dart';
+import 'package:lexchoice/services/api_service.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -23,7 +24,8 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final AuthService _authService = AuthService();
+  final ApiService _authService = ApiService();
+  final FlutterSecureStorage _storage = const FlutterSecureStorage(); 
   bool isLoading = false;
   bool rememberMe = false;
   bool obscurePassword = true;
@@ -43,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
     });
 
     if (token != null) {
-      // TODO: Store the token securely using `flutter_secure_storage`
+      await _storage.write(key: "jwt_token", value: token);
       Get.offAll(() => const NavigationMenu());
     } else {
       Get.snackbar(
@@ -179,7 +181,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             onPressed: _login,
                             child: isLoading
                                 ? const CircularProgressIndicator(
-                                    color: Colors.white,
+                                    color: LCColors.secondary,
+                                    strokeWidth: 2,
                                   )
                                 : Text(LCTexts.signIn),
                           ),
