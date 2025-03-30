@@ -6,13 +6,15 @@ class StorySplashScreen extends StatefulWidget {
   final String storyTitle;
   final String splashGif;
   final Widget gameScreen;
-  final int splashDuration; // Optional duration for splash screen display
+  final int splashDuration;
+  final int gameID; // Optional duration for splash screen display
 
   const StorySplashScreen({
     Key? key,
     required this.storyTitle,
     required this.splashGif,
     required this.gameScreen,
+    required this.gameID,
     this.splashDuration = 3, // Default to 3 seconds
   }) : super(key: key);
 

@@ -22,6 +22,7 @@ class AaryaGameScreen extends BaseGameScreen {
                   false,
             }
           },
+          gameID: 2,
         );
 
   @override

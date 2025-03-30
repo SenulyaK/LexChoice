@@ -165,6 +165,7 @@ class DetailPage extends StatelessWidget {
                           splashGif:
                               'assets/images/splash/${story.storyTitle.toLowerCase().replaceAll(" ", "_")}.gif',
                           gameScreen: story.getGameScreen(),
+                          gameID: story.gameID,
                         ),
                       ),
                     );

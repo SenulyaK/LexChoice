@@ -22,6 +22,7 @@ class LilaGameScreen extends BaseGameScreen {
                   false,
             }
           },
+          gameID: 1,
         );
 
   @override

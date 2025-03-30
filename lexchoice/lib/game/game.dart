@@ -15,7 +15,8 @@ import 'package:lexchoice/game/widgets/score_manager.dart';
 abstract class BaseGameScreen extends StatefulWidget {
   final int totalGifs; // Total number of GIFs in the story
   final String storyTitle; // Title of the story
-  final String assetPrefix; // Path prefix for assets
+  final String assetPrefix;
+  final int gameID; // Path prefix for assets
   final Map<int, Map<String, bool>>
       choiceSlides; // Map of choices for interactive slides
 
@@ -24,6 +25,7 @@ abstract class BaseGameScreen extends StatefulWidget {
     required this.storyTitle,
     required this.assetPrefix,
     required this.choiceSlides,
+    required this.gameID,
     Key? key,
   }) : super(key: key);
 }
@@ -48,7 +50,7 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
     } else {
       bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
       CongratulationsDialog.showCongratulationsDialog(
-          context, widget.assetPrefix, isDarkMode);
+          context, widget.assetPrefix, isDarkMode, widget.gameID);
     }
   }
 
@@ -215,7 +217,7 @@ abstract class BaseGameScreenState<T extends BaseGameScreen> extends State<T> {
                   HapticFeedback.heavyImpact();
                   _playCongratsSound(); // Play the congrats sound;
                   CongratulationsDialog.showCongratulationsDialog(
-                      context, widget.assetPrefix, isDarkMode);
+                      context, widget.assetPrefix, isDarkMode, widget.gameID);
                 },
                 child: const Icon(Icons.flag, color: Colors.black, size: 28),
               ),

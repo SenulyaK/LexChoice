@@ -6,10 +6,12 @@ import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:lexchoice/game/widgets/star_board.dart';
 import 'package:lexchoice/game/widgets/score_manager.dart';
+import 'dart:convert'; // For JSON encoding
+import 'package:http/http.dart' as http; // For HTTP requests
 
 class CongratulationsDialog {
   static void showCongratulationsDialog(
-      BuildContext context, String assetPrefix, bool isDarkMode) {
+      BuildContext context, String assetPrefix, bool isDarkMode, int gameID) {
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -70,14 +72,17 @@ class CongratulationsDialog {
                           await player.play(AssetSource('audio/ok.mp3'));
                           audioManager.stopBackgroundMusic();
 
+                          final score = scoreManager.getScore();
+                          await sendScoreToBackend(score, gameID);
+
                           Navigator.pop(context); // Close dialog
 
                           // Navigate to StarBoard screen
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => StarBoard(
-                                  finalScore: scoreManager.getScore()),
+                              builder: (context) =>
+                                  StarBoard(finalScore: score),
                             ),
                           );
                         },
@@ -99,5 +104,29 @@ class CongratulationsDialog {
         );
       },
     );
+  }
+
+  static Future<void> sendScoreToBackend(int score, int gameID) async {
+    final userId = 1;
+
+    final url = Uri.parse('http://localhost:8080/api/v1/score/save-score');
+
+    final response = await http.post(
+      url,
+      headers: {'Content-Type': 'application/json'},
+      body: json.encode({
+        'userId': userId,
+        'gameId': gameID,
+        'score': score,
+        'time': DateTime.now()
+            .toIso8601String(), // Set the current time for submission
+      }),
+    );
+
+    if (response.statusCode == 201) {
+      print('Score saved successfully');
+    } else {
+      print('Failed to save score: ${response.body}');
+    }
   }
 }
