@@ -223,28 +223,22 @@ class _UserProfilePageState extends State<UserProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(120.0),
+        preferredSize: Size.fromHeight(80.0), // Adjust the height as needed
         child: AppBar(
           automaticallyImplyLeading: false,
           title: const Text(
             'Profile',
             style: TextStyle(
               fontWeight: FontWeight.w600,
-              fontSize: 70.0,
+              fontSize: 30.0, // Larger font size
             ),
           ),
           backgroundColor: Colors.transparent,
           toolbarHeight: 120,
           elevation: 0,
-          centerTitle: false,
-          titleSpacing: 20.0,
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.logout),
-              onPressed: _handleLogout,
-              color: Colors.white,
-            ),
-          ],
+          centerTitle: true, // Align title to the left
+          titleSpacing:
+              20.0, // Optional, to add some space between the title and the left edge
         ),
       ),
       body: Container(

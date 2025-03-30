@@ -25,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final ApiService _authService = ApiService();
-  final FlutterSecureStorage _storage = const FlutterSecureStorage(); 
+  final FlutterSecureStorage _storage = const FlutterSecureStorage();
   bool isLoading = false;
   bool rememberMe = false;
   bool obscurePassword = true;
@@ -38,24 +38,38 @@ class _LoginScreenState extends State<LoginScreen> {
     String email = emailController.text.trim();
     String password = passwordController.text.trim();
 
-    String? token = await _authService.loginUser(email, password);
+    try {
+      String? token = await _authService.loginUser(email, password);
 
-    setState(() {
-      isLoading = false;
-    });
-
-    if (token != null) {
-      await _storage.write(key: "jwt_token", value: token);
-      Get.offAll(() => const NavigationMenu());
-    } else {
+      if (token != null) {
+        await _storage.write(key: "jwt_token", value: token);
+        Get.offAll(() => const NavigationMenu());
+      } else {
+        // Show a generic error if no message is available
+        Get.snackbar(
+          "Login Failed",
+          "Invalid email or password",
+          backgroundColor: Colors.redAccent,
+          colorText: Colors.white,
+          snackPosition: SnackPosition.BOTTOM,
+        );
+      }
+    } catch (e) {
+      // Display the actual error message from API
       Get.snackbar(
         "Login Failed",
-        "Invalid email or password",
+        e
+            .toString()
+            .replaceAll("Exception: ", ""), // Remove "Exception: " prefix
         backgroundColor: Colors.redAccent,
         colorText: Colors.white,
         snackPosition: SnackPosition.BOTTOM,
       );
     }
+
+    setState(() {
+      isLoading = false;
+    });
   }
 
   @override
@@ -162,8 +176,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     dark ? LCColors.light : LCColors.dark,
                                 padding: EdgeInsets.zero,
                                 minimumSize: const Size(0, 0),
-                                tapTargetSize:
-                                    MaterialTapTargetSize.shrinkWrap,
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                                 shape: const RoundedRectangleBorder(
                                     borderRadius: BorderRadius.zero),
                               ),
@@ -193,8 +206,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         SizedBox(
                           width: double.infinity,
                           child: OutlinedButton(
-                            onPressed: () =>
-                                Get.to(() => const SignupScreen()),
+                            onPressed: () => Get.to(() => const SignupScreen()),
                             child: Text(LCTexts.createAccount),
                           ),
                         ),
