@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:lexchoice/game/widgets/audio_manager.dart';
+import 'package:lexchoice/game/widgets/timer_manager.dart';
 import 'package:lexchoice/models/story.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
+import 'package:lexchoice/utils/theme/custom_themes/glowing_button.dart';
+import 'package:lexchoice/game/widgets/story_splash_screen.dart';
+import 'package:audioplayers/audioplayers.dart';
+
 
 class DetailPage extends StatelessWidget {
   final Story story;
@@ -10,13 +17,20 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final darkMode = Theme.of(context).brightness == Brightness.dark;
 
+    final AudioPlayer _audioPlayer = AudioPlayer();
+
+    void _playPlaySound() {
+      _audioPlayer.play(AssetSource('audio/play.mp3'));
+    }
+
+
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
               darkMode ? LCColors.secondary : LCColors.light,
-              darkMode ? LCColors.background : LCColors.darkGrey,
+              darkMode ? LCColors.background : LCColors.white,
             ],
             begin: Alignment.center,
             end: Alignment.bottomCenter,
@@ -44,7 +58,8 @@ class DetailPage extends StatelessWidget {
                       top: 56,
                       left: 20,
                       child: GestureDetector(
-                        onTap: () => Navigator.of(context).pop(),
+                        onTap: () { 
+                          Navigator.of(context).pop();},
                         child: Container(
                           padding: const EdgeInsets.all(10),
                           decoration: BoxDecoration(
@@ -92,7 +107,7 @@ class DetailPage extends StatelessWidget {
                     style: TextStyle(
                       color: darkMode
                           ? const Color.fromARGB(131, 224, 224, 224)
-                          : LCColors.secondary,
+                          : LCColors.darkerGrey,
                     ),
                   ),
                 ),
@@ -107,7 +122,9 @@ class DetailPage extends StatelessWidget {
                       story.lawName,
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: darkMode ? LCColors.primary : LCColors.secondary,
+                        color: darkMode
+                            ? LCColors.primary
+                            : const Color.fromARGB(255, 30, 107, 158),
                       ),
                     ),
                   ),
@@ -117,36 +134,45 @@ class DetailPage extends StatelessWidget {
                 /// Description
                 Align(
                   alignment: Alignment.center,
-                  child: Text(
-                    story.description,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: darkMode ? LCColors.grey : LCColors.secondary,
+                  child: Container(
+                    width: 370, // Set your desired width
+                    child: Text(
+                      story.description,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: darkMode ? LCColors.grey : LCColors.secondary,
+                      ),
                     ),
                   ),
                 ),
                 const SizedBox(height: 17),
 
                 /// Button
-                ElevatedButton(
+                GlowingButton(
                   onPressed: () {
+                    HapticFeedback.heavyImpact;
+                    _playPlaySound();
+                    timerManager.startTimer();
+                    audioManager.stopHomeMusic();
+                    Future.delayed(Duration(seconds: 3), () {
+                      audioManager.playBackgroundMusic();
+                    });
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => story.getGameScreen(),
+                        builder: (context) => StorySplashScreen(
+                          storyTitle: story.storyTitle,
+                          splashGif:
+                              'assets/images/splash/${story.storyTitle.toLowerCase().replaceAll(" ", "_")}.gif',
+                          gameScreen: story.getGameScreen(),
+                          gameID: story.gameID,
+                        ),
                       ),
                     );
                   },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: LCColors.primary,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    padding: const EdgeInsets.all(12),
-                  ),
                   child: Icon(
                     Icons.play_arrow_rounded,
-                    color: Colors.white,
+                    color: Colors.black,
                     size: 28,
                   ),
                 ),

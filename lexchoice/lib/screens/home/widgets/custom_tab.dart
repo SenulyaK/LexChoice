@@ -5,7 +5,7 @@ class CustomTab extends StatelessWidget {
   final int selected;
   final Function callback;
   CustomTab(this.selected, this.callback, {Key? key}) : super(key: key);
-  final tabs = ['All Stories', 'Recently Played'];
+  final tabs = ['All Stories', 'Coming Soon'];
 
   @override
   Widget build(BuildContext context) {

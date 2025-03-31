@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lexchoice/screens/authentication/screens/signup/verify_email.dart';
+import 'package:lexchoice/services/api_service.dart'; 
 import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/utils/constants/sizes.dart';
 import 'package:lexchoice/utils/constants/text_strings.dart';
@@ -8,19 +9,57 @@ import 'package:lexchoice/utils/helpers/helper_functions.dart';
 import 'package:get/get.dart';
 import 'package:lexchoice/utils/constants/image_strings.dart';
 
-class SignupScreen extends StatelessWidget {
+class SignupScreen extends StatefulWidget { 
   const SignupScreen({super.key});
+
+  @override
+  _SignupScreenState createState() => _SignupScreenState();
+}
+
+class _SignupScreenState extends State<SignupScreen> {
+  final ApiService _authService = ApiService(); 
+
+  final TextEditingController firstNameController = TextEditingController();
+  final TextEditingController lastNameController = TextEditingController();
+  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  bool _obscureText = true;
+  bool isLoading = false; 
+
+  void _signup() async { 
+    setState(() => isLoading = true);
+
+    final response = await _authService.registerUser(
+      firstName: firstNameController.text.trim(),
+      lastName: lastNameController.text.trim(),
+      username: usernameController.text.trim(),
+      email: emailController.text.trim(),
+      phone: phoneController.text.trim(),
+      password: passwordController.text.trim(),
+    );
+
+    setState(() => isLoading = false);
+
+    if (response['message'] == 'User registered successfully!') {
+      Get.to(() => VerifyEmailScreen());
+    } else {
+      Get.snackbar("Error", response['message'] ?? "Something went wrong");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     final dark = LCHelperFunctions.isDarkMode(context);
+
     return Scaffold(
         appBar: AppBar(),
         body: SingleChildScrollView(
             child: Padding(
           padding: EdgeInsets.all(LCSizes.defaultSpace),
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             /// Signup Title
             Text(LCTexts.signupTitle,
                 style: Theme.of(context).textTheme.headlineMedium),
@@ -35,6 +74,7 @@ class SignupScreen extends StatelessWidget {
                       /// First Name
                       Expanded(
                         child: TextFormField(
+                          controller: firstNameController,
                           expands: false,
                           decoration: const InputDecoration(
                               labelText: LCTexts.firstName,
@@ -46,6 +86,7 @@ class SignupScreen extends StatelessWidget {
                       /// Last Name
                       Expanded(
                         child: TextFormField(
+                          controller: lastNameController,
                           expands: false,
                           decoration: const InputDecoration(
                               labelText: LCTexts.lastName,
@@ -58,6 +99,7 @@ class SignupScreen extends StatelessWidget {
 
                   /// Username
                   TextFormField(
+                    controller: usernameController,
                     expands: false,
                     decoration: const InputDecoration(
                         labelText: LCTexts.username,
@@ -68,6 +110,7 @@ class SignupScreen extends StatelessWidget {
 
                   /// Email
                   TextFormField(
+                    controller: emailController,
                     decoration: const InputDecoration(
                         labelText: LCTexts.email,
                         prefixIcon: Icon(Iconsax.direct)),
@@ -77,6 +120,7 @@ class SignupScreen extends StatelessWidget {
 
                   /// Phone Number
                   TextFormField(
+                    controller: phoneController,
                     decoration: const InputDecoration(
                         labelText: LCTexts.phoneNo,
                         prefixIcon: Icon(Iconsax.call)),
@@ -84,57 +128,80 @@ class SignupScreen extends StatelessWidget {
                   const SizedBox(height: LCSizes.spaceBtwInputFields),
 
                   /// Password
-                  TextFormField(
-                    obscureText: true,
-                    decoration: const InputDecoration(
-                        labelText: LCTexts.password,
-                        prefixIcon: Icon(Iconsax.password_check),
-                        suffixIcon: Icon(Iconsax.eye_slash)),
+                  StatefulBuilder(
+                    builder: (context, setState) {
+                      return TextFormField(
+                        controller: passwordController,
+                        obscureText: _obscureText,
+                        decoration: InputDecoration(
+                          labelText: LCTexts.password,
+                          prefixIcon: const Icon(Iconsax.password_check),
+                          suffixIcon: IconButton(
+                            icon: Icon(_obscureText
+                                ? Icons.visibility_off
+                                : Icons.visibility),
+                            onPressed: () {
+                              setState(() {
+                                _obscureText = !_obscureText;
+                              });
+                            },
+                          ),
+                        ),
+                      );
+                    },
                   ),
+
                   const SizedBox(height: LCSizes.spaceBtwSections),
 
                   /// Terms and Conditions Checkbox
                   Row(
                     children: [
                       SizedBox(
-                          width: 24,
-                          height: 24,
-                          child: Checkbox(value: true, onChanged: (value) {})),
+                        width: 24,
+                        height: 24,
+                        child: Checkbox(value: true, onChanged: (value) {}),
+                      ),
                       const SizedBox(width: LCSizes.spaceBtwItems),
-                      Text.rich(TextSpan(children: [
-                        TextSpan(
-                            text: '${LCTexts.iAgreeTo} ',
-                            style: Theme.of(context).textTheme.bodySmall),
-                        TextSpan(
-                            text: LCTexts.privacyPolicy,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium!
-                                .apply(
-                                    color: dark
-                                        ? LCColors.light
-                                        : LCColors.primary,
-                                    decoration: TextDecoration.underline,
-                                    decorationColor: dark
-                                        ? LCColors.white
-                                        : LCColors.primary)),
-                        TextSpan(
-                            text: ' ${LCTexts.and} ',
-                            style: Theme.of(context).textTheme.bodySmall),
-                        TextSpan(
-                            text: LCTexts.termsOfUse,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium!
-                                .apply(
-                                    color: dark
-                                        ? LCColors.light
-                                        : LCColors.primary,
-                                    decoration: TextDecoration.underline,
-                                    decorationColor: dark
-                                        ? LCColors.white
-                                        : LCColors.primary)),
-                      ]))
+                      Expanded(
+                        child: Text.rich(
+                          TextSpan(children: [
+                            TextSpan(
+                              text: '${LCTexts.iAgreeTo} ',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall!
+                                  .copyWith(fontSize: 12),
+                            ),
+                            TextSpan(
+                              text: LCTexts.privacyPolicy,
+                              style:
+                                  Theme.of(context).textTheme.bodyMedium!.apply(
+                                        color: dark
+                                            ? LCColors.light
+                                            : LCColors.primary,
+                                        decoration: TextDecoration.underline,
+                                      ),
+                            ),
+                            TextSpan(
+                              text: ' ${LCTexts.and} ',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall!
+                                  .copyWith(fontSize: 12),
+                            ),
+                            TextSpan(
+                              text: LCTexts.termsOfUse,
+                              style:
+                                  Theme.of(context).textTheme.bodyMedium!.apply(
+                                        color: dark
+                                            ? LCColors.light
+                                            : LCColors.primary,
+                                        decoration: TextDecoration.underline,
+                                      ),
+                            ),
+                          ]),
+                        ),
+                      ),
                     ],
                   ),
 
@@ -144,8 +211,10 @@ class SignupScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () => Get.to(() => VerifyEmailScreen()),
-                      child: const Text(LCTexts.createAccount),
+                      onPressed: isLoading ? null : _signup, 
+                      child: isLoading
+                          ? const CircularProgressIndicator(color: Colors.white) 
+                          : const Text(LCTexts.createAccount),
                     ),
                   ),
 
@@ -189,22 +258,6 @@ class SignupScreen extends StatelessWidget {
                             width: LCSizes.iconMd,
                             height: LCSizes.iconMd,
                             image: AssetImage(LCImages.google),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: LCSizes.spaceBtwItems),
-
-                      /// Facebook
-                      Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(color: LCColors.grey),
-                            borderRadius: BorderRadius.circular(100)),
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: const Image(
-                            width: LCSizes.iconMd,
-                            height: LCSizes.iconMd,
-                            image: AssetImage(LCImages.facebook),
                           ),
                         ),
                       ),

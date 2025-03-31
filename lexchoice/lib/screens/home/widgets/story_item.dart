@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:lexchoice/models/story.dart';
 import 'package:lexchoice/screens/detail/detail.dart';
 
 class StoryItem extends StatelessWidget {
   final Story story;
-  const StoryItem(this.story, {Key? key}) : super(key: key);
+  StoryItem(this.story, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => DetailPage(story))),
+      onTap: () {
+        HapticFeedback.heavyImpact;
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => DetailPage(story)));
+      },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start, // Align text to left
         children: [
@@ -25,9 +29,6 @@ class StoryItem extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
             ),
           ),
-          const SizedBox(height: 8), // Spacing between image and text
-          // Title Text
-          //
         ],
       ),
     );

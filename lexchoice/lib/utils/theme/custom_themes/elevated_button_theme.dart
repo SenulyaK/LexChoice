@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
+import 'package:google_fonts/google_fonts.dart'; // Add this import
 
-// -- Light & Dark Elevated Button Themes
 class LCElevatedButtonTheme {
   LCElevatedButtonTheme._(); // To avoid creating instances
 
@@ -15,7 +15,8 @@ class LCElevatedButtonTheme {
       disabledBackgroundColor: Colors.grey,
       side: const BorderSide(color: LCColors.primary),
       padding: const EdgeInsets.symmetric(vertical: 18),
-      textStyle: const TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.w600),
+      textStyle: GoogleFonts.poppins(
+          fontSize: 16, color: Colors.white, fontWeight: FontWeight.w600),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
     ),
   ); // ElevatedButtonThemeData
@@ -30,7 +31,8 @@ class LCElevatedButtonTheme {
       disabledBackgroundColor: Colors.grey,
       side: const BorderSide(color: LCColors.primary),
       padding: const EdgeInsets.symmetric(vertical: 18),
-      textStyle: const TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.w600),
+      textStyle: GoogleFonts.poppins(
+          fontSize: 16, color: Colors.white, fontWeight: FontWeight.w600),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
     ),
   ); // ElevatedButtonThemeData

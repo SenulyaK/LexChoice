@@ -11,9 +11,67 @@ import 'package:iconsax/iconsax.dart';
 import 'package:lexchoice/utils/helpers/helper_functions.dart';
 import 'package:get/get.dart';
 import 'package:lexchoice/screens/authentication/screens/onboarding.dart';
+import 'package:lexchoice/services/api_service.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final ApiService _authService = ApiService();
+  final FlutterSecureStorage _storage = const FlutterSecureStorage();
+  bool isLoading = false;
+  bool rememberMe = false;
+  bool obscurePassword = true;
+
+  void _login() async {
+    setState(() {
+      isLoading = true;
+    });
+
+    String email = emailController.text.trim();
+    String password = passwordController.text.trim();
+
+    try {
+      String? token = await _authService.loginUser(email, password);
+
+      // ignore: unnecessary_null_comparison
+      if (token != null) {
+        await _storage.write(key: "jwt_token", value: token);
+        Get.offAll(() => const NavigationMenu());
+      } else {
+        // Show a generic error if no message is available
+        Get.snackbar(
+          "Login Failed",
+          "Invalid email or password",
+          backgroundColor: Colors.redAccent,
+          colorText: Colors.white,
+          snackPosition: SnackPosition.BOTTOM,
+        );
+      }
+    } catch (e) {
+      // Display the actual error message from API
+      Get.snackbar(
+        "Login Failed",
+        e
+            .toString()
+            .replaceAll("Exception: ", ""), // Remove "Exception: " prefix
+        backgroundColor: Colors.redAccent,
+        colorText: Colors.white,
+        snackPosition: SnackPosition.BOTTOM,
+      );
+    }
+
+    setState(() {
+      isLoading = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,8 +111,9 @@ class LoginScreen extends StatelessWidget {
                         vertical: LCSizes.spaceBtwSections),
                     child: Column(
                       children: [
-                        ///Email
+                        /// Email
                         TextFormField(
+                          controller: emailController,
                           decoration: const InputDecoration(
                             prefixIcon: Icon(Iconsax.direct_right),
                             labelText: LCTexts.email,
@@ -66,63 +125,92 @@ class LoginScreen extends StatelessWidget {
                           height: LCSizes.spaceBtwInputFields,
                         ),
 
-                        ///Password
+                        /// Password
                         TextFormField(
-                          decoration: const InputDecoration(
-                              prefixIcon: Icon(Iconsax.password_check),
-                              labelText: LCTexts.password,
-                              suffixIcon: Icon(Iconsax.eye_slash),
-                              contentPadding: EdgeInsets.symmetric(
-                                  vertical: 16.0, horizontal: 12.0)),
+                          controller: passwordController,
+                          obscureText: obscurePassword,
+                          decoration: InputDecoration(
+                            prefixIcon: const Icon(Iconsax.password_check),
+                            labelText: LCTexts.password,
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                obscurePassword
+                                    ? Iconsax.eye_slash
+                                    : Iconsax.eye,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  obscurePassword = !obscurePassword;
+                                });
+                              },
+                            ),
+                            contentPadding: const EdgeInsets.symmetric(
+                                vertical: 16.0, horizontal: 12.0),
+                          ),
                         ),
                         const SizedBox(height: LCSizes.spaceBtwInputFields / 2),
 
-                        ///Remember me and Forget Password
+                        /// Remember Me and Forget Password
                         Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              /// Remember Me Button
-                              Row(
-                                children: [
-                                  Checkbox(value: true, onChanged: (value) {}),
-                                  const Text(LCTexts.rememberMe)
-                                ],
-                              ),
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            /// Remember Me Button
+                            Row(
+                              children: [
+                                Checkbox(
+                                    value: rememberMe,
+                                    onChanged: (value) {
+                                      setState(() {
+                                        rememberMe = value!;
+                                      });
+                                    }),
+                                const Text(LCTexts.rememberMe),
+                              ],
+                            ),
 
-                              /// Forget Password
-                              TextButton(
-                                  onPressed: () =>
-                                      Get.to(() => const ForgetPassword()),
-                                  style: TextButton.styleFrom(
-                                      foregroundColor:
-                                          dark ? LCColors.light : LCColors.dark,
-                                      padding: EdgeInsets.zero,
-                                      minimumSize: Size(0, 0),
-                                      tapTargetSize:
-                                          MaterialTapTargetSize.shrinkWrap,
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.zero)),
-                                  child: const Text(LCTexts.forgetPassword))
-                            ]),
+                            /// Forget Password
+                            TextButton(
+                              onPressed: () =>
+                                  Get.to(() => const ForgetPassword()),
+                              style: TextButton.styleFrom(
+                                foregroundColor:
+                                    dark ? LCColors.light : LCColors.dark,
+                                padding: EdgeInsets.zero,
+                                minimumSize: const Size(0, 0),
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                shape: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.zero),
+                              ),
+                              child: const Text(LCTexts.forgetPassword),
+                            ),
+                          ],
+                        ),
 
                         const SizedBox(height: LCSizes.spaceBtwSections),
 
                         /// Sign In Button
                         SizedBox(
-                            width: double.infinity,
-                            child: ElevatedButton(
-                                onPressed: () =>
-                                    Get.to(() => const NavigationMenu()),
-                                child: Text(LCTexts.signIn))),
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            onPressed: _login,
+                            child: isLoading
+                                ? const CircularProgressIndicator(
+                                    color: LCColors.secondary,
+                                    strokeWidth: 2,
+                                  )
+                                : Text(LCTexts.signIn),
+                          ),
+                        ),
                         const SizedBox(height: LCSizes.spaceBtwItems),
 
                         /// Create Account Button
                         SizedBox(
-                            width: double.infinity,
-                            child: OutlinedButton(
-                                onPressed: () =>
-                                    Get.to(() => const SignupScreen()),
-                                child: Text(LCTexts.createAccount))),
+                          width: double.infinity,
+                          child: OutlinedButton(
+                            onPressed: () => Get.to(() => const SignupScreen()),
+                            child: Text(LCTexts.createAccount),
+                          ),
+                        ),
                         const SizedBox(height: LCSizes.spaceBtwSections),
                       ],
                     ),
@@ -166,22 +254,6 @@ class LoginScreen extends StatelessWidget {
                             width: LCSizes.iconMd,
                             height: LCSizes.iconMd,
                             image: AssetImage(LCImages.google),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: LCSizes.spaceBtwItems),
-
-                      /// Facebook
-                      Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(color: LCColors.grey),
-                            borderRadius: BorderRadius.circular(100)),
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: const Image(
-                            width: LCSizes.iconMd,
-                            height: LCSizes.iconMd,
-                            image: AssetImage(LCImages.facebook),
                           ),
                         ),
                       ),
