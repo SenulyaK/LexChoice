@@ -3,11 +3,47 @@ import 'package:lexchoice/game/game_lila.dart';
 import 'package:lexchoice/utils/constants/colors.dart';
 import 'package:lexchoice/utils/constants/sizes.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 // This is the detailed feedback screen for Topic 1.
 // It displays the user's performance, score, and learning outcomes in a kid-friendly way.
-class DetailedFeedbackScreenTopic1 extends StatelessWidget {
+class DetailedFeedbackScreenTopic1 extends StatefulWidget {
   const DetailedFeedbackScreenTopic1({super.key});
+
+  @override
+  _DetailedFeedbackScreenTopic1State createState() =>
+      _DetailedFeedbackScreenTopic1State();
+}
+
+class _DetailedFeedbackScreenTopic1State
+    extends State<DetailedFeedbackScreenTopic1> {
+  late Future<int> score;
+
+  // Fetch score from the API based on gameID
+  Future<int> fetchScore() async {
+    final response = await http.get(Uri.parse(
+        'http://localhost:8080/api/v1/score/get-score?game_id=1&user_id=1'));
+
+    if (response.statusCode == 200) {
+      var data = json.decode(response.body);
+      // Assuming 'score' is part of the first element in the response list.
+      if (data['data'] != null && data['data'].isNotEmpty) {
+        return data['data'][0]
+            ['score']; // Extracting the score from the first item
+      } else {
+        throw Exception('No score data available');
+      }
+    } else {
+      throw Exception('Failed to load score');
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    score = fetchScore(); // Fetch the score when the widget is initialized
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -161,39 +197,65 @@ class DetailedFeedbackScreenTopic1 extends StatelessWidget {
                             Row(
                               children: [
                                 Expanded(
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(
-                                        LCSizes.borderRadiusMd +
-                                            2), // Rounded corners
-                                    child: LinearProgressIndicator(
-                                      value: 0.7, // Progress value (70%)
-                                      backgroundColor: LCColors.white
-                                          .withOpacity(0.2), // Background color
-                                      color: LCColors.primary, // Progress color
-                                      minHeight:
-                                          14, // Height of the progress bar
-                                    ),
+                                  child: FutureBuilder<int>(
+                                    future: score,
+                                    builder: (context, snapshot) {
+                                      // Check if data is available before building the progress bar
+                                      double progressValue = snapshot.hasData
+                                          ? snapshot.data! / 100.0
+                                          : 0.0;
+                                      return ClipRRect(
+                                        borderRadius: BorderRadius.circular(
+                                            LCSizes.borderRadiusMd +
+                                                2), // Rounded corners
+                                        child: LinearProgressIndicator(
+                                          value:
+                                              progressValue, // Set the progress based on score
+                                          backgroundColor: LCColors.white
+                                              .withOpacity(
+                                                  0.2), // Background color
+                                          color: LCColors
+                                              .primary, // Progress color
+                                          minHeight:
+                                              14, // Height of the progress bar
+                                        ),
+                                      );
+                                    },
                                   ),
                                 ),
                                 SizedBox(width: LCSizes.md), // Spacing
                                 // Score display
-                                Container(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: LCSizes.sm + 4,
-                                      vertical: LCSizes.xs + 2),
-                                  decoration: BoxDecoration(
-                                    color: LCColors.primary, // Background color
-                                    borderRadius: BorderRadius.circular(LCSizes
-                                        .borderRadiusMd), // Rounded corners
-                                  ),
-                                  child: Text(
-                                    "60/100", // Score text
-                                    style: GoogleFonts.poppins(
-                                      fontSize: LCSizes.fontSizeLg,
-                                      fontWeight: FontWeight.bold,
-                                      color: LCColors.white, // Text color
-                                    ),
-                                  ),
+                                FutureBuilder<int>(
+                                  future: score,
+                                  builder: (context, snapshot) {
+                                    if (snapshot.connectionState ==
+                                        ConnectionState.waiting) {
+                                      return CircularProgressIndicator();
+                                    } else if (snapshot.hasError) {
+                                      return Text('Error: ${snapshot.error}');
+                                    } else if (snapshot.hasData) {
+                                      return Container(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: LCSizes.sm + 4,
+                                            vertical: LCSizes.xs + 2),
+                                        decoration: BoxDecoration(
+                                          color: LCColors.primary,
+                                          borderRadius: BorderRadius.circular(
+                                              LCSizes.borderRadiusMd),
+                                        ),
+                                        child: Text(
+                                          "${snapshot.data}/100",
+                                          style: GoogleFonts.poppins(
+                                            fontSize: LCSizes.fontSizeLg,
+                                            fontWeight: FontWeight.bold,
+                                            color: LCColors.white,
+                                          ),
+                                        ),
+                                      );
+                                    } else {
+                                      return Text("No score available");
+                                    }
+                                  },
                                 ),
                               ],
                             ),
@@ -247,7 +309,12 @@ class DetailedFeedbackScreenTopic1 extends StatelessWidget {
                           ),
                           child: ElevatedButton(
                             onPressed: () {
-                              LilaGameScreen(); // Navigate back on press
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        LilaGameScreen()), // Navigate to the screen
+                              ); // Navigate back on press
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor:

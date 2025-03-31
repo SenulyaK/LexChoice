@@ -41,6 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
     try {
       String? token = await _authService.loginUser(email, password);
 
+      // ignore: unnecessary_null_comparison
       if (token != null) {
         await _storage.write(key: "jwt_token", value: token);
         Get.offAll(() => const NavigationMenu());

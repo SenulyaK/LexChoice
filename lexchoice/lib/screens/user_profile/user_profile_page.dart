@@ -50,6 +50,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
     }
   }
 
+  // ignore: unused_element
   Future<void> _handleLogout() async {
     try {
       await _apiService.logoutUser();
