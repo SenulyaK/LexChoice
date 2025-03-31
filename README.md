@@ -79,35 +79,3 @@ Configure database details in the application.properties file of the backend.
 
 Run migration scripts provided in the db/ folder.
 
-## API Endpoints
-
-GET
-
-/feedback
-
-Fetch all feedback entries
-
-POST
-
-/feedback
-
-Submit new feedback
-
-GET
-
-/score/{userId}
-
-Get user score
-
-Contributing
-
-Fork the repository.
-
-Create a new branch (git checkout -b feature-branch).
-
-Commit your changes (git commit -m "Add new feature").
-
-Push to the branch (git push origin feature-branch).
-
-Open a Pull Request.
-
