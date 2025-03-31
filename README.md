@@ -9,21 +9,19 @@ Interactive Storytelling: Users play through legal scenarios and make choices th
 
 Educational Content: Laws are explained in a simple, engaging manner for kids.
 
-Feedback System: Users can submit feedback through the app.
+Feedback System: Users will be given a feedback based on how they performed.
 
 Scoring Mechanism: Tracks user progress based on correct legal decisions.
 
-Multi-Platform: Available on Android and iOS.
+Platform: Available on Android.
 
 ## Technology Stack
 
 Frontend: Flutter
 
-Backend: Spring Boot (for feedback system)
+Backend: Spring Boot
 
 Database: MySQL
-
-Cloud Storage: Firebase (for assets and authentication)
 
 API Communication: REST API
 
@@ -31,13 +29,13 @@ API Communication: REST API
 
 Prerequisites
 
-Flutter installed (Installation Guide)
+Flutter installed 
 
 Java and Spring Boot setup for backend development
 
 MySQL installed and configured
 
-Firebase account for authentication and storage
+JWT token for authentication.
 
 Steps
 
@@ -65,7 +63,7 @@ flutter run
 
 ## Usage
 
-Launch the app and create an account using Firebase authentication.
+Launch the app and create an account.
 
 Choose a story scenario and make decisions.
 
@@ -73,7 +71,7 @@ Track progress and view scores.
 
 Provide feedback through the app.
 
-Database Setup
+## Database Setup
 
 MySQL Database is used for storing feedback and user data.
 
@@ -82,12 +80,6 @@ Configure database details in the application.properties file of the backend.
 Run migration scripts provided in the db/ folder.
 
 ## API Endpoints
-
-Method
-
-Endpoint
-
-Description
 
 GET
 
@@ -119,10 +111,3 @@ Push to the branch (git push origin feature-branch).
 
 Open a Pull Request.
 
-## Contact
-
-For any inquiries, reach out to us at:
-
-Email: support@lexchoice.com
-
-GitHub Issues: LexChoice Repository
